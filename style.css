@@ -350,6 +350,7 @@ img, svg {
     font-size: 11px;
     color: var(--cyan);
     letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
 
 .hero-title {
