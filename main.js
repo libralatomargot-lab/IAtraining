@@ -12,7 +12,7 @@
 
     /* ── Lancement au chargement ── */
     document.addEventListener('DOMContentLoaded', () => {
-        CircuitBg.init('bg-canvas');
+        if (window.CircuitBg) CircuitBg.init('bg-canvas');
         typewriterEffect();
         bindCards();
         setCurrentYear();
@@ -110,6 +110,7 @@
         setTimeout(() => card.classList.remove('is-clicking'), 150);
 
         // Lancer l'animation de transition puis naviguer
+        if (!window.Transitions) { window.location.href = href; return; }
         Transitions.play(zone, color, () => {
             window.location.href = href;
         });
