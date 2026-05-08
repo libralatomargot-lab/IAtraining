@@ -11,8 +11,7 @@
     <script>
         (function() {
             const saved = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = saved || (prefersDark ? 'dark' : 'light');
+            const theme = saved || 'dark';
             document.documentElement.setAttribute('data-theme', theme);
         })();
     </script>
@@ -182,7 +181,7 @@
             <p class="cta-subtitle">
                 Échangeons 30 minutes pour cadrer votre besoin. Sans engagement.
             </p>
-            <a href="mailto:contact@prenom-nom.fr" class="btn-primary btn-large">
+            <a href="mailto:libralato.margot@gmail.com" class="btn-primary btn-large">
                 Réserver un créneau
                 <i data-lucide="arrow-right"></i>
             </a>
@@ -194,14 +193,14 @@
         <div class="container footer-inner">
             <div class="footer-left">
                 <div class="footer-logo"></div>
-                <span class="footer-name">prénom.nom</span>
+                <span class="footer-name">Margot Libralato</span>
                 <span class="footer-copy">© 2026 — Mentions légales</span>
             </div>
             <div class="footer-right">
                 <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
                     <i data-lucide="linkedin"></i>
                 </a>
-                <a href="mailto:contact@prenom-nom.fr" class="social-icon" aria-label="Email">
+                <a href="mailto:libralato.margot@gmail.com" class="social-icon" aria-label="Email">
                     <i data-lucide="mail"></i>
                 </a>
             </div>
