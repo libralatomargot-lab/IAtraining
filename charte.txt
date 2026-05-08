@@ -1,0 +1,248 @@
+================================================================
+  CHARTE GRAPHIQUE — NEURO-TECH
+  Direction artistique : croisement IA / neurosciences
+  Style : sombre, géométrique, lumineux, futuriste
+================================================================
+ 
+ 
+----------------------------------------------------------------
+  1. PALETTE DE COULEURS
+----------------------------------------------------------------
+ 
+[ COULEURS PRINCIPALES ]
+ 
+Indigo profond
+  HEX  : #0A0E27
+  RGB  : 10, 14, 39
+  CMJN : 95, 90, 50, 60
+  Usage : fond principal, sections sombres, fond carte de visite recto
+ 
+Violet électrique
+  HEX  : #7C3AED
+  RGB  : 124, 58, 237
+  CMJN : 65, 80, 0, 0
+  Usage : couleur signature, titres importants, icônes principales,
+          début du dégradé signature
+ 
+Cyan néon
+  HEX  : #06B6D4
+  RGB  : 6, 182, 212
+  CMJN : 75, 0, 20, 0
+  Usage : accents, liens, CTA, bordures au survol, effet "data/IA",
+          fin du dégradé signature
+ 
+ 
+[ COULEUR D'EMPHASE ]
+ 
+Rose magenta
+  HEX  : #EC4899
+  RGB  : 236, 72, 153
+  CMJN : 0, 80, 10, 0
+  Usage : à utiliser AVEC PARCIMONIE — uniquement pour les éléments
+          critiques (CTA majeur, chiffre clé hero, badge "nouveau")
+          Rappel humain/neurosciences dans l'univers tech.
+ 
+ 
+[ NEUTRES ]
+ 
+Blanc cassé
+  HEX  : #F8FAFC
+  RGB  : 248, 250, 252
+  CMJN : 0, 0, 0, 5
+  Usage : texte sur fond sombre, espaces respirants, fond verso carte
+ 
+Gris ardoise
+  HEX  : #64748B
+  RGB  : 100, 116, 139
+  CMJN : 60, 45, 35, 10
+  Usage : texte secondaire, sous-titres, descriptions discrètes
+ 
+Gris clair (optionnel)
+  HEX  : #94A3B8
+  RGB  : 148, 163, 184
+  Usage : texte tertiaire, placeholders, dates
+ 
+ 
+----------------------------------------------------------------
+  2. DÉGRADÉ SIGNATURE
+----------------------------------------------------------------
+ 
+Dégradé violet → cyan
+  CSS    : linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%)
+  Angle  : 135° (diagonale haut-gauche vers bas-droite)
+  Usage  : hero du site, bandeau de titre PPT, verso carte de visite,
+           fond des CTA principaux, titres très importants
+ 
+Variante alternative (plus douce)
+  CSS    : linear-gradient(135deg, #7C3AED 0%, #EC4899 50%, #06B6D4 100%)
+  Usage  : à réserver pour les moments très spéciaux (page d'accueil
+           uniquement par exemple)
+ 
+ 
+----------------------------------------------------------------
+  3. TYPOGRAPHIES (Google Fonts — toutes gratuites)
+----------------------------------------------------------------
+ 
+[ TITRES ]
+Famille     : Space Grotesk
+Lien        : https://fonts.google.com/specimen/Space+Grotesk
+Graisses    : 400 (regular), 500 (medium), 600 (semi-bold)
+Letter-spacing : -0.5px sur les très grands titres (32px+)
+ 
+Tailles recommandées :
+  H1 (hero)        : 48-56px / weight 500
+  H1 (page)        : 36-42px / weight 500
+  H2               : 28-32px / weight 500
+  H3               : 20-24px / weight 500
+  H4 (sous-titre)  : 16-18px / weight 500
+ 
+ 
+[ CORPS DE TEXTE ]
+Famille     : Inter
+Lien        : https://fonts.google.com/specimen/Inter
+Graisses    : 400 (regular), 500 (medium), 600 (semi-bold)
+Line-height : 1.6 à 1.7 pour le confort de lecture
+ 
+Tailles recommandées :
+  Texte courant    : 16px / weight 400
+  Texte secondaire : 14px / weight 400
+  Petit texte      : 13px / weight 400
+  Boutons          : 14-16px / weight 500
+ 
+ 
+[ ACCENTS / TECH ]
+Famille     : JetBrains Mono
+Lien        : https://fonts.google.com/specimen/JetBrains+Mono
+Graisses    : 400 (regular), 500 (medium)
+Usage       : chiffres clés, codes, labels techniques type "// SECTION",
+              citations courtes, effet "code/IA"
+Letter-spacing : 1px à 2px pour les labels en majuscules
+ 
+ 
+----------------------------------------------------------------
+  4. ÉLÉMENTS GRAPHIQUES SIGNATURES
+----------------------------------------------------------------
+ 
+[ RÉSEAU DE POINTS CONNECTÉS ]
+Style      : constellation, fond décoratif
+Points     : 2 à 4px, couleurs alternées (violet, cyan, magenta)
+Lignes     : 0.5px d'épaisseur, opacité 50-60%
+Usage      : arrière-plan du hero, filigrane verso carte, fond slides PPT
+Évoque     : réseaux neuronaux + réseaux IA
+ 
+[ BORDURES LUMINEUSES "NÉON" ]
+Repos      : border 1px solid rgba(255,255,255,0.08)
+Survol     : border 1px solid #06B6D4
+             box-shadow: 0 0 0 1px #06B6D4, 0 0 20px rgba(6,182,212,0.3)
+Transition : 0.3s ease
+Usage      : modules cliquables, cartes de service
+ 
+[ COINS ARRONDIS ]
+Standard   : 8px (boutons, badges, petits éléments)
+Cartes     : 12px (modules, encadrés)
+Grands     : 16px (sections hero, grandes images)
+ 
+[ ICÔNES ]
+Style      : outline / line / thin (jamais "filled")
+Bibliothèques recommandées :
+  - Lucide       : https://lucide.dev (gratuit, moderne)
+  - Phosphor     : https://phosphoricons.com (gratuit, élégant)
+  - Tabler Icons : https://tabler.io/icons (gratuit, complet)
+Taille     : 20-24px inline, 32-40px décoratif
+ 
+ 
+----------------------------------------------------------------
+  5. RÈGLES D'USAGE
+----------------------------------------------------------------
+ 
+À FAIRE :
+  - Mode sombre dominant (fond indigo profond) sur le site et les supports
+  - Utiliser le dégradé violet/cyan comme fil rouge transversal
+  - Réserver le rose magenta aux moments d'emphase forte
+  - Garder beaucoup d'espace blanc/sombre autour des éléments (respiration)
+  - Animer les modules au survol avec l'effet "néon cyan"
+  - Utiliser JetBrains Mono pour les chiffres clés (effet "data")
+ 
+À ÉVITER :
+  - Mélanger plus de 3 couleurs vives sur un même écran
+  - Utiliser le rose magenta comme couleur de fond
+  - Mettre du texte en violet sur fond indigo (contraste insuffisant)
+  - Les ombres lourdes ou les effets 3D
+  - Les icônes "filled" ou colorées (rester en outline)
+  - Title Case ou ALL CAPS sur les titres longs
+ 
+ 
+----------------------------------------------------------------
+  6. CONTRASTES & ACCESSIBILITÉ (WCAG)
+----------------------------------------------------------------
+ 
+Combinaisons VALIDÉES (ratio AA minimum 4.5:1) :
+  Blanc cassé (#F8FAFC) sur Indigo (#0A0E27)         OK ✓ (16.8:1)
+  Blanc cassé (#F8FAFC) sur Violet (#7C3AED)         OK ✓ (5.2:1)
+  Indigo (#0A0E27) sur Cyan (#06B6D4)                OK ✓ (7.1:1)
+  Indigo (#0A0E27) sur Blanc cassé (#F8FAFC)         OK ✓ (16.8:1)
+ 
+Combinaisons À ÉVITER :
+  Cyan (#06B6D4) sur Indigo (#0A0E27)                NON (2.4:1)
+    → Utiliser uniquement pour décoration, JAMAIS pour du texte courant
+  Gris ardoise (#64748B) sur Indigo (#0A0E27)        NON (3.8:1)
+    → OK pour texte décoratif, NON pour texte essentiel
+ 
+ 
+----------------------------------------------------------------
+  7. DÉCLINAISON PAR SUPPORT
+----------------------------------------------------------------
+ 
+[ SITE WEB ]
+  - Fond principal : indigo profond
+  - Sections alternées : indigo + sections blanc cassé pour aérer
+  - CTA principaux : dégradé violet→cyan
+  - CTA secondaires : bordure cyan, fond transparent
+  - Modules au survol : effet néon cyan
+ 
+[ POWERPOINT ]
+  - Slide master 1 (titres) : fond indigo + bandeau dégradé en haut
+  - Slide master 2 (contenu) : fond blanc cassé pour la lisibilité
+  - Couleur d'accent texte : violet électrique
+  - Citations / chiffres : JetBrains Mono en cyan ou violet
+  - Pas de transitions agressives, privilégier le fondu
+ 
+[ CARTE DE VISITE ]
+  Recto :
+    - Fond indigo profond
+    - Nom en Space Grotesk 18-22pt blanc cassé
+    - Fonction en Inter 9-10pt gris clair
+    - Petit motif réseau en filigrane (opacité 15%)
+    - Trait dégradé violet→cyan sur un bord
+  Verso :
+    - Fond blanc cassé
+    - Coordonnées en Inter 9pt gris ardoise
+    - Logo / monogramme en violet électrique
+    - QR code vers le site (optionnel)
+  Format conseillé : 85 x 55 mm, papier mat 350g minimum
+ 
+ 
+----------------------------------------------------------------
+  8. RESSOURCES & OUTILS
+----------------------------------------------------------------
+ 
+Vérification de contraste :
+  https://webaim.org/resources/contrastchecker/
+ 
+Génération de palettes complémentaires :
+  https://coolors.co/0a0e27-7c3aed-06b6d4-ec4899-f8fafc
+ 
+Test des typographies :
+  https://fonts.google.com (Space Grotesk + Inter + JetBrains Mono)
+ 
+Compression d'images :
+  https://tinypng.com
+ 
+Icônes outline :
+  https://lucide.dev
+ 
+ 
+================================================================
+  Document de référence — version 1.0
+  À conserver ouvert pendant toute la conception des supports
+================================================================

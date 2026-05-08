@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prénom Nom — Consultante IA & Agentique</title>
+    <meta name="description" content="Docteure en neurosciences et ingénieure en IA. Formations, ateliers et accompagnement en IA générative et agentique pour les entreprises.">
+
+    <!-- Anti-flash : applique le bon thème AVANT le rendu de la page
+         (sinon l'utilisateur verrait une fraction de seconde le mauvais mode au chargement) -->
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = saved || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <!-- Google Fonts : Space Grotesk (titres), Inter (corps), JetBrains Mono (accents) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Icônes Lucide (gratuit, outline) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ====================== HEADER ====================== -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span class="logo-mark"><i data-lucide="brain"></i></span>
+                <span class="logo-text">prénom.nom</span>
+            </a>
+
+            <nav class="nav">
+                <a href="#about">À propos</a>
+                <a href="#services">Services</a>
+                <a href="#expertises">Expertises</a>
+                <a href="#contact" class="btn-outline">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Toggle mode clair / sombre -->
+                <button class="theme-toggle" aria-label="Changer de thème" title="Changer de thème">
+                    <i data-lucide="sun" class="icon-sun"></i>
+                    <i data-lucide="moon" class="icon-moon"></i>
+                </button>
+
+                <!-- Menu burger (mobile uniquement) -->
+                <button class="menu-toggle" aria-label="Ouvrir le menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====================== HERO ====================== -->
+    <section class="hero">
+        <!-- Réseau neuronal animé en arrière-plan (Canvas) -->
+        <canvas id="hero-canvas" class="hero-bg" aria-hidden="true"></canvas>
+
+        <div class="container hero-content">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                <span class="badge-text">CONSULTANTE IA &amp; AGENTIQUE</span>
+            </div>
+            <h1 class="hero-title">
+                L'IA qui <span class="gradient-text">augmente</span> vos équipes,<br>sans les remplacer.
+            </h1>
+            <p class="hero-subtitle">
+                Docteure en neurosciences et ingénieure en IA, je conçois des formations, ateliers et accompagnements sur mesure pour faire de l'IA générative un vrai levier dans votre entreprise.
+            </p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn-primary">
+                    Discutons de votre projet
+                    <i data-lucide="arrow-right"></i>
+                </a>
+                <a href="#services" class="btn-secondary">
+                    Découvrir mes services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== CHIFFRES CLÉS ====================== -->
+    <section class="stats" id="about">
+        <div class="container stats-grid">
+            <div class="stat">
+                <p class="stat-number" data-count="150" data-prefix="+">+0</p>
+                <p class="stat-label">Personnes formées</p>
+            </div>
+            <div class="stat">
+                <p class="stat-number" data-count="10" data-suffix="+">0+</p>
+                <p class="stat-label">Ans en R&amp;D et IT</p>
+            </div>
+            <div class="stat">
+                <p class="stat-number" data-count="25">0</p>
+                <p class="stat-label">Agents IA déployés</p>
+            </div>
+            <div class="stat">
+                <p class="stat-number" data-count="1">0</p>
+                <p class="stat-label">Doctorat en neurosciences</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== EXPERTISES ====================== -->
+    <section class="expertises" id="expertises">
+        <div class="container">
+            <p class="section-tag">// EXPERTISES</p>
+            <h2 class="section-title">Quatre piliers, une approche.</h2>
+            <p class="section-intro">
+                Je croise IA générative, IA agentique, neurosciences comportementales et agilité pour créer des accompagnements qui marchent vraiment sur le terrain.
+            </p>
+
+            <div class="modules-grid">
+                <a href="#" class="module" data-color="violet">
+                    <div class="module-header">
+                        <div class="module-icon"><i data-lucide="user"></i></div>
+                        <span class="module-number">01</span>
+                    </div>
+                    <h3 class="module-title">Parcours &amp; CV</h3>
+                    <p class="module-desc">
+                        Doctorat, IT, qualité logicielle, agilité — la trajectoire qui m'a menée jusqu'à l'IA.
+                    </p>
+                    <span class="module-link">Découvrir <i data-lucide="arrow-right"></i></span>
+                </a>
+
+                <a href="#" class="module" data-color="cyan">
+                    <div class="module-header">
+                        <div class="module-icon"><i data-lucide="bot"></i></div>
+                        <span class="module-number">02</span>
+                    </div>
+                    <h3 class="module-title">IA générative &amp; agentique</h3>
+                    <p class="module-desc">
+                        Des prompts et usages bureautiques jusqu'aux agents autonomes — adoptez l'IA à tous les niveaux de votre organisation.
+                    </p>
+                    <span class="module-link">Découvrir <i data-lucide="arrow-right"></i></span>
+                </a>
+
+                <a href="#" class="module" data-color="magenta">
+                    <div class="module-header">
+                        <div class="module-icon"><i data-lucide="graduation-cap"></i></div>
+                        <span class="module-number">03</span>
+                    </div>
+                    <h3 class="module-title">Formations</h3>
+                    <p class="module-desc">
+                        Catalogue complet de formations en présentiel ou distanciel, adaptées à tous niveaux.
+                    </p>
+                    <span class="module-link">Découvrir <i data-lucide="arrow-right"></i></span>
+                </a>
+
+                <a href="#" class="module" data-color="violet">
+                    <div class="module-header">
+                        <div class="module-icon"><i data-lucide="brain"></i></div>
+                        <span class="module-number">04</span>
+                    </div>
+                    <h3 class="module-title">Neurosciences &amp; agilité</h3>
+                    <p class="module-desc">
+                        Biais cognitifs, intelligence collective, Scrum, Kanban — la science du comportement au service de la transformation.
+                    </p>
+                    <span class="module-link">Découvrir <i data-lucide="arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== CTA FINAL ====================== -->
+    <section class="cta-section" id="contact">
+        <div class="container cta-inner">
+            <h2 class="cta-title">Un projet IA en tête ?</h2>
+            <p class="cta-subtitle">
+                Échangeons 30 minutes pour cadrer votre besoin. Sans engagement.
+            </p>
+            <a href="mailto:contact@prenom-nom.fr" class="btn-primary btn-large">
+                Réserver un créneau
+                <i data-lucide="arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ====================== FOOTER ====================== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <div class="footer-logo"></div>
+                <span class="footer-name">prénom.nom</span>
+                <span class="footer-copy">© 2026 — Mentions légales</span>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="mailto:contact@prenom-nom.fr" class="social-icon" aria-label="Email">
+                    <i data-lucide="mail"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
