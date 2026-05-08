@@ -1,0 +1,445 @@
+/* ================================================================
+   PAGE CV & PARCOURS — Styles spécifiques
+   Charte Neuro-Tech (réutilise les variables de style.css)
+   ================================================================ */
+
+
+/* ====================== HERO PAGE CV ====================== */
+.cv-hero {
+    position: relative;
+    padding: 80px 0 48px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.cv-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+}
+
+.cv-hero h1 {
+    font-family: var(--font-title);
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.cv-hero p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 640px;
+}
+
+
+/* ====================== SWITCHER DE VUE ====================== */
+.view-switcher {
+    display: inline-flex;
+    margin-top: 28px;
+    padding: 4px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    gap: 4px;
+}
+
+.view-switcher a {
+    padding: 8px 16px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--text-secondary);
+    border-radius: 6px;
+    transition: all var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.view-switcher a svg {
+    width: 14px;
+    height: 14px;
+}
+
+.view-switcher a:hover {
+    color: var(--text-primary);
+}
+
+.view-switcher a.is-active {
+    background: var(--gradient);
+    color: #F8FAFC;
+}
+
+
+/* ====================== TIMELINE NEURONALE (Option A) ====================== */
+.timeline-section {
+    padding: 80px 0 96px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 0;
+}
+
+/* La ligne centrale — dégradé violet→cyan, effet "axone" */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(180deg,
+        rgba(124, 58, 237, 0) 0%,
+        var(--violet) 12%,
+        var(--cyan) 88%,
+        rgba(6, 182, 212, 0) 100%);
+    transform: translateX(-50%);
+    box-shadow: 0 0 12px rgba(124, 58, 237, 0.3);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 24px 48px;
+    box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+/* Le nœud (synapse pulsante) */
+.timeline-node {
+    position: absolute;
+    top: 36px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--bg-primary);
+    border: 2px solid var(--cyan);
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.15),
+                0 0 20px rgba(6, 182, 212, 0.5);
+    z-index: 2;
+    animation: pulse-node 3s ease-in-out infinite;
+}
+
+.timeline-item:nth-child(odd) .timeline-node {
+    right: -8px;
+}
+
+.timeline-item:nth-child(even) .timeline-node {
+    left: -8px;
+}
+
+.timeline-item[data-color="violet"] .timeline-node {
+    border-color: var(--violet);
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15),
+                0 0 20px rgba(124, 58, 237, 0.5);
+}
+
+.timeline-item[data-color="magenta"] .timeline-node {
+    border-color: var(--magenta);
+    box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.15),
+                0 0 20px rgba(236, 72, 153, 0.5);
+}
+
+@keyframes pulse-node {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* La carte de contenu */
+.timeline-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    transition: all var(--transition);
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+}
+
+.timeline-item:hover .timeline-card {
+    border-color: var(--cyan);
+    box-shadow: var(--module-hover-shadow);
+    transform: translateY(-3px);
+}
+
+.timeline-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--cyan);
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.timeline-item[data-color="violet"] .timeline-date { color: var(--violet); }
+.timeline-item[data-color="magenta"] .timeline-date { color: var(--magenta); }
+
+.timeline-title {
+    font-family: var(--font-title);
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.timeline-place {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.timeline-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.timeline-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border: 1px solid var(--border-medium);
+    border-radius: 100px;
+    color: var(--text-secondary);
+}
+
+/* Responsive timeline → tout passe à gauche */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 16px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        padding: 16px 0 16px 48px;
+        text-align: left;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-node,
+    .timeline-item:nth-child(even) .timeline-node {
+        left: 8px;
+        right: auto;
+    }
+}
+
+
+/* ====================== CONSTELLATION (Option C) ====================== */
+.constellation-section {
+    padding: 40px 0 80px;
+}
+
+.constellation-wrapper {
+    position: relative;
+    width: 100%;
+    height: 640px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+#constellation-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+}
+
+#constellation-canvas:active {
+    cursor: grabbing;
+}
+
+.constellation-hint {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    background-color: rgba(10, 14, 39, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-soft);
+    pointer-events: none;
+    z-index: 2;
+}
+
+[data-theme="light"] .constellation-hint {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Légende */
+.constellation-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 24px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+}
+
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.legend-dot.violet { background: var(--violet); box-shadow: 0 0 10px var(--violet); }
+.legend-dot.cyan { background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+.legend-dot.magenta { background: var(--magenta); box-shadow: 0 0 10px var(--magenta); }
+
+/* Modale détails du nœud */
+.node-modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(10, 14, 39, 0.75);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    animation: fade-in-modal 0.25s ease;
+}
+
+.node-modal.is-open {
+    display: flex;
+}
+
+@keyframes fade-in-modal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.node-modal-card {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--cyan);
+    box-shadow: 0 0 0 1px var(--cyan), 0 0 60px rgba(6, 182, 212, 0.3);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    max-width: 540px;
+    width: 100%;
+    position: relative;
+    animation: scale-in-modal 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scale-in-modal {
+    from { transform: scale(0.92); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.node-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
+}
+
+.node-modal-close:hover {
+    color: var(--cyan);
+    border-color: var(--cyan);
+}
+
+.node-modal-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    margin-bottom: 12px;
+}
+
+.node-modal-title {
+    font-family: var(--font-title);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.node-modal-place {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    font-style: italic;
+}
+
+.node-modal-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .constellation-wrapper {
+        height: 480px;
+    }
+}
+
+
+/* ====================== CTA TÉLÉCHARGEMENT CV ====================== */
+.cv-download {
+    padding: 64px 0;
+    background: var(--cta-bg);
+    border-top: 1px solid var(--border-soft);
+    text-align: center;
+}
+
+.cv-download h2 {
+    font-family: var(--font-title);
+    font-size: clamp(22px, 3.5vw, 28px);
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}

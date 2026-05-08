@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV & Parcours — Margot Libralato</title>
+    <meta name="description" content="Parcours de Margot Libralato : doctorat en neurosciences, qualité logicielle, agilité, IA générative et agentique.">
+
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = saved || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cv.css">
+</head>
+<body>
+
+    <!-- ====================== HEADER ====================== -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-mark"><i data-lucide="brain"></i></span>
+                <span class="logo-text">Margot Libralato</span>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html#about">À propos</a>
+                <a href="index.html#expertises">Expertises</a>
+                <a href="cv-timeline.html">CV &amp; Parcours</a>
+                <a href="index.html#contact" class="btn-outline">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Changer de thème" title="Changer de thème">
+                    <i data-lucide="sun" class="icon-sun"></i>
+                    <i data-lucide="moon" class="icon-moon"></i>
+                </button>
+
+                <button class="menu-toggle" aria-label="Ouvrir le menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====================== HERO PAGE CV ====================== -->
+    <section class="cv-hero">
+        <canvas id="hero-canvas" class="hero-bg" aria-hidden="true"></canvas>
+
+        <div class="container cv-hero-content">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                <span class="badge-text">// CV &amp; PARCOURS</span>
+            </div>
+            <h1>De la <span class="gradient-text">neuroscience</span> à l'IA agentique.</h1>
+            <p>
+                Doctorat, R&amp;D, qualité logicielle, agilité, IA générative — une trajectoire qui croise la science du cerveau et celle des machines pour rendre l'IA réellement utile aux équipes.
+            </p>
+
+            <div class="view-switcher">
+                <a href="cv-timeline.html" class="is-active">
+                    <i data-lucide="git-commit-vertical"></i> TIMELINE
+                </a>
+                <a href="cv-constellation.html">
+                    <i data-lucide="network"></i> CONSTELLATION
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== TIMELINE ====================== -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="timeline">
+
+                <div class="timeline-item" data-color="cyan">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date"><i data-lucide="zap"></i> 2024 — AUJOURD'HUI</div>
+                        <h3 class="timeline-title">Consultante IA &amp; Agentique</h3>
+                        <p class="timeline-place">Indépendante</p>
+                        <p class="timeline-desc">
+                            Conception et animation de formations en IA générative et agentique. Accompagnement d'équipes dans la mise en place d'agents autonomes et l'intégration de l'IA aux workflows métier.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">LLM</span>
+                            <span class="timeline-tag">Agents</span>
+                            <span class="timeline-tag">Formations</span>
+                            <span class="timeline-tag">RAG</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-color="violet">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date"><i data-lucide="users"></i> 2020 — 2024</div>
+                        <h3 class="timeline-title">Lead Qualité &amp; Coach Agile</h3>
+                        <p class="timeline-place">Secteur tech / industrie</p>
+                        <p class="timeline-desc">
+                            Pilotage de la qualité logicielle, accompagnement d'équipes Scrum/Kanban, mise en place de pratiques de tests automatisés et de CI/CD. Croisement entre neurosciences comportementales et dynamique d'équipe.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Scrum</span>
+                            <span class="timeline-tag">Kanban</span>
+                            <span class="timeline-tag">Qualité</span>
+                            <span class="timeline-tag">Coaching</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-color="cyan">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date"><i data-lucide="code-2"></i> 2016 — 2020</div>
+                        <h3 class="timeline-title">Ingénieure R&amp;D / IT</h3>
+                        <p class="timeline-place">Recherche appliquée</p>
+                        <p class="timeline-desc">
+                            Développement d'outils logiciels pour la recherche, traitement de données expérimentales, mise en place de pipelines analytiques. Premiers pas dans le ML appliqué.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Python</span>
+                            <span class="timeline-tag">Data</span>
+                            <span class="timeline-tag">ML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-color="magenta">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date"><i data-lucide="graduation-cap"></i> 2011 — 2015</div>
+                        <h3 class="timeline-title">Doctorat en Neurosciences</h3>
+                        <p class="timeline-place">Université — Laboratoire de neurosciences cognitives</p>
+                        <p class="timeline-desc">
+                            Recherche fondamentale sur les mécanismes de l'apprentissage et de la mémoire. Publications, encadrement, communications scientifiques internationales. Une plongée profonde dans le fonctionnement du cerveau humain.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Recherche</span>
+                            <span class="timeline-tag">Cognition</span>
+                            <span class="timeline-tag">Publication</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-color="violet">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date"><i data-lucide="book-open"></i> 2008 — 2011</div>
+                        <h3 class="timeline-title">Master Neurosciences &amp; Sciences Cognitives</h3>
+                        <p class="timeline-place">Université</p>
+                        <p class="timeline-desc">
+                            Formation interdisciplinaire — biologie, psychologie cognitive, statistiques, modélisation. Premiers stages en laboratoire.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Cognition</span>
+                            <span class="timeline-tag">Statistiques</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== CTA TÉLÉCHARGEMENT ====================== -->
+    <section class="cv-download">
+        <div class="container">
+            <h2>Envie de tout avoir en un PDF ?</h2>
+            <a href="#" class="btn-primary btn-large">
+                Télécharger le CV
+                <i data-lucide="download"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ====================== FOOTER ====================== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <div class="footer-logo"></div>
+                <span class="footer-name">Margot Libralato</span>
+                <span class="footer-copy">© 2026 — Mentions légales</span>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="mailto:contact@prenom-nom.fr" class="social-icon" aria-label="Email">
+                    <i data-lucide="mail"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

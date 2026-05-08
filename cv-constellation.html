@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV & Parcours — Constellation — Margot Libralato</title>
+    <meta name="description" content="Parcours interactif de Margot Libralato — explorez la constellation de ses expériences au croisement des neurosciences et de l'IA.">
+
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = saved || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cv.css">
+</head>
+<body>
+
+    <!-- ====================== HEADER ====================== -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-mark"><i data-lucide="brain"></i></span>
+                <span class="logo-text">Margot Libralato</span>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html#about">À propos</a>
+                <a href="index.html#expertises">Expertises</a>
+                <a href="cv-timeline.html">CV &amp; Parcours</a>
+                <a href="index.html#contact" class="btn-outline">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Changer de thème" title="Changer de thème">
+                    <i data-lucide="sun" class="icon-sun"></i>
+                    <i data-lucide="moon" class="icon-moon"></i>
+                </button>
+
+                <button class="menu-toggle" aria-label="Ouvrir le menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====================== HERO PAGE CV ====================== -->
+    <section class="cv-hero">
+        <canvas id="hero-canvas" class="hero-bg" aria-hidden="true"></canvas>
+
+        <div class="container cv-hero-content">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                <span class="badge-text">// CONSTELLATION DU PARCOURS</span>
+            </div>
+            <h1>Un parcours en <span class="gradient-text">réseau</span>, pas en ligne droite.</h1>
+            <p>
+                Chaque nœud est une étape — formation, poste, expertise. Les connexions racontent comment elles se nourrissent. Cliquez sur un nœud pour explorer.
+            </p>
+
+            <div class="view-switcher">
+                <a href="cv-timeline.html">
+                    <i data-lucide="git-commit-vertical"></i> TIMELINE
+                </a>
+                <a href="cv-constellation.html" class="is-active">
+                    <i data-lucide="network"></i> CONSTELLATION
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== CONSTELLATION ====================== -->
+    <section class="constellation-section">
+        <div class="container">
+            <div class="constellation-wrapper">
+                <span class="constellation-hint">// CLIQUEZ SUR UN NŒUD POUR EN SAVOIR PLUS</span>
+                <canvas id="constellation-canvas" aria-label="Constellation interactive du parcours"></canvas>
+            </div>
+
+            <div class="constellation-legend">
+                <span class="legend-item"><span class="legend-dot magenta"></span> NEUROSCIENCES</span>
+                <span class="legend-item"><span class="legend-dot violet"></span> AGILITÉ &amp; FORMATIONS</span>
+                <span class="legend-item"><span class="legend-dot cyan"></span> TECH &amp; IA</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== MODALE DÉTAILS ====================== -->
+    <div class="node-modal" id="node-modal" role="dialog" aria-modal="true">
+        <div class="node-modal-card">
+            <button class="node-modal-close" id="modal-close" aria-label="Fermer">
+                <i data-lucide="x"></i>
+            </button>
+            <p class="node-modal-tag" id="modal-tag">// PÉRIODE</p>
+            <h3 class="node-modal-title" id="modal-title">Titre</h3>
+            <p class="node-modal-place" id="modal-place">Lieu</p>
+            <p class="node-modal-desc" id="modal-desc">Description.</p>
+        </div>
+    </div>
+
+    <!-- ====================== CTA TÉLÉCHARGEMENT ====================== -->
+    <section class="cv-download">
+        <div class="container">
+            <h2>Préférez la version papier ?</h2>
+            <a href="#" class="btn-primary btn-large">
+                Télécharger le CV
+                <i data-lucide="download"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ====================== FOOTER ====================== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <div class="footer-logo"></div>
+                <span class="footer-name">Margot Libralato</span>
+                <span class="footer-copy">© 2026 — Mentions légales</span>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="mailto:contact@prenom-nom.fr" class="social-icon" aria-label="Email">
+                    <i data-lucide="mail"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+    <script src="cv-constellation.js"></script>
+</body>
+</html>
