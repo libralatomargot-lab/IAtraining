@@ -405,17 +405,18 @@ def build_combined_pdf(filename):
 
 
 # ====================== EXÉCUTION ======================
-output_dir = "/home/claude/cartes"
-os.makedirs(output_dir, exist_ok=True)
+if __name__ == "__main__":
+    output_dir = "/home/claude/cartes"
+    os.makedirs(output_dir, exist_ok=True)
 
-# Fichier combiné (recto + verso) — celui à envoyer à l'imprimeur
-build_combined_pdf(os.path.join(output_dir, "cartes_visite_neuro_tech.pdf"))
+    # Fichier combiné (recto + verso) — celui à envoyer à l'imprimeur
+    build_combined_pdf(os.path.join(output_dir, "cartes_visite_neuro_tech.pdf"))
 
-# Fichiers séparés (utile pour modifier une face seulement)
-build_card(os.path.join(output_dir, "carte_recto.pdf"), draw_recto)
-build_card(os.path.join(output_dir, "carte_verso.pdf"), draw_verso)
+    # Fichiers séparés (utile pour modifier une face seulement)
+    build_card(os.path.join(output_dir, "carte_recto.pdf"), draw_recto)
+    build_card(os.path.join(output_dir, "carte_verso.pdf"), draw_verso)
 
-print("✓ Cartes générées")
-print(f"  - cartes_visite_neuro_tech.pdf (2 pages : recto + verso)")
-print(f"  - carte_recto.pdf")
-print(f"  - carte_verso.pdf")
+    print("✓ Cartes générées")
+    print(f"  - cartes_visite_neuro_tech.pdf (2 pages : recto + verso)")
+    print(f"  - carte_recto.pdf")
+    print(f"  - carte_verso.pdf")
