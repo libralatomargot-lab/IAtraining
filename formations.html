@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formations — Margot Libralato</title>
+    <meta name="description" content="Catalogue de formations d'une journée : IA générative, agentique, biais cognitifs, agilité — par Margot Libralato.">
+
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = saved || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="formations.css">
+</head>
+<body>
+
+    <!-- ====================== HEADER ====================== -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-mark"><i data-lucide="brain"></i></span>
+                <span class="logo-text">Margot Libralato</span>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html#about">À propos</a>
+                <a href="index.html#expertises">Expertises</a>
+                <a href="cv-timeline.html">CV &amp; Parcours</a>
+                <a href="formations.html">Formations</a>
+                <a href="index.html#contact" class="btn-outline">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Changer de thème" title="Changer de thème">
+                    <i data-lucide="sun" class="icon-sun"></i>
+                    <i data-lucide="moon" class="icon-moon"></i>
+                </button>
+
+                <button class="menu-toggle" aria-label="Ouvrir le menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====================== HERO PAGE FORMATIONS ====================== -->
+    <section class="formations-hero">
+        <canvas id="hero-canvas" class="hero-bg" aria-hidden="true"></canvas>
+
+        <div class="container formations-hero-content">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                <span class="badge-text">// CATALOGUE FORMATIONS</span>
+            </div>
+            <h1>Des formations <span class="gradient-text">condensées</span> pour passer à l'action.</h1>
+            <p>
+                Quatre formats d'une journée pour donner à vos équipes les bons réflexes — de l'IA générative aux dynamiques humaines en passant par l'agilité.
+            </p>
+
+            <div class="formations-meta">
+                <span class="meta-item">
+                    <i data-lucide="clock"></i> 1 JOURNÉE — 7H
+                </span>
+                <span class="meta-item">
+                    <i data-lucide="users"></i> JUSQU'À 12 PARTICIPANTS
+                </span>
+                <span class="meta-item">
+                    <i data-lucide="laptop"></i> PRÉSENTIEL OU DISTANCIEL
+                </span>
+                <span class="meta-item">
+                    <i data-lucide="award"></i> ATTESTATION DE SUIVI
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== GRILLE DES FORMATIONS ====================== -->
+    <section class="formations-list">
+        <div class="container">
+            <div class="formations-grid">
+
+                <!-- ======== Formation 01 ======== -->
+                <article class="formation-card" data-color="cyan">
+                    <div class="formation-card-head">
+                        <div class="formation-icon"><i data-lucide="sparkles"></i></div>
+                        <div class="formation-meta">
+                            <span class="formation-number">F.01 — FONDAMENTAUX</span>
+                            <span class="formation-duration"><i data-lucide="clock"></i> 1 JOUR</span>
+                        </div>
+                    </div>
+
+                    <h3 class="formation-title">Fondamentaux de l'IA</h3>
+                    <p class="formation-pitch">
+                        Maîtrisez l'IA générative au quotidien. Découvrez Copilot et Claude, et apprenez à formuler des prompts qui produisent des résultats fiables et utiles.
+                    </p>
+
+                    <p class="formation-section-label">// AU PROGRAMME</p>
+                    <ul class="formation-program">
+                        <li>Comprendre ce qu'est (et n'est pas) un LLM, ses forces et ses limites</li>
+                        <li>Tour d'horizon des outils du quotidien : Copilot, Claude, ChatGPT</li>
+                        <li>Techniques de prompting : structure, contexte, exemples, itération</li>
+                        <li>Cas pratiques : rédaction, synthèse, analyse, traitement de données</li>
+                        <li>Bonnes pratiques de confidentialité et d'éthique</li>
+                    </ul>
+
+                    <div class="formation-tags">
+                        <span class="formation-tag">DÉBUTANT</span>
+                        <span class="formation-tag">TOUS MÉTIERS</span>
+                        <span class="formation-tag">PRATIQUE</span>
+                    </div>
+
+                    <div class="formation-footer">
+                        <span class="formation-price">// SUR DEVIS</span>
+                        <a href="index.html#contact" class="formation-link">
+                            En savoir plus <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- ======== Formation 02 ======== -->
+                <article class="formation-card" data-color="violet">
+                    <div class="formation-card-head">
+                        <div class="formation-icon"><i data-lucide="bot"></i></div>
+                        <div class="formation-meta">
+                            <span class="formation-number">F.02 — AVANCÉ</span>
+                            <span class="formation-duration"><i data-lucide="clock"></i> 1 JOUR</span>
+                        </div>
+                    </div>
+
+                    <h3 class="formation-title">Usages avancés &amp; agentique</h3>
+                    <p class="formation-pitch">
+                        Allez plus loin que les prompts : identifiez un cas d'usage à fort impact, concevez et développez votre premier agent IA autonome.
+                    </p>
+
+                    <p class="formation-section-label">// AU PROGRAMME</p>
+                    <ul class="formation-program">
+                        <li>De la GenIA à l'agentique : qu'est-ce qui change vraiment ?</li>
+                        <li>Identifier un cas d'usage à valeur : critères, méthode, pièges</li>
+                        <li>Architecture d'un agent : outils, mémoire, orchestration</li>
+                        <li>Atelier : conception et prototypage d'un agent métier</li>
+                        <li>Mise en production : sécurité, supervision, ROI</li>
+                    </ul>
+
+                    <div class="formation-tags">
+                        <span class="formation-tag">INTERMÉDIAIRE</span>
+                        <span class="formation-tag">TECH / PRODUIT</span>
+                        <span class="formation-tag">ATELIER</span>
+                    </div>
+
+                    <div class="formation-footer">
+                        <span class="formation-price">// SUR DEVIS</span>
+                        <a href="index.html#contact" class="formation-link">
+                            En savoir plus <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- ======== Formation 03 ======== -->
+                <article class="formation-card" data-color="magenta">
+                    <div class="formation-card-head">
+                        <div class="formation-icon"><i data-lucide="brain-circuit"></i></div>
+                        <div class="formation-meta">
+                            <span class="formation-number">F.03 — SOFT SKILLS</span>
+                            <span class="formation-duration"><i data-lucide="clock"></i> 1 JOUR</span>
+                        </div>
+                    </div>
+
+                    <h3 class="formation-title">L'erreur est humaine</h3>
+                    <p class="formation-pitch">
+                        Biais cognitifs, intelligence émotionnelle et collective : explorez les ressorts de la décision, et résolvez vos vrais problèmes par le design thinking.
+                    </p>
+
+                    <p class="formation-section-label">// AU PROGRAMME</p>
+                    <ul class="formation-program">
+                        <li>Cartographie des biais cognitifs qui sabotent vos décisions</li>
+                        <li>Intelligence émotionnelle : reconnaître, réguler, communiquer</li>
+                        <li>Intelligence collective : conditions et anti-patterns</li>
+                        <li>Atelier de problem solving en design thinking</li>
+                        <li>Méthode divergente-convergente appliquée à un cas réel</li>
+                    </ul>
+
+                    <div class="formation-tags">
+                        <span class="formation-tag">TOUS NIVEAUX</span>
+                        <span class="formation-tag">MANAGERS</span>
+                        <span class="formation-tag">ATELIER</span>
+                    </div>
+
+                    <div class="formation-footer">
+                        <span class="formation-price">// SUR DEVIS</span>
+                        <a href="index.html#contact" class="formation-link">
+                            En savoir plus <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- ======== Formation 04 ======== -->
+                <article class="formation-card" data-color="gradient">
+                    <div class="formation-card-head">
+                        <div class="formation-icon"><i data-lucide="git-branch"></i></div>
+                        <div class="formation-meta">
+                            <span class="formation-number">F.04 — AGILITÉ</span>
+                            <span class="formation-duration"><i data-lucide="clock"></i> 1 JOUR</span>
+                        </div>
+                    </div>
+
+                    <h3 class="formation-title">Agilité à l'échelle</h3>
+                    <p class="formation-pitch">
+                        Au-delà des buzzwords : comprenez les principes de l'agilité, choisissez le bon framework, et adaptez-le à la réalité de votre contexte.
+                    </p>
+
+                    <p class="formation-section-label">// AU PROGRAMME</p>
+                    <ul class="formation-program">
+                        <li>Principes de l'agilité : ce que dit (vraiment) le manifeste</li>
+                        <li>Tour d'horizon des frameworks : Scrum, Kanban, SAFe, LeSS</li>
+                        <li>Choisir et combiner : critères de décision selon le contexte</li>
+                        <li>Rituels, rôles, artefacts : ce qui marche, ce qui freine</li>
+                        <li>Atelier : adapter un framework à votre organisation</li>
+                    </ul>
+
+                    <div class="formation-tags">
+                        <span class="formation-tag">TOUS NIVEAUX</span>
+                        <span class="formation-tag">CHEFS DE PROJET</span>
+                        <span class="formation-tag">PRATIQUE</span>
+                    </div>
+
+                    <div class="formation-footer">
+                        <span class="formation-price">// SUR DEVIS</span>
+                        <a href="index.html#contact" class="formation-link">
+                            En savoir plus <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== SECTION SUR MESURE ====================== -->
+    <section class="custom-training">
+        <div class="container custom-inner">
+            <div>
+                <p class="section-tag">// SUR MESURE</p>
+                <h2>Un besoin spécifique ? Construisons votre formation.</h2>
+                <p>
+                    Format hybride, contenus métier, durée adaptée, accompagnement post-formation — chaque organisation a ses contraintes. Discutons de votre contexte pour concevoir un programme qui colle à vos enjeux.
+                </p>
+                <a href="index.html#contact" class="btn-primary">
+                    Échanger sur votre projet
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="custom-features">
+                <div class="custom-feature">
+                    <div class="custom-feature-icon"><i data-lucide="target"></i></div>
+                    <h4>Contenu sur mesure</h4>
+                    <p>Adapté à vos métiers, vos outils et vos cas d'usage réels.</p>
+                </div>
+                <div class="custom-feature">
+                    <div class="custom-feature-icon"><i data-lucide="layers"></i></div>
+                    <h4>Format flexible</h4>
+                    <p>De la demi-journée au parcours sur plusieurs semaines.</p>
+                </div>
+                <div class="custom-feature">
+                    <div class="custom-feature-icon"><i data-lucide="message-circle"></i></div>
+                    <h4>Suivi post-formation</h4>
+                    <p>Sessions de Q&amp;R et de retour d'expérience pour ancrer les acquis.</p>
+                </div>
+                <div class="custom-feature">
+                    <div class="custom-feature-icon"><i data-lucide="building-2"></i></div>
+                    <h4>Intra-entreprise</h4>
+                    <p>Sessions dédiées à vos équipes, en présentiel ou distanciel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== CTA FINAL ====================== -->
+    <section class="cta-section">
+        <div class="container cta-inner">
+            <h2 class="cta-title">Prêt·e à former votre équipe ?</h2>
+            <p class="cta-subtitle">
+                30 minutes pour cadrer le besoin, choisir le bon format et planifier la session.
+            </p>
+            <a href="mailto:contact@prenom-nom.fr" class="btn-primary btn-large">
+                Réserver un créneau
+                <i data-lucide="arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ====================== FOOTER ====================== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <div class="footer-logo"></div>
+                <span class="footer-name">Margot Libralato</span>
+                <span class="footer-copy">© 2026 — Mentions légales</span>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="mailto:contact@prenom-nom.fr" class="social-icon" aria-label="Email">
+                    <i data-lucide="mail"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
