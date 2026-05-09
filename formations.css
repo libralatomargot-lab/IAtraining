@@ -1,0 +1,401 @@
+/* ================================================================
+   PAGE FORMATIONS — Styles spécifiques
+   Charte Neuro-Tech (réutilise les variables de style.css)
+   ================================================================ */
+
+
+/* ====================== HERO PAGE FORMATIONS ====================== */
+.formations-hero {
+    position: relative;
+    padding: 80px 0 56px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.formations-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+}
+
+.formations-hero h1 {
+    font-family: var(--font-title);
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.formations-hero p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin-bottom: 32px;
+}
+
+/* Méta-infos sous le hero (durée standard, modalités) */
+.formations-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 12px;
+}
+
+.meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--text-secondary);
+}
+
+.meta-item svg {
+    width: 16px;
+    height: 16px;
+    color: var(--cyan);
+}
+
+
+/* ====================== GRILLE DES FORMATIONS ====================== */
+.formations-list {
+    padding: 64px 0 48px;
+}
+
+.formations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.formation-card {
+    position: relative;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition);
+    overflow: hidden;
+}
+
+/* Bandeau dégradé en haut de la carte (subtil signature) */
+.formation-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.formation-card:hover {
+    border-color: var(--cyan);
+    box-shadow: var(--module-hover-shadow);
+    transform: translateY(-4px);
+}
+
+.formation-card:hover::before {
+    opacity: 1;
+}
+
+/* Header carte — numéro + durée + icône */
+.formation-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.formation-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition);
+}
+
+.formation-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.formation-card[data-color="violet"] .formation-icon {
+    background-color: rgba(124, 58, 237, 0.15);
+    color: var(--violet);
+}
+
+.formation-card[data-color="cyan"] .formation-icon {
+    background-color: rgba(6, 182, 212, 0.15);
+    color: var(--cyan);
+}
+
+.formation-card[data-color="magenta"] .formation-icon {
+    background-color: rgba(236, 72, 153, 0.15);
+    color: var(--magenta);
+}
+
+.formation-card[data-color="gradient"] .formation-icon {
+    background: var(--gradient);
+    color: #F8FAFC;
+}
+
+.formation-card:hover .formation-icon {
+    transform: scale(1.05);
+}
+
+.formation-meta {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-end;
+}
+
+.formation-number {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+}
+
+.formation-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border: 1px solid var(--border-medium);
+    border-radius: 100px;
+    color: var(--text-secondary);
+}
+
+.formation-duration svg {
+    width: 11px;
+    height: 11px;
+    color: var(--cyan);
+}
+
+/* Corps de la carte */
+.formation-title {
+    font-family: var(--font-title);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+}
+
+.formation-pitch {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Section "Au programme" */
+.formation-section-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.formation-program {
+    list-style: none;
+    margin-bottom: 24px;
+    padding: 0;
+}
+
+.formation-program li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.formation-program li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    background: var(--gradient);
+    border-radius: 50%;
+}
+
+/* Tags pour audience / niveau */
+.formation-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 24px;
+}
+
+.formation-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border: 1px solid var(--border-medium);
+    border-radius: 100px;
+    color: var(--text-secondary);
+}
+
+/* Footer carte — CTA */
+.formation-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-soft);
+}
+
+.formation-price {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.formation-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--cyan);
+    transition: gap var(--transition);
+}
+
+.formation-link svg {
+    width: 14px;
+    height: 14px;
+    transition: transform var(--transition);
+}
+
+.formation-card:hover .formation-link {
+    gap: 10px;
+}
+
+.formation-card:hover .formation-link svg {
+    transform: translateX(2px);
+}
+
+@media (max-width: 768px) {
+    .formations-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .formation-card {
+        padding: 24px;
+    }
+}
+
+
+/* ====================== SECTION "SUR MESURE" ====================== */
+.custom-training {
+    padding: 64px 0;
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.custom-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.custom-inner h2 {
+    font-family: var(--font-title);
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.custom-inner p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    line-height: 1.7;
+}
+
+.custom-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.custom-feature {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    transition: all var(--transition);
+}
+
+.custom-feature:hover {
+    border-color: var(--cyan);
+    background-color: var(--bg-card-hover);
+}
+
+.custom-feature-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background-color: rgba(6, 182, 212, 0.12);
+    color: var(--cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.custom-feature-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.custom-feature h4 {
+    font-family: var(--font-title);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.custom-feature p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .custom-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
