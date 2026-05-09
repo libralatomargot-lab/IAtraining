@@ -10,25 +10,58 @@ Auto-diagnostic via des expériences vécues
 Apprendre à repérer les signaux du passage du Système 1 au Système 2 
 Mise en place de garde-fous concrets dans vos processus d'équipe : pre-mortem, revue à l'aveugle, devil's advocate
 
+*/ Ici insérer le QUIZZ (quiz-biais-congitifs.html)  /*
+
 
 Section 2 — L'intelligence émotionnelle et collective au service de la performance
-Les neurosciences au fondement de l'empathie. Giacomo Rizzolatti, neurophysiologiste italien, a dirigé l'équipe qui a découvert les neurones miroirs au début des années 1990 à l'Université de Parme. Ces neurones jouent un rôle dans la cognition sociale, notamment dans l'apprentissage par imitation, mais aussi dans les processus affectifs comme l'empathie. Le système miroir des émotions permettrait de simuler l'état émotionnel d'autrui dans notre cerveau et, par conséquent, de mieux identifier les émotions éprouvées par les individus de notre entourage. Autrement dit : l'empathie n'est pas qu'une qualité morale, c'est un mécanisme biologique entraînable. Brain Ball + 2
-Les sciences comportementales : l'intelligence émotionnelle comme atout pro. Popularisé par Daniel Goleman dans les années 1990, le concept articule cinq composantes : conscience de soi, maîtrise de soi, motivation, empathie et compétences sociales. Des études ont montré que les personnes ayant une intelligence émotionnelle élevée ont une meilleure santé mentale et physique, de meilleures performances professionnelles et de meilleures compétences en matière de leadership. Wikipedia
-De l'individuel au collectif : l'intelligence collective. En 2012, Google a lancé le projet Aristote, une vaste étude sur plus de 180 équipes pour découvrir les clés de réussite des équipes les plus performantes, en analysant plus de 200 paramètres. Les chercheurs ont croisé 250 variables — niveau d'éducation, types de personnalités, affinités, leadership, genre, ancienneté — sans qu'aucun schéma clair ne se dégage. Le facteur clé se situait ailleurs. Le déclic a eu lieu lorsqu'ils ont observé que les meilleures équipes avaient toutes une chose en commun : un climat où chacun se sent libre de s'exprimer, de douter, de faire des erreurs sans crainte de jugement — ce qu'Amy Edmondson appelle la sécurité psychologique. Les meilleures équipes partagent deux caractéristiques : une distribution équitable du temps de parole et une capacité d'empathie ou « sensibilité sociale ». INSPIRE&CO + 3
+Les neurones miroirs : l'empathie devient une compétence entraînable
+Ce que ça change pour vous : vos managers ne sont pas « empathiques par nature » ou condamnés à ne pas l'être. L'empathie est un circuit neuronal qui se muscle, comme on muscle un biceps.
+Au début des années 1990, l'équipe de Giacomo Rizzolatti à l'Université de Parme découvre les neurones miroirs : des neurones qui s'activent à l'identique lorsque nous réalisons une action et lorsque nous observons quelqu'un la réaliser. Ce système simule dans notre propre cerveau l'état émotionnel d'autrui, ce qui nous permet de décoder ce que vit l'autre — frustration d'un client, démotivation d'un collaborateur, tension dans une réunion.
+Application concrète en entreprise :
 
-Idées de visualisation :
+Former les managers à la lecture des signaux faibles plutôt qu'à des « techniques de communication » plaquées
+Réduire les conflits liés aux malentendus, qui représentent une part énorme du temps RH
+Améliorer la qualité des entretiens commerciaux, des négociations, des feedbacks
 
-Pyramide ou cercles concentriques « Soi → Autrui → Collectif » — Conscience de soi (neurones, émotions) → Empathie (neurones miroirs) → Sécurité psychologique (équipe) → Performance collective. Une progression visuelle qui ancre le message clé : pas d'intelligence collective sans intelligence émotionnelle individuelle.
-Infographie « Les 5 piliers du projet Aristote » — sécurité psychologique (en pilier central et plus grand), fiabilité, clarté, sens, impact. Avec en bas la phrase choc : « Ce n'est pas QUI compose l'équipe qui compte, mais COMMENT ses membres interagissent. »
-Schéma simplifié du neurone miroir — un dessin avec deux cerveaux : l'un agit, l'autre observe ; les mêmes zones s'allument. Forte valeur pédagogique.
+L'empathie n'est plus une « soft skill » floue : c'est un levier de performance mesurable et développable.
+L'intelligence émotionnelle : le meilleur prédicteur de réussite professionnelle
+Ce que ça change pour vous : à QI égal, à diplôme égal, à expérience égale, c'est l'intelligence émotionnelle qui fait la différence sur la performance, le leadership et la rétention.
+Popularisé par Daniel Goleman dans les années 1990, le modèle s'articule autour de cinq leviers : conscience de soi, maîtrise de soi, motivation, empathie et compétences sociales. Les recherches convergent : les personnes ayant une intelligence émotionnelle élevée affichent une meilleure santé mentale et physique, des performances professionnelles supérieures et des compétences en leadership plus solides.
+Application concrète en entreprise :
+
+Intégrer l'IE dans les critères de recrutement et d'évaluation des managers (pas seulement les résultats chiffrés)
+Développer des programmes de formation ciblés sur les cinq composantes plutôt que sur du « management générique »
+Réduire le turnover : les équipes dirigées par des managers à forte IE ont des taux de départ significativement plus bas
+
+C'est l'investissement formation qui présente le meilleur ratio coût / impact mesurable.
+L'intelligence collective : ce qui rend une équipe vraiment performante
+Ce que ça change pour vous : vous pouvez arrêter de chercher « les meilleurs profils ». Ce qui crée la performance, ce n'est pas la somme des talents, c'est la qualité des interactions entre eux.
+En 2012, Google lance le projet Aristote, l'étude la plus ambitieuse jamais menée sur la performance d'équipe : plus de 180 équipes, 250 variables analysées (niveau d'études, personnalités, affinités, leadership, genre, ancienneté…). Résultat surprenant : aucun de ces critères classiques ne prédit la performance. Les équipes star pouvaient être composées comme on voulait.
+Le facteur déterminant était ailleurs. Les meilleures équipes partagent deux caractéristiques, et seulement deux :
+
+Une distribution équitable du temps de parole — sur la durée, chacun parle à peu près autant que les autres
+Une forte sensibilité sociale — la capacité à percevoir ce que ressentent les autres membres
+
+Ces deux ingrédients créent ce qu'Amy Edmondson appelle la sécurité psychologique : un climat où chacun ose s'exprimer, douter, signaler une erreur sans craindre d'être jugé.
+Application concrète en entreprise :
+
+Auditer vos réunions : qui parle ? qui se tait ? Un déséquilibre chronique = un signal d'alerte sur la performance future
+Former les managers à animer (et non à dominer) les échanges — c'est leur premier rôle
+Créer un cadre explicite où l'erreur signalée tôt vaut mieux que l'erreur cachée tard
+Mesurer la sécurité psychologique aussi rigoureusement que vous mesurez l'engagement
+
+Le ROI est massif : une équipe avec sécurité psychologique innove plus, détecte les problèmes plus tôt, perd moins de temps en non-dits politiques, et garde ses talents.
+
+En synthèse de la section : les neurosciences nous disent que la performance collective n'est pas une affaire de stars individuelles, mais d'un cerveau social bien câblé. Empathie, intelligence émotionnelle, sécurité psychologique : trois leviers concrets, mesurables, entraînables — et directement corrélés à votre P&L.
 
 
 
 Section 3 — L'agilité à l'échelle : des origines industrielles aux nouveaux territoires
-L'agilité n'est pas une mode logicielle : ses racines plongent dans l'industrie automobile japonaise d'après-guerre. Dans les années 1950, Taiichi Ōno, craignant de voir l'industrie automobile japonaise mourir face aux États-Unis, met au point chez Toyota le Kanban et le Just-in-Time. Le terme « Lean » apparaît en 1990 aux États-Unis suite à la publication des travaux de trois chercheurs du MIT, dont James Womack ; leur ouvrage The Machine That Changed the World (1991) marque le lancement planétaire du Lean manufacturing et inspirera directement l'agilité logicielle. Le Blog du DirigeantCampus LEAN
-En février 2001, aux États-Unis, dix-sept spécialistes du développement logiciel se sont réunis pour débattre du thème unificateur de leurs méthodes respectives, jusqu'alors appelées sans consensus « méthodes lights ». Le Manifeste Agile, publié à cette occasion, présente les quatre valeurs et les douze principes du développement agile et reste à ce jour la boussole de tous les frameworks agiles. Depuis, l'agilité a essaimé bien au-delà de la tech : Scrum (framework itératif avec rôles définis : Scrum Master, Product Owner, équipe de développement), Kanban (visualisation du flux et limitation du WIP), eXtreme Programming, DevOps, et SAFe pour les grandes organisations. Les principes agiles ont trouvé écho bien au-delà du développement logiciel — RH, marketing, recherche, et même droit et médecine, où les boucles courtes de feedback transforment la pratique. Wikipedia + 3
-Au programme de la formation :
+L'agilité n'est pas une mode logicielle : ses racines plongent dans l'industrie automobile japonaise d'après-guerre. Dans les années 1950, Taiichi Ōno, craignant de voir l'industrie automobile japonaise mourir face aux États-Unis, met au point chez Toyota le Kanban et le Just-in-Time. Le terme « Lean » apparaît en 1990 aux États-Unis suite à la publication des travaux de trois chercheurs du MIT, dont James Womack ; leur ouvrage The Machine That Changed the World (1991) marque le lancement planétaire du Lean manufacturing et inspirera directement l'agilité logicielle. 
 
+En février 2001, aux États-Unis, dix-sept spécialistes du développement logiciel se sont réunis pour débattre du thème unificateur de leurs méthodes respectives, jusqu'alors appelées sans consensus « méthodes lights ». Le Manifeste Agile, publié à cette occasion, présente les quatre valeurs et les douze principes du développement agile et reste à ce jour la boussole de tous les frameworks agiles. Depuis, l'agilité a essaimé bien au-delà de la tech : Scrum (framework itératif avec rôles définis : Scrum Master, Product Owner, équipe de développement), Kanban (visualisation du flux et limitation du WIP), eXtreme Programming, DevOps, et SAFe pour les grandes organisations. Les principes agiles ont trouvé écho bien au-delà du développement logiciel — RH, marketing, recherche, et même droit et médecine, où les boucles courtes de feedback transforment la pratique. 
+
+Au programme de la formation :
 Pourquoi l'agilité ? L'origine Lean et les 4 valeurs / 12 principes du Manifeste
 Scrum en profondeur : rôles, artefacts (backlog, incrément), événements (sprint, daily, review, rétrospective)
 Kanban : flux tiré, limitation du travail en cours, amélioration continue

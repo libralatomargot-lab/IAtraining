@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA générative &amp; agentique — Margot Libralato</title>
+    <meta name="description" content="État de l'art de l'IA générative et agentique : vocabulaire, outils, prompting, agents customs, cycle de développement et MCP sur mesure.">
+
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = saved || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ia-generative.css">
+</head>
+<body>
+
+    <!-- ====================== HEADER ====================== -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-mark"><i data-lucide="brain"></i></span>
+                <span class="logo-text">Margot Libralato</span>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html#about">À propos</a>
+                <a href="index.html#expertises">Expertises</a>
+                <a href="cv-timeline.html">CV &amp; Parcours</a>
+                <a href="formations.html">Formations</a>
+                <a href="index.html#contact" class="btn-outline">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Changer de thème" title="Changer de thème">
+                    <i data-lucide="sun" class="icon-sun"></i>
+                    <i data-lucide="moon" class="icon-moon"></i>
+                </button>
+
+                <button class="menu-toggle" aria-label="Ouvrir le menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====================== HERO PAGE IA ====================== -->
+    <section class="ia-hero">
+        <canvas id="hero-canvas" class="hero-bg" aria-hidden="true"></canvas>
+
+        <div class="container ia-hero-content">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                <span class="badge-text">// IA GÉNÉRATIVE &amp; AGENTIQUE</span>
+            </div>
+            <h1>Un état de l'art <span class="gradient-text">accessible</span> pour passer à l'action.</h1>
+            <p>
+                Du vocabulaire de base aux agents autonomes connectés à vos systèmes : tout ce qu'il faut comprendre pour faire de l'IA un levier concret dans votre organisation.
+            </p>
+
+            <nav class="ia-toc" aria-label="Sommaire de la page">
+                <a href="#vocabulaire" class="toc-link"><span class="toc-num">01</span> Vocabulaire</a>
+                <a href="#outils" class="toc-link"><span class="toc-num">02</span> Outils</a>
+                <a href="#prompts" class="toc-link"><span class="toc-num">03</span> Prompts</a>
+                <a href="#agents" class="toc-link"><span class="toc-num">04</span> Agents</a>
+                <a href="#cycle" class="toc-link"><span class="toc-num">05</span> Cycle</a>
+                <a href="#mcp" class="toc-link"><span class="toc-num">06</span> MCP</a>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ====================== 01 — VOCABULAIRE ====================== -->
+    <section class="ia-section" id="vocabulaire">
+        <div class="container">
+            <p class="section-tag">// 01 — VOCABULAIRE</p>
+            <h2 class="section-title">Parlez-vous couramment l'IA&nbsp;?</h2>
+            <p class="section-subtitle">Décoder l'IA en 7 mots-clés</p>
+            <p class="section-intro">
+                Avant de déployer, il faut comprendre. Voici les notions essentielles pour suivre une conversation IA en 2026 sans perdre le fil.
+            </p>
+
+            <div class="keywords-grid">
+                <article class="keyword-card" data-color="violet">
+                    <div class="keyword-head">
+                        <div class="keyword-icon"><i data-lucide="sparkles"></i></div>
+                        <span class="keyword-num">01</span>
+                    </div>
+                    <h3 class="keyword-term">IA générative</h3>
+                    <p class="keyword-def">
+                        Famille d'intelligences artificielles capables de <strong>créer du contenu original</strong> (texte, image, code, audio, vidéo) à partir de modèles entraînés sur d'immenses volumes de données. Contrairement à une IA classique qui classe ou prédit, elle <em>produit</em>.
+                    </p>
+                </article>
+
+                <article class="keyword-card" data-color="cyan">
+                    <div class="keyword-head">
+                        <div class="keyword-icon"><i data-lucide="message-square-text"></i></div>
+                        <span class="keyword-num">02</span>
+                    </div>
+                    <h3 class="keyword-term">LLM <span class="keyword-aka">Large Language Model</span></h3>
+                    <p class="keyword-def">
+                        Modèle de langage de très grande taille (GPT, Claude, Gemini, Mistral). Il a appris à manipuler le langage en analysant des milliards de textes&nbsp;: il sait <strong>répondre, résumer, traduire ou rédiger</strong>.
+                    </p>
+                </article>
+
+                <article class="keyword-card" data-color="magenta">
+                    <div class="keyword-head">
+                        <div class="keyword-icon"><i data-lucide="bot"></i></div>
+                        <span class="keyword-num">03</span>
+                    </div>
+                    <h3 class="keyword-term">Agent</h3>
+                    <p class="keyword-def">
+                        Système qui utilise un LLM comme « cerveau » pour <strong>accomplir des tâches de façon autonome</strong>. Il peut planifier, utiliser des outils, naviguer sur le web, lire des fichiers ou interagir avec d'autres logiciels.
+                    </p>
+                </article>
+
+                <article class="keyword-card" data-color="violet">
+                    <div class="keyword-head">
+                        <div class="keyword-icon"><i data-lucide="plug-zap"></i></div>
+                        <span class="keyword-num">04</span>
+                    </div>
+                    <h3 class="keyword-term">MCP <span class="keyword-aka">Model Context Protocol</span></h3>
+                    <p class="keyword-def">
+                        Standard ouvert qui permet à un agent de <strong>se connecter à vos outils et données</strong> (CRM, fichiers, API maison…). Une sorte de « prise universelle » entre l'IA et vos systèmes.
+                    </p>
+                </article>
+
+                <article class="keyword-card" data-color="cyan">
+                    <div class="keyword-head">
+                        <div class="keyword-icon"><i data-lucide="file-text"></i></div>
+                        <span class="keyword-num">05</span>
+                    </div>
+                    <h3 class="keyword-term">Fichier d'instruction <span class="keyword-aka">system prompt</span></h3>
+                    <p class="keyword-def">
+                        Document qui définit le <strong>rôle, le ton, les règles et le périmètre</strong> d'un agent. C'est sa « fiche de poste ».
+                    </p>
+                </article>
+
+                <article class="keyword-card" data-color="magenta">
+                    <div class="keyword-head">
+                        <div class="keyword-icon"><i data-lucide="puzzle"></i></div>
+                        <span class="keyword-num">06</span>
+                    </div>
+                    <h3 class="keyword-term">Skill</h3>
+                    <p class="keyword-def">
+                        Compétence modulaire ajoutée à un agent pour lui donner un <strong>savoir-faire précis</strong> (générer un PDF, analyser un Excel, suivre une charte rédactionnelle).
+                    </p>
+                </article>
+
+                <article class="keyword-card keyword-card-wide" data-color="gradient">
+                    <div class="keyword-head">
+                        <div class="keyword-icon"><i data-lucide="hash"></i></div>
+                        <span class="keyword-num">07</span>
+                    </div>
+                    <h3 class="keyword-term">Token</h3>
+                    <p class="keyword-def">
+                        Unité de base traitée par un LLM, équivalente à un fragment de mot (en moyenne ¾ d'un mot en français). La <strong>facturation et la « mémoire »</strong> des modèles se comptent en tokens.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== 02 — OUTILS ====================== -->
+    <section class="ia-section ia-section-alt" id="outils">
+        <div class="container">
+            <p class="section-tag">// 02 — OUTILS</p>
+            <h2 class="section-title">Quel outil pour quel besoin&nbsp;?</h2>
+            <p class="section-subtitle">Le paysage des outils IA en 2026</p>
+            <p class="section-intro">
+                Le marché évolue très vite. Voici les grandes familles d'outils incontournables aujourd'hui — celles qu'il faut connaître avant de choisir.
+            </p>
+
+            <div class="tools-grid">
+                <article class="tool-card">
+                    <div class="tool-icon"><i data-lucide="messages-square"></i></div>
+                    <h3 class="tool-cat">Assistants conversationnels</h3>
+                    <p class="tool-list">ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google), Le Chat (Mistral), Copilot (Microsoft).</p>
+                </article>
+
+                <article class="tool-card">
+                    <div class="tool-icon"><i data-lucide="image"></i></div>
+                    <h3 class="tool-cat">Génération d'images</h3>
+                    <p class="tool-list">Midjourney, DALL·E, Stable Diffusion, Flux, Ideogram <em>(excellent pour le texte dans les images)</em>.</p>
+                </article>
+
+                <article class="tool-card">
+                    <div class="tool-icon"><i data-lucide="video"></i></div>
+                    <h3 class="tool-cat">Génération vidéo</h3>
+                    <p class="tool-list">Sora, Runway, Veo, Kling, Pika.</p>
+                </article>
+
+                <article class="tool-card">
+                    <div class="tool-icon"><i data-lucide="mic"></i></div>
+                    <h3 class="tool-cat">Audio &amp; voix</h3>
+                    <p class="tool-list">ElevenLabs (clonage vocal), Suno et Udio (musique).</p>
+                </article>
+
+                <article class="tool-card">
+                    <div class="tool-icon"><i data-lucide="code-2"></i></div>
+                    <h3 class="tool-cat">Assistants de code</h3>
+                    <p class="tool-list">Claude Code, Cursor, GitHub Copilot, Windsurf.</p>
+                </article>
+
+                <article class="tool-card">
+                    <div class="tool-icon"><i data-lucide="workflow"></i></div>
+                    <h3 class="tool-cat">Plateformes d'agents &amp; automatisation</h3>
+                    <p class="tool-list">n8n, Make, Zapier, Dify, LangChain.</p>
+                </article>
+
+                <article class="tool-card">
+                    <div class="tool-icon"><i data-lucide="search"></i></div>
+                    <h3 class="tool-cat">Recherche augmentée</h3>
+                    <p class="tool-list">Perplexity, You.com, ChatGPT Search.</p>
+                </article>
+
+                <article class="tool-card">
+                    <div class="tool-icon"><i data-lucide="briefcase"></i></div>
+                    <h3 class="tool-cat">Outils métiers</h3>
+                    <p class="tool-list">Notion AI (productivité), Granola (réunions), HeyGen (avatars vidéo).</p>
+                </article>
+            </div>
+
+            <div class="callout callout-cyan">
+                <div class="callout-icon"><i data-lucide="lightbulb"></i></div>
+                <p>
+                    Chaque outil a ses forces et ses pièges. Je peux vous accompagner pour la prise en main de chacun et identifier celui qui correspond à votre usage.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== 03 — PROMPTS ====================== -->
+    <section class="ia-section" id="prompts">
+        <div class="container">
+            <p class="section-tag">// 03 — PROMPTS</p>
+            <h2 class="section-title">Les secrets d'un prompt qui fonctionne</h2>
+            <p class="section-subtitle">Quatre piliers, cinq techniques, et des limites à connaître</p>
+            <p class="section-intro">
+                Un prompt est l'instruction que vous donnez à l'IA. Sa qualité conditionne directement la qualité de la réponse — c'est l'outil le plus rentable à maîtriser.
+            </p>
+
+            <div class="prompt-pillars">
+                <h3 class="prompt-block-title">// LES 4 PILIERS</h3>
+                <div class="pillars-grid">
+                    <div class="pillar">
+                        <div class="pillar-num">01</div>
+                        <h4>Rôle clair</h4>
+                        <p>« Tu es un juriste spécialisé en RGPD. »</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-num">02</div>
+                        <h4>Contexte précis</h4>
+                        <p>Données, contraintes, public visé.</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-num">03</div>
+                        <h4>Tâche explicite</h4>
+                        <p>Verbe d'action, livrable attendu.</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-num">04</div>
+                        <h4>Format de sortie</h4>
+                        <p>Liste, tableau, ton, longueur.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prompt-techniques">
+                <h3 class="prompt-block-title">// TECHNIQUES COURANTES</h3>
+                <ul class="techniques-list">
+                    <li>
+                        <span class="tech-name">Zero-shot</span>
+                        <span class="tech-desc">on demande directement, sans exemple.</span>
+                    </li>
+                    <li>
+                        <span class="tech-name">Few-shot</span>
+                        <span class="tech-desc">on fournit 2-3 exemples du résultat voulu.</span>
+                    </li>
+                    <li>
+                        <span class="tech-name">Chain-of-thought</span>
+                        <span class="tech-desc">on demande au modèle de raisonner étape par étape.</span>
+                    </li>
+                    <li>
+                        <span class="tech-name">Prompt structuré</span>
+                        <span class="tech-desc">balises XML ou Markdown pour découper l'instruction.</span>
+                    </li>
+                    <li>
+                        <span class="tech-name">Itération</span>
+                        <span class="tech-desc">raffiner progressivement plutôt que tout demander d'un coup.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-icon"><i data-lucide="alert-triangle"></i></div>
+                <div>
+                    <h4>Enjeux et limites à connaître</h4>
+                    <p>
+                        Les LLM peuvent <strong>halluciner</strong> (inventer des faits avec aplomb), reproduire des <strong>biais</strong> présents dans leurs données d'entraînement (genre, culture, idéologie), être <strong>sensibles à la formulation</strong> (un mot change la réponse), et leurs connaissances ont une <strong>date de coupure</strong>. Ils ne « comprennent » pas au sens humain&nbsp;: ils prédisent statistiquement la suite la plus plausible.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== 04 — AGENTS ====================== -->
+    <section class="ia-section ia-section-alt" id="agents">
+        <div class="container">
+            <p class="section-tag">// 04 — AGENTS CUSTOMS</p>
+            <h2 class="section-title">Et si vous aviez vos propres collaborateurs IA&nbsp;?</h2>
+            <p class="section-subtitle">Une armée d'agents à votre service</p>
+            <p class="section-intro">
+                Plutôt qu'un assistant généraliste pour tout faire, l'approche moderne consiste à créer une équipe d'agents spécialisés — chacun expert dans son domaine, avec son rôle, ses compétences ciblées et ses outils dédiés.
+            </p>
+
+            <p class="agents-intro-label">// 6 AGENTS QUE L'ON PEUT DÉPLOYER</p>
+            <div class="agents-grid">
+                <article class="agent-card">
+                    <div class="agent-icon"><i data-lucide="mail"></i></div>
+                    <h3 class="agent-name">Agent email</h3>
+                    <p class="agent-desc">Trie votre boîte, rédige les réponses, signale les urgences.</p>
+                </article>
+
+                <article class="agent-card">
+                    <div class="agent-icon"><i data-lucide="radar"></i></div>
+                    <h3 class="agent-name">Agent veille</h3>
+                    <p class="agent-desc">Surveille votre marché, vos concurrents, et produit une synthèse hebdomadaire.</p>
+                </article>
+
+                <article class="agent-card">
+                    <div class="agent-icon"><i data-lucide="pen-tool"></i></div>
+                    <h3 class="agent-name">Agent rédacteur</h3>
+                    <p class="agent-desc">Articles, posts LinkedIn et newsletters dans votre ton de marque.</p>
+                </article>
+
+                <article class="agent-card">
+                    <div class="agent-icon"><i data-lucide="bar-chart-3"></i></div>
+                    <h3 class="agent-name">Agent analyste</h3>
+                    <p class="agent-desc">Interroge vos données, génère rapports et tableaux de bord.</p>
+                </article>
+
+                <article class="agent-card">
+                    <div class="agent-icon"><i data-lucide="message-circle"></i></div>
+                    <h3 class="agent-name">Agent support</h3>
+                    <p class="agent-desc">Répond aux questions clients récurrentes, escalade les cas complexes.</p>
+                </article>
+
+                <article class="agent-card">
+                    <div class="agent-icon"><i data-lucide="calendar-check"></i></div>
+                    <h3 class="agent-name">Agent assistant</h3>
+                    <p class="agent-desc">Agenda, comptes-rendus de réunion, relances.</p>
+                </article>
+            </div>
+
+            <div class="benefits-row">
+                <div class="benefit">
+                    <div class="benefit-icon"><i data-lucide="zap"></i></div>
+                    <h4>Plus performants</h4>
+                    <p>Chaque agent fait mieux qu'un généraliste sur sa tâche.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon"><i data-lucide="shield-check"></i></div>
+                    <h4>Plus fiables</h4>
+                    <p>Périmètre clair = moins d'erreurs, plus de prévisibilité.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon"><i data-lucide="git-branch"></i></div>
+                    <h4>Orchestrables</h4>
+                    <p>Chaînés entre eux pour former un système multi-agents.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-violet">
+                <div class="callout-icon"><i data-lucide="rocket"></i></div>
+                <p>
+                    Je vous accompagne pour identifier les bons cas d'usage, concevoir vos agents et les déployer progressivement, sans bouleverser vos processus existants.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== 05 — CYCLE ====================== -->
+    <section class="ia-section" id="cycle">
+        <div class="container">
+            <p class="section-tag">// 05 — MÉTHODE</p>
+            <h2 class="section-title">Cycle de développement d'un agent</h2>
+            <p class="section-subtitle">Une méthodologie en 6 étapes pour des agents fiables</p>
+            <p class="section-intro">
+                Un agent qui marche en démo et un agent qui tient en production, ce ne sont pas les mêmes. Voici la démarche que j'applique pour passer de l'idée à un système qui dure.
+            </p>
+
+            <div class="cycle-steps">
+                <article class="cycle-step">
+                    <div class="cycle-step-num">01</div>
+                    <div class="cycle-step-body">
+                        <h3>Cadrage du besoin</h3>
+                        <p>Quel problème métier&nbsp;? Quels utilisateurs&nbsp;? Quel ROI attendu&nbsp;? Un agent n'est pas toujours la bonne réponse — parfois un simple script ou un workflow no-code suffit.</p>
+                    </div>
+                </article>
+
+                <article class="cycle-step">
+                    <div class="cycle-step-num">02</div>
+                    <div class="cycle-step-body">
+                        <h3>Conception fonctionnelle</h3>
+                        <p>Définir le périmètre, les actions autorisées, les garde-fous, les cas d'échec et les escalades vers un humain.</p>
+                    </div>
+                </article>
+
+                <article class="cycle-step">
+                    <div class="cycle-step-num">03</div>
+                    <div class="cycle-step-body">
+                        <h3>Choix techniques</h3>
+                        <p>Sélection du modèle (puissance vs coût vs latence), des outils connectés (MCP, APIs), de la mémoire et de l'hébergement.</p>
+                    </div>
+                </article>
+
+                <article class="cycle-step">
+                    <div class="cycle-step-num">04</div>
+                    <div class="cycle-step-body">
+                        <h3>Rédaction du fichier d'instruction</h3>
+                        <p>Rôle, ton, règles, exemples, format de réponse. C'est le cœur du comportement de l'agent.</p>
+                    </div>
+                </article>
+
+                <article class="cycle-step">
+                    <div class="cycle-step-num">05</div>
+                    <div class="cycle-step-body">
+                        <h3>Tests et évaluations</h3>
+                        <p>Jeux de tests représentatifs, mesure de la pertinence, détection des hallucinations et des dérives.</p>
+                    </div>
+                </article>
+
+                <article class="cycle-step">
+                    <div class="cycle-step-num">06</div>
+                    <div class="cycle-step-body">
+                        <h3>Mise en production &amp; amélioration continue</h3>
+                        <p>Suivi des conversations, collecte de feedback, ajustements réguliers du prompt et des outils.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-icon"><i data-lucide="alert-circle"></i></div>
+                <p>
+                    Un agent n'est jamais « fini »&nbsp;: il vit avec votre activité et doit être maintenu.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== 06 — MCP ====================== -->
+    <section class="ia-section ia-section-alt" id="mcp">
+        <div class="container">
+            <p class="section-tag">// 06 — INTÉGRATION</p>
+            <h2 class="section-title">Développement de MCP sur mesure</h2>
+            <p class="section-subtitle">Brancher l'IA à vos vraies données métier</p>
+            <p class="section-intro">
+                Le protocole MCP permet de connecter un agent IA directement à vos données et outils internes — sans dépendre d'intégrations propriétaires. Concrètement, un MCP « maison » donne à votre agent l'accès à votre base produits, vos documents internes, votre CRM, vos APIs métier ou n'importe quel système spécifique.
+            </p>
+
+            <div class="mcp-grid">
+                <h3 class="mcp-block-title">// POURQUOI UN MCP SUR MESURE</h3>
+                <div class="mcp-reasons">
+                    <div class="mcp-reason">
+                        <div class="mcp-reason-icon"><i data-lucide="lock"></i></div>
+                        <h4>Souveraineté</h4>
+                        <p>Vos données restent chez vous, vous contrôlez ce qui est exposé.</p>
+                    </div>
+                    <div class="mcp-reason">
+                        <div class="mcp-reason-icon"><i data-lucide="target"></i></div>
+                        <h4>Précision métier</h4>
+                        <p>L'agent manipule vos vraies données, pas une approximation.</p>
+                    </div>
+                    <div class="mcp-reason">
+                        <div class="mcp-reason-icon"><i data-lucide="repeat"></i></div>
+                        <h4>Réutilisabilité</h4>
+                        <p>Un même MCP sert plusieurs agents et plusieurs IA (Claude, ChatGPT…).</p>
+                    </div>
+                    <div class="mcp-reason">
+                        <div class="mcp-reason-icon"><i data-lucide="layers"></i></div>
+                        <h4>Évolutivité</h4>
+                        <p>On ajoute des fonctionnalités au fur et à mesure des besoins.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mcp-process">
+                <h3 class="mcp-block-title">// MA DÉMARCHE</h3>
+                <ol class="mcp-process-list">
+                    <li><strong>Analyse</strong> de vos systèmes existants</li>
+                    <li><strong>Définition</strong> des actions à exposer (lecture seule&nbsp;? écriture&nbsp;?)</li>
+                    <li><strong>Développement &amp; sécurisation</strong> du serveur MCP</li>
+                    <li><strong>Intégration</strong> dans votre environnement IA</li>
+                    <li><strong>Documentation &amp; formation</strong> de vos équipes</li>
+                </ol>
+            </div>
+
+            <div class="callout callout-cyan">
+                <div class="callout-icon"><i data-lucide="message-square-quote"></i></div>
+                <p>
+                    Parlons-en&nbsp;: un MCP bien conçu transforme un agent générique en véritable collaborateur métier.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== CTA FINAL ====================== -->
+    <section class="cta-section">
+        <div class="container cta-inner">
+            <h2 class="cta-title">Un projet IA en tête&nbsp;?</h2>
+            <p class="cta-subtitle">
+                Échangeons 30 minutes pour cadrer votre besoin. Sans engagement.
+            </p>
+            <a href="mailto:libralato.margot@gmail.com" class="btn-primary btn-large">
+                Réserver un créneau
+                <i data-lucide="arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ====================== FOOTER ====================== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <div class="footer-logo"></div>
+                <span class="footer-name">Margot Libralato</span>
+                <span class="footer-copy">© 2026 — Mentions légales</span>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="mailto:libralato.margot@gmail.com" class="social-icon" aria-label="Email">
+                    <i data-lucide="mail"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
