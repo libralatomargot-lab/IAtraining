@@ -139,6 +139,51 @@ if (menuToggle && nav) {
 }
 
 
+/* ====================== DROPDOWN NAV (Expertises) ====================== */
+const navDropdowns = document.querySelectorAll('.nav-dropdown');
+
+navDropdowns.forEach(dropdown => {
+    const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+        // Ferme les autres dropdowns
+        navDropdowns.forEach(other => {
+            if (other !== dropdown) {
+                other.classList.remove('is-open');
+                const t = other.querySelector('.nav-dropdown-toggle');
+                if (t) t.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+});
+
+// Ferme tous les dropdowns en cliquant ailleurs ou avec Échap
+document.addEventListener('click', (e) => {
+    navDropdowns.forEach(dropdown => {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('is-open');
+            const t = dropdown.querySelector('.nav-dropdown-toggle');
+            if (t) t.setAttribute('aria-expanded', 'false');
+        }
+    });
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        navDropdowns.forEach(dropdown => {
+            dropdown.classList.remove('is-open');
+            const t = dropdown.querySelector('.nav-dropdown-toggle');
+            if (t) t.setAttribute('aria-expanded', 'false');
+        });
+    }
+});
+
+
 /* ====================== EFFET PARALLAXE LÉGER SUR LE HERO ====================== */
 const heroBg = document.querySelector('.hero-bg');
 

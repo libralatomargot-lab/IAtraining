@@ -9,8 +9,7 @@
     <script>
         (function() {
             const saved = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = saved || (prefersDark ? 'dark' : 'light');
+            const theme = saved || 'dark';
             document.documentElement.setAttribute('data-theme', theme);
         })();
     </script>
@@ -36,9 +35,18 @@
 
             <nav class="nav">
                 <a href="index.html#about">À propos</a>
-                <a href="index.html#expertises">Expertises</a>
-                <a href="cv-timeline.html">CV &amp; Parcours</a>
-                <a href="index.html#contact" class="btn-outline">Contact</a>
+                <a href="formations.html">Services</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Expertises
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="ia-generative.html" role="menuitem">Intelligence Artificielle</a>
+                        <a href="neuro-agile.html" role="menuitem">Neurosciences, performance et agilité</a>
+                    </div>
+                </div>
+                <a href="mailto:ml.innovconseil@gmail.com" class="btn-outline">Contact</a>
             </nav>
 
             <div class="header-actions">
@@ -87,7 +95,7 @@
                 <div class="timeline-item" data-color="cyan">
                     <div class="timeline-node"></div>
                     <div class="timeline-card">
-                        <div class="timeline-date"><i data-lucide="zap"></i> 2024 — AUJOURD'HUI</div>
+                        <div class="timeline-date"><i data-lucide="zap"></i> 2025 — AUJOURD'HUI</div>
                         <h3 class="timeline-title">Consultante IA &amp; Agentique</h3>
                         <p class="timeline-place">Indépendante</p>
                         <p class="timeline-desc">
@@ -101,6 +109,24 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="timeline-item" data-color="cyan">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date"><i data-lucide="zap"></i> 2025 — AUJOURD'HUI</div>
+                        <h3 class="timeline-title">Lead Test & Ingénieure IA</h3>
+                        <p class="timeline-place">Sogeti, part of Capgemini - Lyon</p>
+                        <p class="timeline-desc">
+                            Pilotage de la qualité logicielle, accompagnement d'équipes Scrum/Kanban, mise en place de pratiques de tests automatisés et de CI/CD. Croisement entre neurosciences comportementales et dynamique d'équipe.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">LLM</span>
+                            <span class="timeline-tag">Agents</span>
+                            <span class="timeline-tag">Formations</span>
+                            <span class="timeline-tag">RAG</span>
+                        </div>
+                    </div>
+                </div>                
 
                 <div class="timeline-item" data-color="violet">
                     <div class="timeline-node"></div>

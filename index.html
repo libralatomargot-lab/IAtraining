@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Margot Libralato — Consultante IA & Agentique</title>
-    <meta name="description" content="Docteure en neurosciences et ingénieure en IA. Formations, ateliers et accompagnement en IA générative et agentique pour les entreprises.">
+    <meta name="description" content="Docteure en neurosciences, Ingénieure en IA. Formations, ateliers et accompagnement en IA générative et agentique pour les entreprises.">
 
     <!-- Anti-flash : applique le bon thème AVANT le rendu de la page
          (sinon l'utilisateur verrait une fraction de seconde le mauvais mode au chargement) -->
@@ -37,10 +37,19 @@
             </a>
 
             <nav class="nav">
-                <a href="#about">À propos</a>
-                <a href="#services">Services</a>
-                <a href="#expertises">Expertises</a>
-                <a href="#contact" class="btn-outline">Contact</a>
+                <a href="cv-timeline.html">Parcours & CV</a>
+                <a href="formations.html">Services</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Expertises
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="ia-generative.html" role="menuitem">Intelligence Artificielle</a>
+                        <a href="neuro-agile.html" role="menuitem">Neurosciences, performance et agilité</a>
+                    </div>
+                </div>
+                <a href="mailto:ml.innovconseil@gmail.com" class="btn-outline">Contact</a>
             </nav>
 
             <div class="header-actions">
@@ -80,11 +89,11 @@
                 J’interviens pour formez vos équipes, structurer vos usages et vous aider à tirer le meilleur parti des outils modernes d’IA générative.
             </p>
             <div class="hero-cta">
-                <a href="#contact" class="btn-primary">
+                <a href="mailto:ml.innovconseil@gmail.com" class="btn-primary">
                     Discutons de votre projet
                     <i data-lucide="arrow-right"></i>
                 </a>
-                <a href="#services" class="btn-secondary">
+                <a href="formations.html" class="btn-secondary">
                     Découvrir mes services
                 </a>
             </div>
@@ -122,54 +131,58 @@
                 Je croise IA générative, IA agentique, neurosciences comportementales et agilité pour créer des accompagnements qui marchent vraiment sur le terrain.
             </p>
 
-            <div class="modules-grid">
-                <a href="cv-timeline.html" class="module" data-color="violet">
-                    <div class="module-header">
-                        <div class="module-icon"><i data-lucide="user"></i></div>
-                        <span class="module-number">01</span>
-                    </div>
-                    <h3 class="module-title">Parcours &amp; CV</h3>
-                    <p class="module-desc">
-                        Doctorat, IT, qualité logicielle, agilité — la trajectoire qui m'a menée jusqu'à l'IA.
-                    </p>
-                    <span class="module-link">Découvrir <i data-lucide="arrow-right"></i></span>
-                </a>
+            <div class="expertises-layout">
+                <!-- Colonne gauche : Expertises -->
+                <div class="expertises-col">
+                    <h3 class="col-title">Expertises</h3>
 
-                <a href="ia-generative.html" class="module" data-color="cyan">
-                    <div class="module-header">
-                        <div class="module-icon"><i data-lucide="bot"></i></div>
-                        <span class="module-number">02</span>
-                    </div>
-                    <h3 class="module-title">IA générative &amp; agentique</h3>
-                    <p class="module-desc">
-                        Des prompts et usages bureautiques jusqu'aux agents autonomes — adoptez l'IA à tous les niveaux de votre organisation.
-                    </p>
-                    <span class="module-link">Découvrir <i data-lucide="arrow-right"></i></span>
-                </a>
+                    <a href="ia-generative.html" class="module module-eq" data-color="cyan">
+                        <div class="module-header">
+                            <div class="module-icon"><i data-lucide="bot"></i></div>
+                            <span class="module-number">01</span>
+                        </div>
+                        <h3 class="module-title">IA générative &amp; agentique</h3>
+                        <p class="module-desc">
+                            Des prompts et usages bureautiques jusqu'aux agents autonomes — adoptez l'IA à tous les niveaux de votre organisation.
+                        </p>
+                        <span class="module-link">Découvrir <i data-lucide="arrow-right"></i></span>
+                    </a>
 
-                <a href="formations.html" class="module" data-color="magenta">
-                    <div class="module-header">
-                        <div class="module-icon"><i data-lucide="graduation-cap"></i></div>
-                        <span class="module-number">03</span>
-                    </div>
-                    <h3 class="module-title">Formations</h3>
-                    <p class="module-desc">
-                        Catalogue complet de formations en présentiel ou distanciel, adaptées à tous niveaux.
-                    </p>
-                    <span class="module-link">Découvrir <i data-lucide="arrow-right"></i></span>
-                </a>
+                    <a href="neuro-agile.html" class="module module-eq" data-color="violet">
+                        <div class="module-header">
+                            <div class="module-icon"><i data-lucide="brain"></i></div>
+                            <span class="module-number">02</span>
+                        </div>
+                        <h3 class="module-title">Neurosciences &amp; agilité</h3>
+                        <p class="module-desc">
+                            Biais cognitifs, intelligence collective, Scrum, Kanban — la science du comportement au service de la transformation.
+                        </p>
+                        <span class="module-link">Découvrir <i data-lucide="arrow-right"></i></span>
+                    </a>
+                </div>
 
-                <a href="neuro-agile.html" class="module" data-color="violet">
-                    <div class="module-header">
-                        <div class="module-icon"><i data-lucide="brain"></i></div>
-                        <span class="module-number">04</span>
-                    </div>
-                    <h3 class="module-title">Neurosciences &amp; agilité</h3>
-                    <p class="module-desc">
-                        Biais cognitifs, intelligence collective, Scrum, Kanban — la science du comportement au service de la transformation.
-                    </p>
-                    <span class="module-link">Découvrir <i data-lucide="arrow-right"></i></span>
-                </a>
+                <!-- Colonne droite : Services + Parcours -->
+                <div class="expertises-col">
+                    <h3 class="col-title">Services</h3>
+
+                    <a href="formations.html" class="module module-large" data-color="magenta">
+                        <div class="module-header">
+                            <div class="module-icon"><i data-lucide="graduation-cap"></i></div>
+                            <span class="module-number">03</span>
+                        </div>
+                        <h3 class="module-title">Services</h3>
+                        <h4 class="module-subtitle">Conseil, Formation, Accompagnement &amp; Développement</h4>
+                        <ul class="module-services-list">
+                            <li><i data-lucide="compass"></i><span>Conseil stratégique et technique pour intégrer l'IA au quotidien</span></li>
+                            <li><i data-lucide="graduation-cap"></i><span>Formations sur mesure pour vous et vos équipes</span></li>
+                            <li><i data-lucide="route"></i><span>Accompagnement technique sur mesure pour vos projets IA</span></li>
+                            <li><i data-lucide="users"></i><span>Coaching et ateliers pour booster l'adoption et la montée en compétences</span></li>
+                            <li><i data-lucide="code-2"></i><span>Développement de solutions IA personnalisées pour vos besoins</span></li>
+                        </ul>
+                        <span class="module-link">Découvrir <i data-lucide="arrow-right"></i></span>
+                    </a>
+
+                </div>
             </div>
         </div>
     </section>
@@ -181,7 +194,7 @@
             <p class="cta-subtitle">
                 Échangeons 30 minutes pour cadrer votre besoin. Sans engagement.
             </p>
-            <a href="mailto:libralato.margot@gmail.com" class="btn-primary btn-large">
+            <a href="mailto:ml.innovconseil@gmail.com" class="btn-primary btn-large">
                 Réserver un créneau
                 <i data-lucide="arrow-right"></i>
             </a>
@@ -200,9 +213,10 @@
                 <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
                     <i data-lucide="linkedin"></i>
                 </a>
-                <a href="mailto:libralato.margot@gmail.com" class="social-icon" aria-label="Email">
+                <a href="mailto:ml.innovconseil@gmail.com" class="social-icon" aria-label="Email">
                     <i data-lucide="mail"></i>
                 </a>
+                <span class="footer-name">ml.innovconseil@gmail.com</span>
             </div>
         </div>
     </footer>

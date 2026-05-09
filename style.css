@@ -216,6 +216,82 @@ img, svg {
     gap: 8px;
 }
 
+/* ----------- Dropdown navigation (Expertises) ----------- */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color var(--transition);
+}
+
+.nav-dropdown-toggle:hover,
+.nav-dropdown.is-open .nav-dropdown-toggle {
+    color: var(--text-primary);
+}
+
+.nav-dropdown-toggle svg {
+    width: 14px;
+    height: 14px;
+    transition: transform var(--transition);
+}
+
+.nav-dropdown.is-open .nav-dropdown-toggle svg {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    min-width: 260px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 6px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35),
+                0 0 0 1px rgba(124, 58, 237, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    z-index: 100;
+}
+
+.nav-dropdown.is-open .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    transition: background-color var(--transition), color var(--transition);
+}
+
+.nav-dropdown-menu a:hover {
+    background-color: rgba(124, 58, 237, 0.12);
+    color: var(--cyan);
+}
+
 /* ----------- Toggle thème (soleil / lune) ----------- */
 .theme-toggle {
     width: 38px;
@@ -233,6 +309,63 @@ img, svg {
     overflow: hidden;
 }
 
+/* Halo pulsé violet -> cyan (charte) */
+.theme-toggle::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.55),
+                0 0 14px rgba(124, 58, 237, 0.45),
+                0 0 22px rgba(6, 182, 212, 0.35);
+    animation: theme-toggle-pulse 1.5s ease-in-out infinite;
+}
+
+/* Lumière qui traverse le bouton de part en part */
+.theme-toggle::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        110deg,
+        transparent 0%,
+        rgba(124, 58, 237, 0.35) 35%,
+        rgba(248, 250, 252, 0.85) 50%,
+        rgba(6, 182, 212, 0.35) 65%,
+        transparent 100%
+    );
+    transform: skewX(-20deg);
+    pointer-events: none;
+    animation: theme-toggle-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes theme-toggle-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.45),
+                    0 0 10px rgba(124, 58, 237, 0.35),
+                    0 0 18px rgba(6, 182, 212, 0.25);
+    }
+    50% {
+        box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.7),
+                    0 0 18px rgba(6, 182, 212, 0.55),
+                    0 0 28px rgba(124, 58, 237, 0.45);
+    }
+}
+
+@keyframes theme-toggle-shimmer {
+    0% { left: -120%; }
+    60%, 100% { left: 140%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-toggle::before,
+    .theme-toggle::after { animation: none; }
+}
+
 .theme-toggle:hover {
     color: var(--cyan);
     border-color: var(--cyan);
@@ -244,6 +377,7 @@ img, svg {
     height: 18px;
     position: absolute;
     transition: transform 0.4s ease, opacity 0.3s ease;
+    z-index: 2;
 }
 
 /* En mode SOMBRE : on affiche le soleil (pour passer en clair) */
@@ -534,6 +668,129 @@ img, svg {
     gap: 16px;
 }
 
+/* ----- Layout 2 colonnes (Expertises / Services) ----- */
+.expertises-layout {
+    --module-unit: 240px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.expertises-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.col-title {
+    font-family: var(--font-title);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 0 0 4px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-soft);
+    position: relative;
+}
+
+.col-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 64px;
+    height: 2px;
+    background: linear-gradient(135deg, var(--violet) 0%, var(--cyan) 100%);
+    border-radius: 2px;
+}
+
+/* Hauteurs proportionnelles */
+.module-eq {
+    min-height: var(--module-unit);
+    display: flex;
+    flex-direction: column;
+}
+
+.module-large {
+    min-height: calc(var(--module-unit) * 1.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.module-small {
+    min-height: calc(var(--module-unit) * 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.module-eq .module-link,
+.module-large .module-link,
+.module-small .module-link {
+    margin-top: auto;
+}
+
+/* Sous-titre du module Services */
+.module-subtitle {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin: 0 0 16px;
+}
+
+/* Liste des services (dans le module-large) */
+.module-services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.module-services-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    background-color: rgba(124, 58, 237, 0.06);
+    border: 1px solid var(--border-soft);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    transition: all var(--transition);
+}
+
+.module-services-list li:hover {
+    border-color: rgba(6, 182, 212, 0.4);
+    background-color: rgba(6, 182, 212, 0.08);
+    transform: translateX(2px);
+}
+
+.module-services-list li svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--cyan);
+}
+
+.module-services-list li span {
+    flex: 1;
+}
+
+@media (max-width: 1024px) {
+    .expertises-layout {
+        grid-template-columns: 1fr;
+        --module-unit: 200px;
+    }
+}
+
 /* Module (carte cliquable) */
 .module {
     position: relative;
@@ -820,6 +1077,36 @@ img, svg {
         border-bottom: none;
         margin-top: 8px;
         text-align: center;
+    }
+
+    /* Dropdown en mobile : empile le contenu dans le flux */
+    .nav.is-open .nav-dropdown {
+        width: 100%;
+        border-bottom: 1px solid var(--border-soft);
+    }
+
+    .nav.is-open .nav-dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+        padding: 14px 0;
+    }
+
+    .nav.is-open .nav-dropdown-menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        padding: 0 0 8px 12px;
+        min-width: 0;
+        display: none;
+    }
+
+    .nav.is-open .nav-dropdown.is-open .nav-dropdown-menu {
+        display: block;
     }
 
     .hero {
