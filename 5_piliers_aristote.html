@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les 5 piliers du projet Aristote</title>
+<style>
+  :root {
+    --c-primary: #26215C;
+    --c-primary-mid: #3C3489;
+    --c-primary-soft: #7F77DD;
+    --c-primary-bg: #EEEDFE;
+    --c-text: #2C2C2A;
+    --c-text-soft: #444441;
+    --c-text-muted: #5F5E5A;
+    --c-neutral-bg: #F1EFE8;
+    --c-neutral-border: #D3D1C7;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: var(--font);
+    background: #FAFAF7;
+    color: var(--c-text);
+    padding: 40px 20px;
+    line-height: 1.5;
+  }
+
+  .aristote-container {
+    max-width: 760px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 40px 32px 32px;
+    border: 1px solid var(--c-neutral-border);
+  }
+
+  .aristote-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .aristote-title {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--c-text);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .aristote-subtitle {
+    font-size: 13px;
+    color: var(--c-text-muted);
+    font-weight: 400;
+  }
+
+  .pillars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 12px;
+    height: 280px;
+    border-bottom: 1px solid var(--c-neutral-border);
+    padding-bottom: 0;
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .pillar {
+    flex: 1;
+    max-width: 130px;
+    border-radius: 6px 6px 0 0;
+    padding: 18px 12px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: default;
+    position: relative;
+  }
+
+  .pillar:hover {
+    transform: translateY(-4px);
+  }
+
+  .pillar-secondary {
+    background: var(--c-neutral-bg);
+    border: 1px solid var(--c-neutral-border);
+    border-bottom: none;
+  }
+
+  .pillar-secondary.short { height: 60%; }
+  .pillar-secondary.medium { height: 78%; }
+
+  .pillar-primary {
+    background: var(--c-primary-bg);
+    border: 1.5px solid var(--c-primary-soft);
+    border-bottom: none;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .pillar-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--c-text);
+    margin-bottom: 10px;
+  }
+
+  .pillar-primary .pillar-name {
+    font-size: 16px;
+    color: var(--c-primary);
+    line-height: 1.2;
+  }
+
+  .pillar-desc {
+    font-size: 12px;
+    color: var(--c-text-soft);
+    line-height: 1.45;
+  }
+
+  .pillar-primary .pillar-desc {
+    color: var(--c-primary-mid);
+    font-size: 12.5px;
+  }
+
+  .pillar-badge {
+    margin-top: auto;
+    padding-top: 14px;
+  }
+
+  .pillar-badge span {
+    display: inline-block;
+    background: var(--c-primary-soft);
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 11px;
+    letter-spacing: 0.02em;
+  }
+
+  .insight-box {
+    background: var(--c-primary-bg);
+    border: 1px solid var(--c-primary-soft);
+    border-radius: 8px;
+    padding: 20px 24px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .insight-box p {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--c-primary);
+    line-height: 1.5;
+  }
+
+  .insight-box strong {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--c-text-muted);
+    font-style: italic;
+  }
+
+  /* Animation à l'apparition */
+  @media (prefers-reduced-motion: no-preference) {
+    .pillar {
+      animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    }
+    .pillar:nth-child(1) { animation-delay: 0.1s; }
+    .pillar:nth-child(2) { animation-delay: 0.2s; }
+    .pillar:nth-child(3) { animation-delay: 0.3s; }
+    .pillar:nth-child(4) { animation-delay: 0.2s; }
+    .pillar:nth-child(5) { animation-delay: 0.1s; }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .insight-box {
+      animation: fadeIn 0.6s ease 0.6s backwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .aristote-container {
+      padding: 28px 16px 24px;
+    }
+    .pillars {
+      height: 240px;
+      gap: 6px;
+    }
+    .pillar {
+      padding: 12px 6px 10px;
+      max-width: none;
+    }
+    .pillar-name { font-size: 12px; }
+    .pillar-primary .pillar-name { font-size: 13px; }
+    .pillar-desc { font-size: 10.5px; }
+    .pillar-primary .pillar-desc { font-size: 11px; }
+    .pillar-badge span { font-size: 10px; padding: 3px 8px; }
+    .insight-box p { font-size: 13.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="aristote-container">
+
+  <header class="aristote-header">
+    <h2 class="aristote-title">Les 5 piliers du projet Aristote</h2>
+    <p class="aristote-subtitle">Google · étude sur plus de 180 équipes · 250 variables analysées</p>
+  </header>
+
+  <div class="pillars">
+
+    <div class="pillar pillar-secondary short" data-pillar="fiabilite">
+      <div class="pillar-name">Fiabilité</div>
+      <div class="pillar-desc">On peut compter sur les autres</div>
+    </div>
+
+    <div class="pillar pillar-secondary medium" data-pillar="clarte">
+      <div class="pillar-name">Clarté</div>
+      <div class="pillar-desc">Rôles, plans et objectifs explicites</div>
+    </div>
+
+    <div class="pillar pillar-primary" data-pillar="securite">
+      <div class="pillar-name">Sécurité<br>psychologique</div>
+      <div class="pillar-desc">Oser parler, douter, se tromper — sans peur d'être jugé</div>
+      <div class="pillar-badge"><span>N° 1</span></div>
+    </div>
+
+    <div class="pillar pillar-secondary medium" data-pillar="sens">
+      <div class="pillar-name">Sens</div>
+      <div class="pillar-desc">Le travail a une valeur personnelle</div>
+    </div>
+
+    <div class="pillar pillar-secondary short" data-pillar="impact">
+      <div class="pillar-name">Impact</div>
+      <div class="pillar-desc">Notre travail change les choses</div>
+    </div>
+
+  </div>
+
+  <div class="insight-box">
+    <p>Ce n'est pas <strong>QUI</strong> compose l'équipe qui compte,<br>mais <strong>COMMENT</strong> ses membres interagissent.</p>
+  </div>
+
+  <p class="footer-note">Une seule variable a vraiment fait la différence.</p>
+
+</div>
+
+<script>
+  // Interaction légère : au clic sur un pilier, on met en avant brièvement
+  document.querySelectorAll('.pillar').forEach(pillar => {
+    pillar.addEventListener('click', function() {
+      this.style.transform = 'translateY(-8px)';
+      setTimeout(() => { this.style.transform = ''; }, 300);
+    });
+  });
+</script>
+
+</body>
+</html>

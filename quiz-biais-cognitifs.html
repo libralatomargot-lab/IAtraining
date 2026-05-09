@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quel biais venez-vous de subir ?</title>
+<style>
+/* =========================================================
+   Quiz "Quel biais venez-vous de subir ?"
+   Composant autonome — encapsulé sous .qz-root
+   Aucune règle ne fuit en dehors de ce conteneur.
+   ========================================================= */
+
+.qz-root {
+  /* ---- Palette (modifiable pour s'adapter à votre charte) ---- */
+  --qz-bg: #ffffff;
+  --qz-surface: #f7f5ef;
+  --qz-text: #1a1a1a;
+  --qz-text-muted: #6b6b66;
+  --qz-text-soft: #9c9a92;
+  --qz-border: rgba(0, 0, 0, 0.12);
+  --qz-border-strong: rgba(0, 0, 0, 0.25);
+
+  /* Couleurs d'accent (violet pour les révélations, ambre pour le S1, vert pour la progression) */
+  --qz-accent: #534AB7;
+  --qz-accent-soft: #EEEDFE;
+  --qz-accent-mid: #AFA9EC;
+  --qz-accent-strong: #3C3489;
+  --qz-accent-deep: #26215C;
+
+  --qz-success: #1D9E75;
+  --qz-amber-bg: #FAC775;
+  --qz-amber-text: #412402;
+
+  --qz-radius-md: 8px;
+  --qz-radius-lg: 12px;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  color: var(--qz-text);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+}
+
+.qz-root *, .qz-root *::before, .qz-root *::after {
+  box-sizing: border-box;
+}
+
+/* ---- En-tête ---- */
+.qz-head {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.qz-title {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0 6px;
+  color: var(--qz-text);
+}
+
+.qz-subtitle {
+  font-size: 13px;
+  color: var(--qz-text-muted);
+  margin: 0;
+}
+
+.qz-progress {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.qz-dot {
+  width: 28px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--qz-border);
+  transition: background .3s;
+}
+
+.qz-dot.done { background: var(--qz-success); }
+.qz-dot.active { background: var(--qz-text); }
+
+/* ---- Carte de question ---- */
+.qz-card {
+  padding: 24px;
+  border-radius: var(--qz-radius-lg);
+  border: 1px solid var(--qz-border);
+  background: var(--qz-surface);
+}
+
+.qz-context {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--qz-accent);
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qz-context::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--qz-accent);
+}
+
+.qz-scenario {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--qz-text);
+  margin-bottom: 6px;
+}
+
+.qz-question {
+  font-size: 13px;
+  color: var(--qz-text-muted);
+  margin-bottom: 18px;
+  font-style: italic;
+}
+
+/* ---- Options de réponse ---- */
+.qz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.qz-opt {
+  padding: 14px 16px;
+  border-radius: var(--qz-radius-md);
+  border: 1px solid var(--qz-border);
+  background: var(--qz-bg);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  text-align: left;
+  color: var(--qz-text);
+  transition: all .15s;
+  line-height: 1.5;
+  width: 100%;
+}
+
+.qz-opt:hover:not(:disabled) {
+  border-color: var(--qz-accent);
+  background: var(--qz-accent-soft);
+}
+
+.qz-opt.selected {
+  border-color: var(--qz-accent);
+  background: var(--qz-accent-soft);
+  border-width: 1px;
+}
+
+.qz-opt:disabled {
+  cursor: default;
+}
+
+/* ---- Bloc de révélation ---- */
+.qz-reveal {
+  margin-top: 18px;
+  padding: 18px;
+  background: var(--qz-accent-soft);
+  border-left: 3px solid var(--qz-accent);
+  border-radius: 0 var(--qz-radius-md) var(--qz-radius-md) 0;
+  animation: qzFade .3s ease-out;
+}
+
+@keyframes qzFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.qz-bias-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--qz-accent-strong);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.qz-bias-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--qz-accent);
+  color: var(--qz-bg);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.qz-bias-system {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--qz-amber-bg);
+  color: var(--qz-amber-text);
+  font-weight: 500;
+}
+
+.qz-bias-def {
+  font-size: 13px;
+  color: var(--qz-accent-strong);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.qz-tip {
+  font-size: 13px;
+  color: var(--qz-accent-deep);
+  line-height: 1.6;
+  padding-top: 10px;
+  border-top: 1px solid var(--qz-accent-mid);
+}
+
+.qz-tip strong { font-weight: 500; }
+
+/* ---- Navigation bas ---- */
+.qz-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  gap: 12px;
+}
+
+.qz-counter {
+  font-size: 12px;
+  color: var(--qz-text-soft);
+}
+
+.qz-next {
+  padding: 10px 20px;
+  background: var(--qz-text);
+  color: var(--qz-bg);
+  border: none;
+  border-radius: var(--qz-radius-md);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity .2s;
+}
+
+.qz-next:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.qz-next:not(:disabled):hover {
+  opacity: 0.85;
+}
+
+.qz-arrow {
+  display: inline-block;
+  transition: transform .2s;
+}
+
+.qz-next:not(:disabled):hover .qz-arrow {
+  transform: translateX(2px);
+}
+
+/* ---- Écran final ---- */
+.qz-final {
+  text-align: center;
+  padding: 32px 24px;
+}
+
+.qz-final-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #E1F5EE;
+  color: #0F6E56;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 28px;
+}
+
+.qz-final h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 10px;
+  color: var(--qz-text);
+}
+
+.qz-final p {
+  font-size: 14px;
+  color: var(--qz-text-muted);
+  line-height: 1.6;
+  margin: 0 0 6px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.qz-final p + p {
+  margin-top: 14px;
+}
+
+.qz-final strong {
+  font-weight: 500;
+  color: var(--qz-text);
+}
+
+.qz-restart {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--qz-text);
+  border: 1px solid var(--qz-border-strong);
+  border-radius: var(--qz-radius-md);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background .2s;
+}
+
+.qz-restart:hover {
+  background: var(--qz-surface);
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 540px) {
+  .qz-card { padding: 18px; }
+  .qz-title { font-size: 19px; }
+  .qz-scenario { font-size: 14px; }
+  .qz-nav { flex-direction: column; align-items: stretch; }
+  .qz-counter { text-align: center; order: 2; }
+  .qz-next { justify-content: center; order: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========================================================
+     Conteneur racine du quiz.
+     Tout le HTML, CSS et JS est encapsulé sous .qz-root
+     pour éviter tout conflit avec votre site.
+     Pour intégrer : copiez ce bloc <div class="qz-root"> ainsi
+     que le <style> et le <script> dans votre page.
+     ======================================================== -->
+
+<div class="qz-root">
+  <div class="qz-head">
+    <h2 class="qz-title">Quel biais venez-vous de subir&nbsp;?</h2>
+    <p class="qz-subtitle">5 situations que vous avez (probablement) déjà vécues</p>
+    <div class="qz-progress" id="qz-progress" aria-label="Progression dans le quiz"></div>
+  </div>
+  <div id="qz-content" aria-live="polite"></div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  const questions = [
+    {
+      context: "Une réunion comme tant d'autres",
+      scenario: "Votre responsable lance la réunion en disant&nbsp;: «&nbsp;Selon moi, ce projet devrait nous prendre environ 3 mois. Qu'en pensez-vous&nbsp;?&nbsp;» Le tour de table s'enchaîne&nbsp;: les estimations vont de 2,5 à 4 mois. Personne ne propose 6 mois ou 1 mois.",
+      question: "Que s'est-il passé dans les têtes ?",
+      options: [
+        "Tout le monde avait fait la même analyse au préalable",
+        "Le chiffre de 3 mois a servi de point de référence inconscient",
+        "Les collaborateurs ont voulu rassurer leur manager",
+        "C'est juste une coïncidence de jugement"
+      ],
+      correct: 1,
+      bias: "Effet d'ancrage",
+      system: "Système 1",
+      definition: "Tout chiffre énoncé avant une estimation oriente inconsciemment celle-ci, même si vous savez qu'il est arbitraire. Votre cerveau ajuste autour de cette ancre au lieu de partir d'une page blanche.",
+      tip: "<strong>En pratique&nbsp;:</strong> faites estimer chacun individuellement et par écrit AVANT toute discussion collective. Comparez les chiffres ensuite&nbsp;: les écarts révèlent les vrais désaccords."
+    },
+    {
+      context: "Une idée, deux accueils",
+      scenario: "Camille, brillante et reconnue dans l'équipe, propose une nouvelle organisation. Vous validez sans demander de détails. Le lendemain, Sam (arrivé récemment) propose la même idée. Cette fois, vous demandez plusieurs justifications avant de vous prononcer.",
+      question: "Qu'est-ce qui s'est joué ?",
+      options: [
+        "Sam s'est moins bien exprimé que Camille",
+        "Camille a mieux préparé sa proposition",
+        "La compétence perçue de Camille a déteint sur le jugement de l'idée",
+        "C'est normal, l'expérience compte"
+      ],
+      correct: 2,
+      bias: "Effet de halo",
+      system: "Système 1",
+      definition: "Une qualité visible d'une personne (compétence, charisme, ancienneté, voire apparence) déteint sur l'évaluation de tout ce qui vient d'elle, y compris des éléments qui n'ont aucun lien avec cette qualité.",
+      tip: "<strong>En pratique&nbsp;:</strong> évaluez les idées, pas les personnes qui les portent. Une astuce&nbsp;: faites circuler les propositions par écrit et anonymes avant la discussion."
+    },
+    {
+      context: "Le projet qui s'éternise",
+      scenario: "Vous avez investi 18 mois et beaucoup d'énergie dans une formation/un projet/une relation. Les signaux deviennent négatifs. Pourtant, en y pensant, vous vous dites&nbsp;: «&nbsp;J'ai déjà tellement donné, je ne peux pas tout arrêter maintenant.&nbsp;»",
+      question: "Quel mécanisme vous retient ?",
+      options: [
+        "Une logique parfaitement rationnelle",
+        "Le besoin de cohérence avec vos décisions passées",
+        "L'espoir légitime que ça finira par payer",
+        "Le regard des autres sur un éventuel abandon"
+      ],
+      correct: 1,
+      bias: "Coûts irrécupérables",
+      system: "Système 1 + 2",
+      definition: "Continuer un engagement à cause des ressources déjà investies (temps, argent, énergie) — alors que celles-ci sont perdues quoi qu'il arrive. Seul le futur devrait peser dans la décision, jamais le passé.",
+      tip: "<strong>En pratique&nbsp;:</strong> posez-vous régulièrement la question&nbsp;: «&nbsp;Si je découvrais cette situation aujourd'hui, en partant de zéro, est-ce que je m'engagerais&nbsp;?&nbsp;»"
+    },
+    {
+      context: "Un consensus trop rapide",
+      scenario: "En réunion, la personne la plus à l'aise prend la parole&nbsp;: «&nbsp;Globalement, on est tous d'accord, non&nbsp;?&nbsp;» Cinq personnes acquiescent. Pourtant, à la pause-café, trois d'entre elles vous confient avoir des réserves importantes qu'elles n'ont pas osé exprimer.",
+      question: "Que s'est-il vraiment passé ?",
+      options: [
+        "L'équipe est réellement alignée, c'est positif",
+        "Les trois personnes ont changé d'avis en écoutant les autres",
+        "Le besoin d'harmonie a fait taire les voix divergentes",
+        "Ces personnes manquent juste de confiance en elles"
+      ],
+      correct: 2,
+      bias: "Pensée de groupe",
+      system: "Système 1",
+      definition: "Dans un groupe où l'on apprécie l'harmonie, le désir d'appartenance l'emporte sur l'évaluation lucide des idées. Les opinions minoritaires s'autocensurent, parfois sans même que la personne en ait conscience.",
+      tip: "<strong>En pratique&nbsp;:</strong> faites écrire les avis AVANT le tour de parole. Dans un groupe, le silence n'est jamais un consentement&nbsp;: c'est souvent un signal qu'il faut creuser."
+    },
+    {
+      context: "Une intuition qui se confirme",
+      scenario: "Vous pensez depuis le début qu'un collègue n'est «&nbsp;pas vraiment fiable&nbsp;». Sur dix livrables, il en réussit huit et en rate deux. Quand on vous demande votre avis sur lui, ce sont les deux échecs qui vous viennent immédiatement en tête. Les huit réussites&nbsp;? Vous les trouvez «&nbsp;normales&nbsp;».",
+      question: "Comment expliquer cette perception ?",
+      options: [
+        "Vous êtes simplement attentif aux signaux faibles",
+        "Vous cherchez (sans le savoir) ce qui confirme votre opinion",
+        "Les échecs sont objectivement plus marquants que les réussites",
+        "C'est de la lucidité, pas un biais"
+      ],
+      correct: 1,
+      bias: "Biais de confirmation",
+      system: "Système 1",
+      definition: "Le cerveau retient et valorise spontanément les informations qui confirment ce qu'il croit déjà, et minimise voire ignore celles qui le contredisent. C'est l'un des biais les plus puissants — et les plus invisibles.",
+      tip: "<strong>En pratique&nbsp;:</strong> avant un jugement, demandez-vous activement&nbsp;: «&nbsp;Quelles preuves contrediraient mon opinion&nbsp;?&nbsp;» Si vous n'en trouvez aucune, c'est rarement parce qu'il n'y en a pas — c'est parce que vous ne les avez pas cherchées."
+    }
+  ];
+
+  let current = 0;
+  let selected = null;
+  let revealed = false;
+
+  function renderProgress() {
+    const p = document.getElementById('qz-progress');
+    p.innerHTML = questions.map((_, i) => {
+      let cls = 'qz-dot';
+      if (i < current) cls += ' done';
+      else if (i === current) cls += ' active';
+      return '<div class="' + cls + '"></div>';
+    }).join('');
+  }
+
+  function renderQuestion() {
+    selected = null;
+    revealed = false;
+    const q = questions[current];
+    const c = document.getElementById('qz-content');
+    c.innerHTML = `
+      <div class="qz-card">
+        <div class="qz-context">${q.context}</div>
+        <div class="qz-scenario">${q.scenario}</div>
+        <div class="qz-question">${q.question}</div>
+        <div class="qz-options" id="qz-options">
+          ${q.options.map((opt, i) => `<button class="qz-opt" data-idx="${i}" id="qz-opt-${i}">${opt}</button>`).join('')}
+        </div>
+        <div id="qz-reveal-slot"></div>
+        <div class="qz-nav">
+          <div class="qz-counter">Question ${current + 1} sur ${questions.length}</div>
+          <button class="qz-next" id="qz-next" disabled>
+            ${current === questions.length - 1 ? 'Voir le bilan' : 'Question suivante'}
+            <span class="qz-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      </div>
+    `;
+    // Attachement des handlers
+    document.querySelectorAll('.qz-opt').forEach(btn => {
+      btn.addEventListener('click', () => selectOpt(parseInt(btn.dataset.idx, 10)));
+    });
+    document.getElementById('qz-next').addEventListener('click', nextQuestion);
+    renderProgress();
+  }
+
+  function selectOpt(i) {
+    if (revealed) return;
+    selected = i;
+    document.querySelectorAll('.qz-opt').forEach((b, idx) => {
+      b.classList.toggle('selected', idx === i);
+    });
+    setTimeout(reveal, 250);
+  }
+
+  function reveal() {
+    revealed = true;
+    const q = questions[current];
+    document.querySelectorAll('.qz-opt').forEach(b => { b.disabled = true; });
+    const slot = document.getElementById('qz-reveal-slot');
+    const correct = selected === q.correct;
+    slot.innerHTML = `
+      <div class="qz-reveal" role="status">
+        <div class="qz-bias-name">
+          <span class="qz-bias-icon" aria-hidden="true">${correct ? '✓' : '!'}</span>
+          ${q.bias}
+          <span class="qz-bias-system">${q.system}</span>
+        </div>
+        <div class="qz-bias-def">${q.definition}</div>
+        <div class="qz-tip">${q.tip}</div>
+      </div>
+    `;
+    document.getElementById('qz-next').disabled = false;
+  }
+
+  function nextQuestion() {
+    current++;
+    if (current >= questions.length) renderFinal();
+    else renderQuestion();
+  }
+
+  function renderFinal() {
+    renderProgress();
+    document.getElementById('qz-content').innerHTML = `
+      <div class="qz-card qz-final">
+        <div class="qz-final-icon" aria-hidden="true">★</div>
+        <h3>Bravo, vous voilà alerté&nbsp;!</h3>
+        <p>
+          Connaître ces biais ne suffit pas à s'en prémunir totalement&nbsp;: ils sont automatiques, profondément humains, et même les experts y succombent.
+        </p>
+        <p>
+          Ce qui fonctionne, ce sont des <strong>pratiques individuelles et collectives</strong> conçues pour les neutraliser&nbsp;: prendre le temps, écrire avant de parler, questionner ses certitudes, créer un climat où chacun ose exprimer son désaccord.
+        </p>
+        <button class="qz-restart" id="qz-restart">
+          <span aria-hidden="true">↻</span> Recommencer le quiz
+        </button>
+      </div>
+    `;
+    document.getElementById('qz-restart').addEventListener('click', restart);
+  }
+
+  function restart() {
+    current = 0;
+    renderQuestion();
+  }
+
+  // Initialisation
+  renderQuestion();
+})();
+</script>
+
+</body>
+</html>

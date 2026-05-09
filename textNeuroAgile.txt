@@ -1,0 +1,43 @@
+Section 1 — L'erreur est humaine : comprendre et déjouer ses biais cognitifs
+Les biais cognitifs ne sont ni des défauts de caractère, ni un manque d'intelligence : ce sont des raccourcis mentaux universels, hérités de l'évolution, qui touchent chacun d'entre nous, du débutant au plus expérimenté. Le Codex des Biais Cognitifs, élaboré par Buster Benson et illustré par John Manoogian III, en recense plus de 180, regroupés en quatre grandes catégories répondant chacune à un problème mental fondamental : trop d'informations à traiter, pas assez de sens, le besoin d'agir vite, et la nécessité de mémoriser efficacement. 
+
+Pour comprendre leur origine, nous nous appuierons sur les travaux de Daniel Kahneman, lauréat du prix Nobel d'économie en 2002. Sa théorie distingue deux modes de pensée : le « Système 1 », rapide, intuitif et émotionnel, et le « Système 2 », plus lent, réfléchi, contrôlé et logique. Le Système 1 excelle dans les évaluations rapides, mais c'est précisément cette tendance à généraliser ses jugements qui est à l'origine de nombreux biais cognitifs. En situation de stress, dans un flux tendu ou sous la pression client, le Système 1 prend souvent le relais sans qu'on s'en rende compte. Lien livre de Daniel Kanheman : https://fr.scribd.com/document/761493911/Systeme-1-Systeme-2-Les-Deux-Vitesses-de-La-Pensee
+
+Au programme de la formation :
+Exemple critiques : milieu de l'aviation, du médical et de la justice
+Cartographie des biais les plus présents en équipe (ancrage, confirmation, halo, biais d'optimisme dans les estimations, sunk cost dans les projets)
+Auto-diagnostic via des expériences vécues
+Apprendre à repérer les signaux du passage du Système 1 au Système 2 
+Mise en place de garde-fous concrets dans vos processus d'équipe : pre-mortem, revue à l'aveugle, devil's advocate
+
+
+Section 2 — L'intelligence émotionnelle et collective au service de la performance
+Les neurosciences au fondement de l'empathie. Giacomo Rizzolatti, neurophysiologiste italien, a dirigé l'équipe qui a découvert les neurones miroirs au début des années 1990 à l'Université de Parme. Ces neurones jouent un rôle dans la cognition sociale, notamment dans l'apprentissage par imitation, mais aussi dans les processus affectifs comme l'empathie. Le système miroir des émotions permettrait de simuler l'état émotionnel d'autrui dans notre cerveau et, par conséquent, de mieux identifier les émotions éprouvées par les individus de notre entourage. Autrement dit : l'empathie n'est pas qu'une qualité morale, c'est un mécanisme biologique entraînable. Brain Ball + 2
+Les sciences comportementales : l'intelligence émotionnelle comme atout pro. Popularisé par Daniel Goleman dans les années 1990, le concept articule cinq composantes : conscience de soi, maîtrise de soi, motivation, empathie et compétences sociales. Des études ont montré que les personnes ayant une intelligence émotionnelle élevée ont une meilleure santé mentale et physique, de meilleures performances professionnelles et de meilleures compétences en matière de leadership. Wikipedia
+De l'individuel au collectif : l'intelligence collective. En 2012, Google a lancé le projet Aristote, une vaste étude sur plus de 180 équipes pour découvrir les clés de réussite des équipes les plus performantes, en analysant plus de 200 paramètres. Les chercheurs ont croisé 250 variables — niveau d'éducation, types de personnalités, affinités, leadership, genre, ancienneté — sans qu'aucun schéma clair ne se dégage. Le facteur clé se situait ailleurs. Le déclic a eu lieu lorsqu'ils ont observé que les meilleures équipes avaient toutes une chose en commun : un climat où chacun se sent libre de s'exprimer, de douter, de faire des erreurs sans crainte de jugement — ce qu'Amy Edmondson appelle la sécurité psychologique. Les meilleures équipes partagent deux caractéristiques : une distribution équitable du temps de parole et une capacité d'empathie ou « sensibilité sociale ». INSPIRE&CO + 3
+
+Idées de visualisation :
+
+Pyramide ou cercles concentriques « Soi → Autrui → Collectif » — Conscience de soi (neurones, émotions) → Empathie (neurones miroirs) → Sécurité psychologique (équipe) → Performance collective. Une progression visuelle qui ancre le message clé : pas d'intelligence collective sans intelligence émotionnelle individuelle.
+Infographie « Les 5 piliers du projet Aristote » — sécurité psychologique (en pilier central et plus grand), fiabilité, clarté, sens, impact. Avec en bas la phrase choc : « Ce n'est pas QUI compose l'équipe qui compte, mais COMMENT ses membres interagissent. »
+Schéma simplifié du neurone miroir — un dessin avec deux cerveaux : l'un agit, l'autre observe ; les mêmes zones s'allument. Forte valeur pédagogique.
+
+
+
+Section 3 — L'agilité à l'échelle : des origines industrielles aux nouveaux territoires
+L'agilité n'est pas une mode logicielle : ses racines plongent dans l'industrie automobile japonaise d'après-guerre. Dans les années 1950, Taiichi Ōno, craignant de voir l'industrie automobile japonaise mourir face aux États-Unis, met au point chez Toyota le Kanban et le Just-in-Time. Le terme « Lean » apparaît en 1990 aux États-Unis suite à la publication des travaux de trois chercheurs du MIT, dont James Womack ; leur ouvrage The Machine That Changed the World (1991) marque le lancement planétaire du Lean manufacturing et inspirera directement l'agilité logicielle. Le Blog du DirigeantCampus LEAN
+En février 2001, aux États-Unis, dix-sept spécialistes du développement logiciel se sont réunis pour débattre du thème unificateur de leurs méthodes respectives, jusqu'alors appelées sans consensus « méthodes lights ». Le Manifeste Agile, publié à cette occasion, présente les quatre valeurs et les douze principes du développement agile et reste à ce jour la boussole de tous les frameworks agiles. Depuis, l'agilité a essaimé bien au-delà de la tech : Scrum (framework itératif avec rôles définis : Scrum Master, Product Owner, équipe de développement), Kanban (visualisation du flux et limitation du WIP), eXtreme Programming, DevOps, et SAFe pour les grandes organisations. Les principes agiles ont trouvé écho bien au-delà du développement logiciel — RH, marketing, recherche, et même droit et médecine, où les boucles courtes de feedback transforment la pratique. Wikipedia + 3
+Au programme de la formation :
+
+Pourquoi l'agilité ? L'origine Lean et les 4 valeurs / 12 principes du Manifeste
+Scrum en profondeur : rôles, artefacts (backlog, incrément), événements (sprint, daily, review, rétrospective)
+Kanban : flux tiré, limitation du travail en cours, amélioration continue
+Quand utiliser l'un, l'autre, ou les deux (Scrumban)
+Aperçu du passage à l'échelle (SAFe, LeSS) et conditions de réussite
+
+
+Idées de visualisation :
+
+Frise chronologique horizontale — 1950 (Toyota/TPS) → 1990 (publication Lean MIT) → 2001 (Manifeste Agile) → 2010s (extension hors IT) → aujourd'hui. Chaque jalon avec une icône et un mot-clé. Très efficace pour casser le préjugé « agile = mode IT récente ».
+Tableau comparatif Scrum vs Kanban — colonnes : cadence, rôles, artefacts, idéal pour. Format synthétique très consulté.
+Carte des secteurs où l'agilité a percé — schéma rayonnant depuis « Manifeste 2001 » vers IT, automobile, RH, marketing, recherche, droit, médecine, éducation. Marque l'idée que vos formations s'adressent à tous les domaines.
