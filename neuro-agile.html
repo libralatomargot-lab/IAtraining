@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurosciences &amp; agilité — Margot Libralato</title>
+    <meta name="description" content="Biais cognitifs, intelligence collective, agilité à l'échelle : la science du comportement au service de la transformation des équipes.">
+
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const theme = saved || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="neuro-agile.css">
+</head>
+<body>
+
+    <!-- ====================== HEADER ====================== -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-mark"><i data-lucide="brain"></i></span>
+                <span class="logo-text">Margot Libralato</span>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html#about">À propos</a>
+                <a href="index.html#expertises">Expertises</a>
+                <a href="cv-timeline.html">CV &amp; Parcours</a>
+                <a href="formations.html">Formations</a>
+                <a href="index.html#contact" class="btn-outline">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Changer de thème" title="Changer de thème">
+                    <i data-lucide="sun" class="icon-sun"></i>
+                    <i data-lucide="moon" class="icon-moon"></i>
+                </button>
+                <button class="menu-toggle" aria-label="Ouvrir le menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====================== HERO ====================== -->
+    <section class="na-hero">
+        <canvas id="hero-canvas" class="hero-bg" aria-hidden="true"></canvas>
+
+        <div class="container na-hero-content">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                <span class="badge-text">// NEUROSCIENCES &amp; AGILITÉ</span>
+            </div>
+            <h1>La <span class="gradient-text">science du comportement</span> au service de la transformation.</h1>
+            <p class="hero-tagline">
+                Comprendre comment fonctionne le cerveau humain — individuellement et collectivement — pour bâtir des équipes plus lucides, plus alignées et plus performantes.
+            </p>
+
+            <nav class="na-toc" aria-label="Sommaire de la page">
+                <a href="#section-biais" class="toc-link"><span class="toc-num">01</span> Biais cognitifs</a>
+                <a href="#section-ie" class="toc-link"><span class="toc-num">02</span> Intelligence émotionnelle &amp; collective</a>
+                <a href="#section-agilite" class="toc-link"><span class="toc-num">03</span> Agilité à l'échelle</a>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ====================== ACCORDION ====================== -->
+    <section class="na-accordion-wrap">
+        <div class="container">
+
+            <!-- ============ SECTION 1 — BIAIS COGNITIFS ============ -->
+            <details class="na-acc" id="section-biais" open>
+                <summary class="na-acc-summary">
+                    <span class="na-acc-num">01</span>
+                    <div class="na-acc-icon-box"><i data-lucide="brain-circuit"></i></div>
+                    <div class="na-acc-titles">
+                        <h2 class="na-acc-title">L'erreur est humaine&nbsp;: comprendre et déjouer ses biais cognitifs</h2>
+                        <p class="na-acc-sub">Codex des biais, théorie de Kahneman, garde-fous concrets en équipe.</p>
+                    </div>
+                    <span class="na-acc-chevron"><i data-lucide="chevron-down"></i></span>
+                </summary>
+
+                <div class="na-acc-body">
+                    <p>
+                        Les biais cognitifs ne sont ni des défauts de caractère, ni un manque d'intelligence&nbsp;: ce sont des <strong>raccourcis mentaux universels</strong>, hérités de l'évolution, qui touchent chacun d'entre nous, du débutant au plus expérimenté. Le <em>Codex des Biais Cognitifs</em>, élaboré par Buster Benson et illustré par John Manoogian III, en recense plus de 180, regroupés en quatre grandes catégories répondant chacune à un problème mental fondamental&nbsp;: trop d'informations à traiter, pas assez de sens, le besoin d'agir vite, et la nécessité de mémoriser efficacement.
+                    </p>
+                    <p>
+                        Pour comprendre leur origine, nous nous appuierons sur les travaux de <strong>Daniel Kahneman</strong>, lauréat du prix Nobel d'économie en 2002. Sa théorie distingue deux modes de pensée&nbsp;: le «&nbsp;<strong>Système 1</strong>&nbsp;», rapide, intuitif et émotionnel, et le «&nbsp;<strong>Système 2</strong>&nbsp;», plus lent, réfléchi, contrôlé et logique. Le Système 1 excelle dans les évaluations rapides, mais c'est précisément cette tendance à généraliser ses jugements qui est à l'origine de nombreux biais cognitifs. En situation de stress, dans un flux tendu ou sous la pression client, le Système 1 prend souvent le relais sans qu'on s'en rende compte.
+                    </p>
+                    <p>
+                        <a href="https://fr.scribd.com/document/761493911/Systeme-1-Systeme-2-Les-Deux-Vitesses-de-La-Pensee" target="_blank" rel="noopener">Lien vers le livre de Daniel Kahneman <i data-lucide="external-link" style="display:inline;width:14px;height:14px;vertical-align:-2px;"></i></a>
+                    </p>
+
+                    <div class="na-program">
+                        <h4>// Au programme de la formation</h4>
+                        <ul>
+                            <li>Exemples critiques&nbsp;: milieu de l'aviation, du médical et de la justice</li>
+                            <li>Cartographie des biais les plus présents en équipe (ancrage, confirmation, halo, biais d'optimisme dans les estimations, sunk cost dans les projets)</li>
+                            <li>Auto-diagnostic via des expériences vécues</li>
+                            <li>Apprendre à repérer les signaux du passage du Système 1 au Système 2</li>
+                            <li>Mise en place de garde-fous concrets dans vos processus d'équipe&nbsp;: pre-mortem, revue à l'aveugle, devil's advocate</li>
+                        </ul>
+                    </div>
+
+                    <!-- ===== QUIZZ EMBARQUÉ ===== -->
+                    <div class="na-visual-wrap">
+                        <span class="na-visual-tag">// Mini-quiz interactif</span>
+                        <div class="qz-root">
+                            <div class="qz-head">
+                                <h3 class="qz-title">Quel biais venez-vous de subir&nbsp;?</h3>
+                                <p class="qz-subtitle">5 situations que vous avez (probablement) déjà vécues</p>
+                                <div class="qz-progress" id="qz-progress" aria-label="Progression dans le quiz"></div>
+                            </div>
+                            <div id="qz-content" aria-live="polite"></div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+
+            <!-- ============ SECTION 2 — IE & COLLECTIVE ============ -->
+            <details class="na-acc" id="section-ie">
+                <summary class="na-acc-summary">
+                    <span class="na-acc-num">02</span>
+                    <div class="na-acc-icon-box"><i data-lucide="users"></i></div>
+                    <div class="na-acc-titles">
+                        <h2 class="na-acc-title">L'intelligence émotionnelle et collective au service de la performance</h2>
+                        <p class="na-acc-sub">Neurones miroirs, modèle Goleman, projet Aristote &amp; sécurité psychologique.</p>
+                    </div>
+                    <span class="na-acc-chevron"><i data-lucide="chevron-down"></i></span>
+                </summary>
+
+                <div class="na-acc-body">
+                    <p>
+                        Trois échelles, trois leviers neuroscientifiques&nbsp;: <strong>l'individuel</strong> (les neurones miroirs), <strong>le relationnel</strong> (l'intelligence émotionnelle) et <strong>le collectif</strong> (la sécurité psychologique).
+                    </p>
+
+                    <div class="na-tabs">
+                        <div class="na-tabs-nav" role="tablist">
+                            <button class="na-tab active" data-tab="miroirs" role="tab" aria-selected="true">
+                                <span class="na-tab-num">01 — Individuel</span>
+                                <span class="na-tab-label">Neurones miroirs</span>
+                                <span class="na-tab-sub">L'empathie est un circuit qui se muscle.</span>
+                            </button>
+                            <button class="na-tab" data-tab="ie" role="tab" aria-selected="false">
+                                <span class="na-tab-num">02 — Relationnel</span>
+                                <span class="na-tab-label">Intelligence émotionnelle</span>
+                                <span class="na-tab-sub">Le meilleur prédicteur de réussite professionnelle.</span>
+                            </button>
+                            <button class="na-tab" data-tab="collective" role="tab" aria-selected="false">
+                                <span class="na-tab-num">03 — Collectif</span>
+                                <span class="na-tab-label">Intelligence collective</span>
+                                <span class="na-tab-sub">Pas la somme des talents&nbsp;: la qualité des interactions.</span>
+                            </button>
+                        </div>
+
+                        <div class="na-tabs-panels">
+
+                            <!-- Panel 1 : Neurones miroirs -->
+                            <div class="na-tab-panel active" data-panel="miroirs" role="tabpanel">
+                                <div class="na-stats-row">
+                                    <div class="na-stat">
+                                        <div class="na-stat-num">1990s</div>
+                                        <div class="na-stat-label">Université de Parme</div>
+                                    </div>
+                                    <div class="na-stat">
+                                        <div class="na-stat-num">Entraînable</div>
+                                        <div class="na-stat-label">Comme un muscle</div>
+                                    </div>
+                                    <div class="na-stat">
+                                        <div class="na-stat-num">Mesurable</div>
+                                        <div class="na-stat-label">Levier de performance</div>
+                                    </div>
+                                </div>
+
+                                <div class="na-lead">
+                                    <em>Ce que ça change pour vous&nbsp;:</em> vos managers ne sont pas «&nbsp;empathiques par nature&nbsp;» ou condamnés à ne pas l'être. <strong>L'empathie est un circuit neuronal qui se muscle</strong>, comme on muscle un biceps.
+                                </div>
+
+                                <p>
+                                    Au début des années 1990, l'équipe de <strong>Giacomo Rizzolatti</strong> à l'Université de Parme découvre les neurones miroirs&nbsp;: des neurones qui s'activent à l'identique lorsque nous réalisons une action et lorsque nous observons quelqu'un la réaliser. Ce système simule dans notre propre cerveau l'état émotionnel d'autrui — frustration d'un client, démotivation d'un collaborateur, tension dans une réunion.
+                                </p>
+
+                                <h4>Application concrète en entreprise</h4>
+                                <ul>
+                                    <li>Former les managers à la lecture des signaux faibles plutôt qu'à des «&nbsp;techniques de communication&nbsp;» plaquées</li>
+                                    <li>Réduire les conflits liés aux malentendus, qui représentent une part énorme du temps RH</li>
+                                    <li>Améliorer la qualité des entretiens commerciaux, des négociations, des feedbacks</li>
+                                </ul>
+
+                                <div class="na-callout">
+                                    L'empathie n'est plus une «&nbsp;soft skill&nbsp;» floue&nbsp;: c'est un levier de performance mesurable et développable.
+                                </div>
+                            </div>
+
+                            <!-- Panel 2 : Intelligence émotionnelle -->
+                            <div class="na-tab-panel" data-panel="ie" role="tabpanel">
+                                <div class="na-stats-row">
+                                    <div class="na-stat">
+                                        <div class="na-stat-num">5</div>
+                                        <div class="na-stat-label">Leviers (modèle Goleman)</div>
+                                    </div>
+                                    <div class="na-stat">
+                                        <div class="na-stat-num">&gt; QI</div>
+                                        <div class="na-stat-label">Prédicteur n°1 de réussite</div>
+                                    </div>
+                                    <div class="na-stat">
+                                        <div class="na-stat-num">↓ Turnover</div>
+                                        <div class="na-stat-label">Sous managers à forte IE</div>
+                                    </div>
+                                </div>
+
+                                <div class="na-lead">
+                                    <em>Ce que ça change pour vous&nbsp;:</em> à QI égal, à diplôme égal, à expérience égale, c'est <strong>l'intelligence émotionnelle qui fait la différence</strong> sur la performance, le leadership et la rétention.
+                                </div>
+
+                                <p>
+                                    Popularisé par <strong>Daniel Goleman</strong> dans les années 1990, le modèle s'articule autour de cinq leviers&nbsp;: conscience de soi, maîtrise de soi, motivation, empathie et compétences sociales. Les recherches convergent&nbsp;: une IE élevée = meilleure santé, performances supérieures, leadership plus solide.
+                                </p>
+
+                                <h4>Application concrète en entreprise</h4>
+                                <ul>
+                                    <li>Intégrer l'IE dans les critères de recrutement et d'évaluation des managers (pas seulement les résultats chiffrés)</li>
+                                    <li>Développer des programmes de formation ciblés sur les cinq composantes plutôt que sur du «&nbsp;management générique&nbsp;»</li>
+                                    <li>Réduire le turnover&nbsp;: les équipes dirigées par des managers à forte IE ont des taux de départ significativement plus bas</li>
+                                </ul>
+
+                                <div class="na-callout">
+                                    C'est l'investissement formation qui présente le meilleur ratio coût&nbsp;/&nbsp;impact mesurable.
+                                </div>
+                            </div>
+
+                            <!-- Panel 3 : Intelligence collective -->
+                            <div class="na-tab-panel" data-panel="collective" role="tabpanel">
+                                <div class="na-stats-row">
+                                    <div class="na-stat">
+                                        <div class="na-stat-num">180+</div>
+                                        <div class="na-stat-label">Équipes étudiées (Google)</div>
+                                    </div>
+                                    <div class="na-stat">
+                                        <div class="na-stat-num">250</div>
+                                        <div class="na-stat-label">Variables analysées</div>
+                                    </div>
+                                    <div class="na-stat">
+                                        <div class="na-stat-num">2012</div>
+                                        <div class="na-stat-label">Projet Aristote</div>
+                                    </div>
+                                </div>
+
+                                <div class="na-lead">
+                                    <em>Ce que ça change pour vous&nbsp;:</em> vous pouvez arrêter de chercher «&nbsp;les meilleurs profils&nbsp;». Ce qui crée la performance, ce n'est pas la somme des talents, <strong>c'est la qualité des interactions entre eux</strong>.
+                                </div>
+
+                                <p>
+                                    Le projet Aristote (Google, 2012) est l'étude la plus ambitieuse jamais menée sur la performance d'équipe. Aucun des critères classiques (niveau d'études, personnalités, ancienneté…) ne prédit la performance. Les meilleures équipes partagent deux caractéristiques, et seulement deux&nbsp;:
+                                </p>
+                                <ul>
+                                    <li>Une <strong>distribution équitable du temps de parole</strong></li>
+                                    <li>Une <strong>forte sensibilité sociale</strong> entre membres</li>
+                                </ul>
+                                <p>
+                                    Ces deux ingrédients créent ce qu'<strong>Amy Edmondson</strong> appelle la <em>sécurité psychologique</em>&nbsp;: un climat où chacun ose s'exprimer, douter, signaler une erreur sans craindre d'être jugé.
+                                </p>
+
+                                <h4>Application concrète en entreprise</h4>
+                                <ul>
+                                    <li>Auditer vos réunions&nbsp;: qui parle ? qui se tait ?</li>
+                                    <li>Former les managers à <em>animer</em> (et non à <em>dominer</em>) les échanges</li>
+                                    <li>Créer un cadre où l'erreur signalée tôt vaut mieux que l'erreur cachée tard</li>
+                                    <li>Mesurer la sécurité psychologique aussi rigoureusement que l'engagement</li>
+                                </ul>
+
+                                <div class="na-callout">
+                                    ROI massif&nbsp;: une équipe avec sécurité psychologique innove plus, détecte les problèmes plus tôt, perd moins de temps en non-dits politiques, et garde ses talents.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <p>
+                        <strong>En synthèse&nbsp;:</strong> les neurosciences nous disent que la performance collective n'est pas une affaire de stars individuelles, mais d'un cerveau social bien câblé. Empathie, intelligence émotionnelle, sécurité psychologique&nbsp;: trois leviers concrets, mesurables, entraînables — et directement corrélés à votre P&amp;L.
+                    </p>
+
+                    <!-- ===== VISUEL PILIERS ARISTOTE ===== -->
+                    <div class="na-visual-wrap">
+                        <span class="na-visual-tag">// Les 5 piliers du projet Aristote (Google)</span>
+                        <div class="aristote-container">
+                            <header class="aristote-header">
+                                <h3 class="aristote-title">Les 5 piliers du projet Aristote</h3>
+                                <p class="aristote-subtitle">Google · 180+ équipes · 250 variables analysées</p>
+                            </header>
+
+                            <div class="pillars">
+                                <div class="pillar pillar-secondary short">
+                                    <div class="pillar-name">Fiabilité</div>
+                                    <div class="pillar-desc">On peut compter sur les autres</div>
+                                </div>
+                                <div class="pillar pillar-secondary medium">
+                                    <div class="pillar-name">Clarté</div>
+                                    <div class="pillar-desc">Rôles, plans et objectifs explicites</div>
+                                </div>
+                                <div class="pillar pillar-primary">
+                                    <div class="pillar-name">Sécurité<br>psychologique</div>
+                                    <div class="pillar-desc">Oser parler, douter, se tromper — sans peur d'être jugé</div>
+                                    <div class="pillar-badge"><span>N° 1</span></div>
+                                </div>
+                                <div class="pillar pillar-secondary medium">
+                                    <div class="pillar-name">Sens</div>
+                                    <div class="pillar-desc">Le travail a une valeur personnelle</div>
+                                </div>
+                                <div class="pillar pillar-secondary short">
+                                    <div class="pillar-name">Impact</div>
+                                    <div class="pillar-desc">Notre travail change les choses</div>
+                                </div>
+                            </div>
+
+                            <div class="insight-box">
+                                <p>Ce n'est pas <strong>QUI</strong> compose l'équipe qui compte,<br>mais <strong>COMMENT</strong> ses membres interagissent.</p>
+                            </div>
+                            <p class="footer-note">Une seule variable a vraiment fait la différence.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+
+            <!-- ============ SECTION 3 — AGILITÉ À L'ÉCHELLE ============ -->
+            <details class="na-acc" id="section-agilite">
+                <summary class="na-acc-summary">
+                    <span class="na-acc-num">03</span>
+                    <div class="na-acc-icon-box"><i data-lucide="git-branch"></i></div>
+                    <div class="na-acc-titles">
+                        <h2 class="na-acc-title">L'agilité à l'échelle&nbsp;: des origines industrielles aux nouveaux territoires</h2>
+                        <p class="na-acc-sub">De Toyota au Manifeste Agile, Scrum, Kanban et le passage à l'échelle.</p>
+                    </div>
+                    <span class="na-acc-chevron"><i data-lucide="chevron-down"></i></span>
+                </summary>
+
+                <div class="na-acc-body">
+                    <p>
+                        L'agilité n'est pas une mode logicielle&nbsp;: ses racines plongent dans <strong>l'industrie automobile japonaise d'après-guerre</strong>. Dans les années 1950, <strong>Taiichi Ōno</strong>, craignant de voir l'industrie automobile japonaise mourir face aux États-Unis, met au point chez Toyota le <em>Kanban</em> et le <em>Just-in-Time</em>. Le terme «&nbsp;Lean&nbsp;» apparaît en 1990 aux États-Unis suite à la publication des travaux de trois chercheurs du MIT, dont <strong>James Womack</strong>&nbsp;; leur ouvrage <em>The Machine That Changed the World</em> (1991) marque le lancement planétaire du Lean manufacturing et inspirera directement l'agilité logicielle.
+                    </p>
+                    <p>
+                        En février 2001, aux États-Unis, dix-sept spécialistes du développement logiciel se sont réunis pour débattre du thème unificateur de leurs méthodes respectives, jusqu'alors appelées sans consensus «&nbsp;méthodes lights&nbsp;». Le <strong>Manifeste Agile</strong>, publié à cette occasion, présente les <strong>quatre valeurs et les douze principes</strong> du développement agile et reste à ce jour la boussole de tous les frameworks agiles.
+                    </p>
+                    <p>
+                        Depuis, l'agilité a essaimé bien au-delà de la tech&nbsp;: <strong>Scrum</strong> (framework itératif avec rôles définis&nbsp;: Scrum Master, Product Owner, équipe de développement), <strong>Kanban</strong> (visualisation du flux et limitation du WIP), <strong>eXtreme Programming</strong>, <strong>DevOps</strong>, et <strong>SAFe</strong> pour les grandes organisations. Les principes agiles ont trouvé écho bien au-delà du développement logiciel — RH, marketing, recherche, et même droit et médecine, où les boucles courtes de feedback transforment la pratique.
+                    </p>
+
+                    <div class="na-program">
+                        <h4>// Au programme de la formation</h4>
+                        <ul>
+                            <li>Pourquoi l'agilité&nbsp;? L'origine Lean et les 4 valeurs / 12 principes du Manifeste</li>
+                            <li>Scrum en profondeur&nbsp;: rôles, artefacts (backlog, incrément), événements (sprint, daily, review, rétrospective)</li>
+                            <li>Kanban&nbsp;: flux tiré, limitation du travail en cours, amélioration continue</li>
+                            <li>Quand utiliser l'un, l'autre, ou les deux (Scrumban)</li>
+                            <li>Aperçu du passage à l'échelle (SAFe, LeSS) et conditions de réussite</li>
+                        </ul>
+                    </div>
+
+                    <!-- ===== VISUEL SECTEURS RAYONNANTS ===== -->
+                    <div class="na-visual-wrap">
+                        <span class="na-visual-tag">// L'agilité au-delà de l'IT</span>
+                        <div class="radial-container">
+                            <header class="radial-header">
+                                <h3 class="radial-title">L'agilité a percé bien au-delà de l'IT</h3>
+                                <p class="radial-subtitle">Du Manifeste 2001 à tous les secteurs de l'entreprise</p>
+                            </header>
+
+                            <div class="radial">
+                                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                    <line class="ray ray-1" x1="50" y1="50" x2="50" y2="14" stroke="#06B6D4" stroke-width="0.4" stroke-dasharray="1.5 1.5"/>
+                                    <line class="ray ray-2" x1="50" y1="50" x2="75" y2="25" stroke="#06B6D4" stroke-width="0.4" stroke-dasharray="1.5 1.5"/>
+                                    <line class="ray ray-3" x1="50" y1="50" x2="86" y2="50" stroke="#06B6D4" stroke-width="0.4" stroke-dasharray="1.5 1.5"/>
+                                    <line class="ray ray-4" x1="50" y1="50" x2="75" y2="75" stroke="#06B6D4" stroke-width="0.4" stroke-dasharray="1.5 1.5"/>
+                                    <line class="ray ray-5" x1="50" y1="50" x2="50" y2="86" stroke="#06B6D4" stroke-width="0.4" stroke-dasharray="1.5 1.5"/>
+                                    <line class="ray ray-6" x1="50" y1="50" x2="25" y2="75" stroke="#06B6D4" stroke-width="0.4" stroke-dasharray="1.5 1.5"/>
+                                    <line class="ray ray-7" x1="50" y1="50" x2="14" y2="50" stroke="#06B6D4" stroke-width="0.4" stroke-dasharray="1.5 1.5"/>
+                                    <line class="ray ray-8" x1="50" y1="50" x2="25" y2="25" stroke="#06B6D4" stroke-width="0.4" stroke-dasharray="1.5 1.5"/>
+                                </svg>
+
+                                <div class="center-node">
+                                    <div class="center-year">2001</div>
+                                    <div class="center-label">Manifeste agile</div>
+                                    <div class="center-sub">17 signataires<br>4 valeurs · 12 principes</div>
+                                </div>
+
+                                <div class="sector sector-1 origin">
+                                    <div class="sector-icon">💻</div>
+                                    <div class="sector-name">IT &amp; logiciel</div>
+                                    <div class="sector-year">origine</div>
+                                </div>
+                                <div class="sector sector-2">
+                                    <div class="sector-icon">📣</div>
+                                    <div class="sector-name">Marketing</div>
+                                    <div class="sector-year">~2012</div>
+                                </div>
+                                <div class="sector sector-3">
+                                    <div class="sector-icon">🚗</div>
+                                    <div class="sector-name">Automobile</div>
+                                    <div class="sector-year">~2015</div>
+                                </div>
+                                <div class="sector sector-4">
+                                    <div class="sector-icon">⚖️</div>
+                                    <div class="sector-name">Droit</div>
+                                    <div class="sector-year">~2018</div>
+                                </div>
+                                <div class="sector sector-5">
+                                    <div class="sector-icon">🩺</div>
+                                    <div class="sector-name">Médecine</div>
+                                    <div class="sector-year">~2017</div>
+                                </div>
+                                <div class="sector sector-6">
+                                    <div class="sector-icon">🎓</div>
+                                    <div class="sector-name">Éducation</div>
+                                    <div class="sector-year">~2014</div>
+                                </div>
+                                <div class="sector sector-7">
+                                    <div class="sector-icon">🔬</div>
+                                    <div class="sector-name">Recherche</div>
+                                    <div class="sector-year">~2016</div>
+                                </div>
+                                <div class="sector sector-8">
+                                    <div class="sector-icon">👥</div>
+                                    <div class="sector-name">RH</div>
+                                    <div class="sector-year">~2013</div>
+                                </div>
+                            </div>
+
+                            <div class="insight">
+                                <p>L'agilité n'est plus l'affaire des seuls développeurs.<br>
+                                <strong>Nos formations s'adressent à tous les métiers</strong> — chaque secteur a ses propres terrains d'application.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+        </div>
+    </section>
+
+    <!-- ====================== CTA FINAL ====================== -->
+    <section class="cta-section">
+        <div class="container cta-inner">
+            <h2 class="cta-title">Envie de transformer vos équipes&nbsp;?</h2>
+            <p class="cta-subtitle">
+                Échangeons 30 minutes pour cadrer votre besoin. Sans engagement.
+            </p>
+            <a href="mailto:libralato.margot@gmail.com" class="btn-primary btn-large">
+                Réserver un créneau
+                <i data-lucide="arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ====================== FOOTER ====================== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <div class="footer-logo"></div>
+                <span class="footer-name">Margot Libralato</span>
+                <span class="footer-copy">© 2026 — Mentions légales</span>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="mailto:libralato.margot@gmail.com" class="social-icon" aria-label="Email">
+                    <i data-lucide="mail"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+
+    <!-- ===== SCRIPT QUIZ ===== -->
+    <script>
+    (function() {
+      'use strict';
+
+      const questions = [
+        {
+          context: "Une réunion comme tant d'autres",
+          scenario: "Votre responsable lance la réunion en disant&nbsp;: «&nbsp;Selon moi, ce projet devrait nous prendre environ 3 mois. Qu'en pensez-vous&nbsp;?&nbsp;» Le tour de table s'enchaîne&nbsp;: les estimations vont de 2,5 à 4 mois. Personne ne propose 6 mois ou 1 mois.",
+          question: "Que s'est-il passé dans les têtes ?",
+          options: [
+            "Tout le monde avait fait la même analyse au préalable",
+            "Le chiffre de 3 mois a servi de point de référence inconscient",
+            "Les collaborateurs ont voulu rassurer leur manager",
+            "C'est juste une coïncidence de jugement"
+          ],
+          correct: 1,
+          bias: "Effet d'ancrage",
+          system: "Système 1",
+          definition: "Tout chiffre énoncé avant une estimation oriente inconsciemment celle-ci, même si vous savez qu'il est arbitraire. Votre cerveau ajuste autour de cette ancre au lieu de partir d'une page blanche.",
+          tip: "<strong>En pratique&nbsp;:</strong> faites estimer chacun individuellement et par écrit AVANT toute discussion collective. Comparez les chiffres ensuite&nbsp;: les écarts révèlent les vrais désaccords."
+        },
+        {
+          context: "Une idée, deux accueils",
+          scenario: "Camille, brillante et reconnue dans l'équipe, propose une nouvelle organisation. Vous validez sans demander de détails. Le lendemain, Sam (arrivé récemment) propose la même idée. Cette fois, vous demandez plusieurs justifications avant de vous prononcer.",
+          question: "Qu'est-ce qui s'est joué ?",
+          options: [
+            "Sam s'est moins bien exprimé que Camille",
+            "Camille a mieux préparé sa proposition",
+            "La compétence perçue de Camille a déteint sur le jugement de l'idée",
+            "C'est normal, l'expérience compte"
+          ],
+          correct: 2,
+          bias: "Effet de halo",
+          system: "Système 1",
+          definition: "Une qualité visible d'une personne (compétence, charisme, ancienneté, voire apparence) déteint sur l'évaluation de tout ce qui vient d'elle, y compris des éléments qui n'ont aucun lien avec cette qualité.",
+          tip: "<strong>En pratique&nbsp;:</strong> évaluez les idées, pas les personnes qui les portent. Une astuce&nbsp;: faites circuler les propositions par écrit et anonymes avant la discussion."
+        },
+        {
+          context: "Le projet qui s'éternise",
+          scenario: "Vous avez investi 18 mois et beaucoup d'énergie dans une formation/un projet/une relation. Les signaux deviennent négatifs. Pourtant, en y pensant, vous vous dites&nbsp;: «&nbsp;J'ai déjà tellement donné, je ne peux pas tout arrêter maintenant.&nbsp;»",
+          question: "Quel mécanisme vous retient ?",
+          options: [
+            "Une logique parfaitement rationnelle",
+            "Le besoin de cohérence avec vos décisions passées",
+            "L'espoir légitime que ça finira par payer",
+            "Le regard des autres sur un éventuel abandon"
+          ],
+          correct: 1,
+          bias: "Coûts irrécupérables",
+          system: "Système 1 + 2",
+          definition: "Continuer un engagement à cause des ressources déjà investies (temps, argent, énergie) — alors que celles-ci sont perdues quoi qu'il arrive. Seul le futur devrait peser dans la décision, jamais le passé.",
+          tip: "<strong>En pratique&nbsp;:</strong> posez-vous régulièrement la question&nbsp;: «&nbsp;Si je découvrais cette situation aujourd'hui, en partant de zéro, est-ce que je m'engagerais&nbsp;?&nbsp;»"
+        },
+        {
+          context: "Un consensus trop rapide",
+          scenario: "En réunion, la personne la plus à l'aise prend la parole&nbsp;: «&nbsp;Globalement, on est tous d'accord, non&nbsp;?&nbsp;» Cinq personnes acquiescent. Pourtant, à la pause-café, trois d'entre elles vous confient avoir des réserves importantes qu'elles n'ont pas osé exprimer.",
+          question: "Que s'est-il vraiment passé ?",
+          options: [
+            "L'équipe est réellement alignée, c'est positif",
+            "Les trois personnes ont changé d'avis en écoutant les autres",
+            "Le besoin d'harmonie a fait taire les voix divergentes",
+            "Ces personnes manquent juste de confiance en elles"
+          ],
+          correct: 2,
+          bias: "Pensée de groupe",
+          system: "Système 1",
+          definition: "Dans un groupe où l'on apprécie l'harmonie, le désir d'appartenance l'emporte sur l'évaluation lucide des idées. Les opinions minoritaires s'autocensurent, parfois sans même que la personne en ait conscience.",
+          tip: "<strong>En pratique&nbsp;:</strong> faites écrire les avis AVANT le tour de parole. Dans un groupe, le silence n'est jamais un consentement&nbsp;: c'est souvent un signal qu'il faut creuser."
+        },
+        {
+          context: "Une intuition qui se confirme",
+          scenario: "Vous pensez depuis le début qu'un collègue n'est «&nbsp;pas vraiment fiable&nbsp;». Sur dix livrables, il en réussit huit et en rate deux. Quand on vous demande votre avis sur lui, ce sont les deux échecs qui vous viennent immédiatement en tête. Les huit réussites&nbsp;? Vous les trouvez «&nbsp;normales&nbsp;».",
+          question: "Comment expliquer cette perception ?",
+          options: [
+            "Vous êtes simplement attentif aux signaux faibles",
+            "Vous cherchez (sans le savoir) ce qui confirme votre opinion",
+            "Les échecs sont objectivement plus marquants que les réussites",
+            "C'est de la lucidité, pas un biais"
+          ],
+          correct: 1,
+          bias: "Biais de confirmation",
+          system: "Système 1",
+          definition: "Le cerveau retient et valorise spontanément les informations qui confirment ce qu'il croit déjà, et minimise voire ignore celles qui le contredisent. C'est l'un des biais les plus puissants — et les plus invisibles.",
+          tip: "<strong>En pratique&nbsp;:</strong> avant un jugement, demandez-vous activement&nbsp;: «&nbsp;Quelles preuves contrediraient mon opinion&nbsp;?&nbsp;» Si vous n'en trouvez aucune, c'est rarement parce qu'il n'y en a pas — c'est parce que vous ne les avez pas cherchées."
+        }
+      ];
+
+      let current = 0;
+      let selected = null;
+      let revealed = false;
+
+      function renderProgress() {
+        const p = document.getElementById('qz-progress');
+        if (!p) return;
+        p.innerHTML = questions.map((_, i) => {
+          let cls = 'qz-dot';
+          if (i < current) cls += ' done';
+          else if (i === current) cls += ' active';
+          return '<div class="' + cls + '"></div>';
+        }).join('');
+      }
+
+      function renderQuestion() {
+        selected = null;
+        revealed = false;
+        const q = questions[current];
+        const c = document.getElementById('qz-content');
+        if (!c) return;
+        c.innerHTML = `
+          <div class="qz-card">
+            <div class="qz-context">${q.context}</div>
+            <div class="qz-scenario">${q.scenario}</div>
+            <div class="qz-question">${q.question}</div>
+            <div class="qz-options" id="qz-options">
+              ${q.options.map((opt, i) => `<button class="qz-opt" data-idx="${i}" id="qz-opt-${i}">${opt}</button>`).join('')}
+            </div>
+            <div id="qz-reveal-slot"></div>
+            <div class="qz-nav">
+              <div class="qz-counter">Question ${current + 1} sur ${questions.length}</div>
+              <button class="qz-next" id="qz-next" disabled>
+                ${current === questions.length - 1 ? 'Voir le bilan' : 'Question suivante'}
+                <span class="qz-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+          </div>
+        `;
+        document.querySelectorAll('.qz-opt').forEach(btn => {
+          btn.addEventListener('click', () => selectOpt(parseInt(btn.dataset.idx, 10)));
+        });
+        document.getElementById('qz-next').addEventListener('click', nextQuestion);
+        renderProgress();
+      }
+
+      function selectOpt(i) {
+        if (revealed) return;
+        selected = i;
+        document.querySelectorAll('.qz-opt').forEach((b, idx) => {
+          b.classList.toggle('selected', idx === i);
+        });
+        setTimeout(reveal, 250);
+      }
+
+      function reveal() {
+        revealed = true;
+        const q = questions[current];
+        document.querySelectorAll('.qz-opt').forEach(b => { b.disabled = true; });
+        const slot = document.getElementById('qz-reveal-slot');
+        const correct = selected === q.correct;
+        slot.innerHTML = `
+          <div class="qz-reveal" role="status">
+            <div class="qz-bias-name">
+              <span class="qz-bias-icon" aria-hidden="true">${correct ? '✓' : '!'}</span>
+              ${q.bias}
+              <span class="qz-bias-system">${q.system}</span>
+            </div>
+            <div class="qz-bias-def">${q.definition}</div>
+            <div class="qz-tip">${q.tip}</div>
+          </div>
+        `;
+        document.getElementById('qz-next').disabled = false;
+      }
+
+      function nextQuestion() {
+        current++;
+        if (current >= questions.length) renderFinal();
+        else renderQuestion();
+      }
+
+      function renderFinal() {
+        renderProgress();
+        document.getElementById('qz-content').innerHTML = `
+          <div class="qz-card qz-final">
+            <div class="qz-final-icon" aria-hidden="true">★</div>
+            <h3>Bravo, vous voilà alerté&nbsp;!</h3>
+            <p>
+              Connaître ces biais ne suffit pas à s'en prémunir totalement&nbsp;: ils sont automatiques, profondément humains, et même les experts y succombent.
+            </p>
+            <p>
+              Ce qui fonctionne, ce sont des <strong>pratiques individuelles et collectives</strong> conçues pour les neutraliser&nbsp;: prendre le temps, écrire avant de parler, questionner ses certitudes, créer un climat où chacun ose exprimer son désaccord.
+            </p>
+            <button class="qz-restart" id="qz-restart">
+              <span aria-hidden="true">↻</span> Recommencer le quiz
+            </button>
+          </div>
+        `;
+        document.getElementById('qz-restart').addEventListener('click', restart);
+      }
+
+      function restart() {
+        current = 0;
+        renderQuestion();
+      }
+
+      renderQuestion();
+    })();
+    </script>
+
+    <!-- ===== SCRIPT TABS SECTION 2 ===== -->
+    <script>
+    (function() {
+        const tabs = document.querySelectorAll('.na-tab');
+        const panels = document.querySelectorAll('.na-tab-panel');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.tab;
+                tabs.forEach(t => {
+                    const active = t === tab;
+                    t.classList.toggle('active', active);
+                    t.setAttribute('aria-selected', active ? 'true' : 'false');
+                });
+                panels.forEach(p => {
+                    p.classList.toggle('active', p.dataset.panel === target);
+                });
+            });
+        });
+    })();
+    </script>
+
+    <!-- Re-création des icônes lucide après injection dynamique -->
+    <script>
+        if (window.lucide) { lucide.createIcons(); }
+    </script>
+</body>
+</html>
