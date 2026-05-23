@@ -123,7 +123,6 @@ def add_recto_network(c):
         (10, 14), (14, 13),                       # vers la gauche en bas
         (2, 6), (6, 10),                          # connexions verticales internes
     ]
-
     # Convertir les coordonnées en absolu (avec OX, OY)
     abs_nodes = [(OX + n[0] * mm, OY + n[1] * mm, n[2], n[3]) for n in nodes]
 
@@ -194,12 +193,12 @@ def draw_recto(c):
     draw_logo_badge(c, OX + 5 * mm, OY + CARD_H - 9 * mm, dark=True, size=4 * mm)
     c.setFont("Helvetica-Bold", 8)
     c.setFillColor(WHITE)
-    c.drawString(OX + 10.5 * mm, OY + CARD_H - 7.5 * mm, "prénom.nom")
+    c.drawString(OX + 10.5 * mm, OY + CARD_H - 7.5 * mm, "margot.libralato")
 
     # ----- Nom (gros, en bas) -----
     c.setFont("Helvetica-Bold", 16)
     c.setFillColor(WHITE)
-    c.drawString(OX + 5 * mm, OY + 22 * mm, "Prénom NOM")
+    c.drawString(OX + 5 * mm, OY + 22 * mm, "Margot LIBRALATO")
 
     # Trait fin cyan sous le nom
     c.setStrokeColor(CYAN)
@@ -215,7 +214,7 @@ def draw_recto(c):
     # ----- Tag en bas -----
     c.setFont("Courier-Bold", 5)
     c.setFillColor(CYAN)
-    c.drawString(OX + 5 * mm, OY + 5 * mm, "// FORMATION  ATELIER  ACCOMPAGNEMENT")
+    c.drawString(OX + 5 * mm, OY + 5 * mm, "// CONSEIL  FORMATION  ACCOMPAGNEMENT")
 
 
 def draw_verso(c):
@@ -242,14 +241,14 @@ def draw_verso(c):
     draw_logo_badge(c, OX + 5 * mm, OY + CARD_H - 10 * mm, dark=False, size=4 * mm)
     c.setFont("Helvetica-Bold", 8)
     c.setFillColor(TEXT_DARK)
-    c.drawString(OX + 10.5 * mm, OY + CARD_H - 8.5 * mm, "prénom.nom")
+    c.drawString(OX + 10.5 * mm, OY + CARD_H - 8.5 * mm, "margot.libralato")
 
     # ----- Coordonnées (colonne gauche) -----
     coords = [
-        ("mail", "contact@prenom-nom.fr"),
-        ("phone", "+33 6 00 00 00 00"),
-        ("globe", "prenom-nom.fr"),
-        ("linkedin", "linkedin.com/in/prenom-nom"),
+        ("mail", "ml.innovconseil@gmail.com"),
+        ("phone", "+33 6 83 78 26 39"),
+        ("globe", "libralato.github.io"),
+        ("linkedin", "linkedin.com/in/margot-libralato"),
     ]
 
     base_y = OY + 30 * mm
@@ -326,7 +325,7 @@ def draw_verso(c):
            stroke=1, fill=0)
 
     # Génération du QR
-    qr_code = qr.QrCodeWidget("https://prenom-nom.fr")
+    qr_code = qr.QrCodeWidget("https://libralatomargot-lab.github.io")
     bounds = qr_code.getBounds()
     width_qr = bounds[2] - bounds[0]
     height_qr = bounds[3] - bounds[1]
@@ -378,7 +377,7 @@ def add_crop_marks(c):
 def build_card(filename, draw_func, with_crop_marks=True):
     """Génère une carte (1 face)."""
     c = canvas.Canvas(filename, pagesize=(PAGE_W, PAGE_H))
-    c.setTitle("Carte de visite — Prénom NOM")
+    c.setTitle("Carte de visite — Margot LIBRALATO")
     draw_func(c)
     if with_crop_marks:
         add_crop_marks(c)
@@ -389,7 +388,7 @@ def build_card(filename, draw_func, with_crop_marks=True):
 def build_combined_pdf(filename):
     """Génère un PDF avec recto + verso (2 pages)."""
     c = canvas.Canvas(filename, pagesize=(PAGE_W, PAGE_H))
-    c.setTitle("Cartes de visite — Prénom NOM")
+    c.setTitle("Cartes de visite — Margot LIBRALATO")
 
     # Page 1 : Recto
     draw_recto(c)
@@ -405,7 +404,7 @@ def build_combined_pdf(filename):
 
 
 # ====================== EXÉCUTION ======================
-output_dir = "/home/claude/cartes"
+output_dir = "."
 os.makedirs(output_dir, exist_ok=True)
 
 # Fichier combiné (recto + verso) — celui à envoyer à l'imprimeur
