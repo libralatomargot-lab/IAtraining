@@ -89,11 +89,19 @@
             </a>
 
             <nav class="nav">
-                <a href="../index.html#about">À propos</a>
-                <a href="../index.html#expertises">Expertises</a>
-                <a href="cv-timeline.html">CV &amp; Parcours</a>
-                <a href="formations.html">Formations</a>
-                <a href="../index.html#contact" class="btn-outline">Contact</a>
+                <a href="cv-timeline.html">Parcours &amp; CV</a>
+                <a href="formations.html">Services</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Expertises
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="ia-generative.html" role="menuitem">Intelligence Artificielle</a>
+                        <a href="neuro-agile.html" role="menuitem">Neurosciences, performance et agilité</a>
+                    </div>
+                </div>
+                <a href="mailto:ml.innovconseil@gmail.com" class="btn-outline">Contact</a>
             </nav>
 
             <div class="header-actions">
@@ -334,14 +342,14 @@
                                     <div class="flip-card-back">
                                         <p class="flip-back-label">// 08 — RAG</p>
                                         <p class="keyword-def">
-                                            Technique qui permet à un LLM d'aller <strong>chercher l'information dans vos documents</strong> avant de répondre, au lieu de puiser uniquement dans sa mémoire d'entraînement. Concrètement&nbsp;: il <em>cite vos sources</em> plutôt que d'inventer. C'est la réponse la plus directe au problème des hallucinations.<br><br>
-                                            <span class="keyword-warn">⚠ À ne pas confondre avec le fine-tuning&nbsp;: le RAG <em>consulte</em> vos données à chaque question&nbsp;; le fine-tuning, lui, <em>réentraîne</em> le modèle.</span>
+                                            Technique qui permet à un LLM d'aller <strong>chercher l'information dans vos documents</strong> avant de répondre. En pratique&nbsp;: votre question arrive → le système recherche les passages pertinents dans votre base documentaire → ces extraits sont transmis au modèle avec la question → il répond en citant <em>vos</em> sources, pas ses connaissances générales. C'est la réponse la plus directe au problème des hallucinations.<br><br>
+                                            <span class="keyword-warn">⚠ À ne pas confondre avec le fine-tuning&nbsp;: le RAG <em>consulte</em> vos données à chaque question sans modifier le modèle&nbsp;; le fine-tuning, lui, <em>réentraîne</em> le modèle sur vos exemples.</span>
                                         </p>
                                     </div>
                                 </div>
                             </article>
 
-                            <article class="flip-card flip-card-wide" data-color="magenta" tabindex="0" role="button" aria-label="Définition de Fine-tuning">
+                            <article class="flip-card" data-color="magenta" tabindex="0" role="button" aria-label="Définition de Fine-tuning">
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
                                         <div class="keyword-head">
@@ -354,7 +362,7 @@
                                     <div class="flip-card-back">
                                         <p class="flip-back-label">// 09 — FINE-TUNING</p>
                                         <p class="keyword-def">
-                                            Réentraînement d'un modèle sur vos propres exemples pour qu'il <strong>adopte durablement un style, un format ou un domaine</strong> précis. Plus lourd et plus coûteux que le RAG, et réservé aux cas où l'on veut modifier le comportement du modèle en profondeur — pas juste lui donner accès à des données.
+                                            Réentraînement d'un modèle sur vos propres exemples pour qu'il <strong>adopte durablement un style, un format ou un domaine</strong> précis. Concrètement&nbsp;: vous fournissez des centaines de paires question/réponse idéale, et le modèle apprend à reproduire ce comportement — même sans instructions supplémentaires dans le prompt. Plus lourd et plus coûteux que le RAG&nbsp;: à considérer uniquement quand ni le prompting ni le RAG ne suffisent à atteindre le résultat voulu.
                                         </p>
                                     </div>
                                 </div>
@@ -430,7 +438,7 @@
                         </div>
 
                         <p class="section-outro">
-                            Le bon outil n'est qu'un début — la vraie valeur vient de ce qu'on en fait. 
+                            <span style="color: #EC4899; font-weight: 500;">Le bon outil n'est qu'un début — la vraie valeur vient de ce qu'on en fait.</span>
                         </p>
                     </div>
                 </div>
@@ -456,10 +464,10 @@
                 <div class="accordion-panel" id="panel-prompts" role="region" aria-labelledby="trigger-prompts">
                     <div class="accordion-panel-inner">
                         <p class="section-intro">
-                            Un prompt, c'est simplement <strong>la consigne que vous donnez à l'IA</strong>: Un prompt flou donne une réponse moyenne, un prompt soigné donne un résultat exploitable. Le prompting est la compétence la plus rentable à acquérir ! <br><em>Maîtriser les bases suffit pour 80&nbsp;% des usages&nbsp;; les 20&nbsp;% restants — fiabilité, reproductibilité, intégration dans un système — relèvent d'un autre métier.</em>
+                            Un prompt, c'est simplement <strong>la consigne que vous donnez à l'IA</strong>: Un prompt flou donne une réponse moyenne, un prompt soigné donne un résultat exploitable. Le prompting est la compétence la plus rentable à acquérir ! <br><em><span style="color: #EC4899; font-weight: 500;">Maîtriser les bases suffit pour 80&nbsp;% des usages&nbsp;; les 20&nbsp;% restants — fiabilité, reproductibilité, intégration dans un système — relèvent d'un autre métier.</span></em>
                         </p>
 
-                        <div class="callout callout-cyan">
+                        <div class="callout callout-cyan" style="margin-bottom: 2.5rem;">
                             <div class="callout-icon"><i data-lucide="arrow-left-right"></i></div>
                             <div>
                                 <h4>Le même besoin, deux consignes</h4>
@@ -569,43 +577,122 @@
                         </p>
 
                         <p class="agents-intro-label">// 6 AGENTS QUE L'ON PEUT DÉPLOYER</p>
-                        <div class="agents-grid">
-                            <article class="agent-card">
-                                <div class="agent-icon"><i data-lucide="mail"></i></div>
-                                <h3 class="agent-name">Agent email</h3>
-                                <p class="agent-desc">Trie votre boîte, prépare les réponses et fait remonter ce qui demande vraiment votre attention.</p>
-                            </article>
-
-                            <article class="agent-card">
-                                <div class="agent-icon"><i data-lucide="radar"></i></div>
-                                <h3 class="agent-name">Agent veille</h3>
-                                <p class="agent-desc">Surveille votre marché et vos concurrents, et livre une synthèse hebdomadaire prête à lire — sans le bruit.</p>
-                            </article>
-
-                            <article class="agent-card">
-                                <div class="agent-icon"><i data-lucide="pen-tool"></i></div>
-                                <h3 class="agent-name">Agent rédacteur</h3>
-                                <p class="agent-desc">Articles, posts LinkedIn et newsletters dans votre ton de marque, à partir de vos idées brutes.</p>
-                            </article>
-
-                            <article class="agent-card">
-                                <div class="agent-icon"><i data-lucide="bar-chart-3"></i></div>
-                                <h3 class="agent-name">Agent analyste</h3>
-                                <p class="agent-desc">Interroge vos données en langage naturel et génère rapports et tableaux de bord à la demande.</p>
-                            </article>
-
-                            <article class="agent-card">
-                                <div class="agent-icon"><i data-lucide="message-circle"></i></div>
-                                <h3 class="agent-name">Agent support</h3>
-                                <p class="agent-desc">Répond aux questions clients récurrentes 24h/24 et transmet les cas complexes à un humain.</p>
-                            </article>
-
-                            <article class="agent-card">
-                                <div class="agent-icon"><i data-lucide="calendar-check"></i></div>
-                                <h3 class="agent-name">Agent assistant</h3>
-                                <p class="agent-desc">Gère l'agenda, rédige les comptes-rendus de réunion et prépare vos relances.</p>
-                            </article>
+                        <div class="agents-carousel-wrapper">
+                            <div class="agents-carousel-viewport">
+                                <div class="agents-carousel-track" id="agentsTrack">
+                                    <article class="agent-card">
+                                        <div class="agent-icon"><i data-lucide="mail"></i></div>
+                                        <h3 class="agent-name">Agent email</h3>
+                                        <p class="agent-desc">Trie votre boîte, prépare les réponses et fait remonter ce qui demande vraiment votre attention.</p>
+                                    </article>
+                                    <article class="agent-card">
+                                        <div class="agent-icon"><i data-lucide="radar"></i></div>
+                                        <h3 class="agent-name">Agent veille</h3>
+                                        <p class="agent-desc">Surveille votre marché et vos concurrents, et livre une synthèse hebdomadaire prête à lire — sans le bruit.</p>
+                                    </article>
+                                    <article class="agent-card">
+                                        <div class="agent-icon"><i data-lucide="pen-tool"></i></div>
+                                        <h3 class="agent-name">Agent rédacteur</h3>
+                                        <p class="agent-desc">Articles, posts LinkedIn et newsletters dans votre ton de marque, à partir de vos idées brutes.</p>
+                                    </article>
+                                    <article class="agent-card">
+                                        <div class="agent-icon"><i data-lucide="bar-chart-3"></i></div>
+                                        <h3 class="agent-name">Agent analyste</h3>
+                                        <p class="agent-desc">Interroge vos données en langage naturel et génère rapports et tableaux de bord à la demande.</p>
+                                    </article>
+                                    <article class="agent-card">
+                                        <div class="agent-icon"><i data-lucide="message-circle"></i></div>
+                                        <h3 class="agent-name">Agent support</h3>
+                                        <p class="agent-desc">Répond aux questions clients récurrentes 24h/24 et transmet les cas complexes à un humain.</p>
+                                    </article>
+                                    <article class="agent-card">
+                                        <div class="agent-icon"><i data-lucide="calendar-check"></i></div>
+                                        <h3 class="agent-name">Agent assistant</h3>
+                                        <p class="agent-desc">Gère l'agenda, rédige les comptes-rendus de réunion et prépare vos relances.</p>
+                                    </article>
+                                </div>
+                            </div>
+                            <div class="agents-carousel-nav">
+                                <button class="carousel-btn" id="agentsPrev" aria-label="Agents précédents" disabled>
+                                    <i data-lucide="chevron-left"></i>
+                                </button>
+                                <div class="carousel-dots" id="agentsDots"></div>
+                                <button class="carousel-btn" id="agentsNext" aria-label="Agents suivants">
+                                    <i data-lucide="chevron-right"></i>
+                                </button>
+                            </div>
                         </div>
+                        <script>
+                        (function() {
+                            var track = document.getElementById('agentsTrack');
+                            if (!track) return;
+                            var viewport = track.parentElement;
+                            var prevBtn = document.getElementById('agentsPrev');
+                            var nextBtn = document.getElementById('agentsNext');
+                            var dotsContainer = document.getElementById('agentsDots');
+                            var page = 0;
+                            var lastPerPage = 0;
+
+                            function getPerPage() {
+                                if (window.innerWidth >= 900) return 3;
+                                if (window.innerWidth >= 540) return 2;
+                                return 1;
+                            }
+
+                            function buildDots(total) {
+                                dotsContainer.innerHTML = '';
+                                for (var i = 0; i < total; i++) {
+                                    var btn = document.createElement('button');
+                                    btn.className = 'carousel-dot';
+                                    btn.setAttribute('aria-label', 'Page ' + (i + 1));
+                                    btn.setAttribute('data-page', i);
+                                    dotsContainer.appendChild(btn);
+                                }
+                            }
+
+                            function update() {
+                                var perPage = getPerPage();
+                                var totalPages = Math.ceil(6 / perPage);
+                                var cards = track.querySelectorAll('.agent-card');
+                                if (!cards.length || !viewport.offsetWidth) return;
+
+                                if (perPage !== lastPerPage) {
+                                    lastPerPage = perPage;
+                                    page = 0;
+                                    buildDots(totalPages);
+                                }
+
+                                page = Math.min(page, totalPages - 1);
+
+                                var gap = 14;
+                                var cardWidth = (viewport.offsetWidth - gap * (perPage - 1)) / perPage;
+                                var offset = page * perPage * (cardWidth + gap);
+
+                                track.style.transform = 'translateX(-' + offset + 'px)';
+                                cards.forEach(function(c) {
+                                    c.style.width = cardWidth + 'px';
+                                    c.style.flexShrink = '0';
+                                });
+
+                                var dots = dotsContainer.querySelectorAll('.carousel-dot');
+                                dots.forEach(function(d, i) { d.classList.toggle('is-active', i === page); });
+
+                                prevBtn.disabled = page === 0;
+                                nextBtn.disabled = page >= totalPages - 1;
+                            }
+
+                            prevBtn.addEventListener('click', function() { page = Math.max(0, page - 1); update(); });
+                            nextBtn.addEventListener('click', function() { page = Math.min(Math.ceil(6 / getPerPage()) - 1, page + 1); update(); });
+                            dotsContainer.addEventListener('click', function(e) {
+                                var btn = e.target.closest('[data-page]');
+                                if (btn) { page = parseInt(btn.getAttribute('data-page')); update(); }
+                            });
+
+                            window.addEventListener('resize', function() { page = Math.min(page, Math.ceil(6 / getPerPage()) - 1); update(); });
+                            if (window.ResizeObserver) { new ResizeObserver(update).observe(viewport); }
+                            update();
+                        })();
+                        </script>
 
                         <div class="benefits-row">
                             <div class="benefit">
@@ -696,8 +783,8 @@
                             <li class="cycle-step">
                                 <div class="cycle-circle"><span class="cycle-num">04</span></div>
                                 <div class="cycle-content">
-                                    <h3>System prompt</h3>
-                                    <p>Le cœur du comportement de l'agent.</p>
+                                    <h3>Développement de l'agent</h3>
+                                    <p>System prompt, skills et intégrations.</p>
                                 </div>
                             </li>
 
@@ -718,9 +805,9 @@
                             </li>
                         </ol>
 
-                        <div class="callout callout-warning">
-                            <div class="callout-icon"><i data-lucide="alert-circle"></i></div>
-                            <p>
+                        <div class="callout callout-warning" style="border-left: 3px solid #EC4899; background-color: rgba(236,72,153,0.11); box-shadow: 0 0 28px rgba(236,72,153,0.1); padding: 24px 28px;">
+                            <div class="callout-icon" style="background-color: rgba(236,72,153,0.25); color: #EC4899;"><i data-lucide="alert-circle"></i></div>
+                            <p style="font-size: 15.5px; color: var(--text-primary); font-weight: 500; letter-spacing: -0.1px;">
                                 Un agent n'est jamais « fini »&nbsp;: il vit avec votre activité et doit être maintenu.
                             </p>
                         </div>
@@ -751,7 +838,7 @@
                             C'est la section la plus technique — mais l'idée est simple. Un agent IA, par défaut, ne connaît <strong>que</strong> ce sur quoi il a été entraîné&nbsp;: il ignore tout de vos clients, vos produits, vos documents. Le MCP est la <strong>« prise universelle »</strong> qui le branche sur vos vraies données et vos outils internes — CRM, base produits, documents, API métier — sans dépendre d'intégrations propriétaires fermées. Résultat&nbsp;: un agent qui parle de <em>votre</em> activité, pas de généralités.
                         </p>
 
-                        <div class="callout callout-cyan">
+                        <div class="callout callout-cyan" style="margin-bottom: 2.5rem;">
                             <div class="callout-icon"><i data-lucide="database"></i></div>
                             <div>
                                 <h4>Concrètement, à quoi ça sert&nbsp;?</h4>
