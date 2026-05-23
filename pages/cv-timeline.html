@@ -22,6 +22,187 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/cv.css">
+
+    <!-- Styles autonomes pour les nouvelles sections (rôles, compétences, distinctions) -->
+    <style>
+        /* Couleurs d'accent locales (fallback si non définies par les CSS externes) */
+        :root {
+            --cv-cyan: #22d3ee;
+            --cv-violet: #a78bfa;
+            --cv-magenta: #f472b6;
+            --cv-surface: rgba(255, 255, 255, 0.03);
+            --cv-border: rgba(255, 255, 255, 0.10);
+            --cv-text-dim: rgba(255, 255, 255, 0.62);
+        }
+        [data-theme="light"] {
+            --cv-surface: rgba(0, 0, 0, 0.025);
+            --cv-border: rgba(0, 0, 0, 0.10);
+            --cv-text-dim: rgba(0, 0, 0, 0.58);
+        }
+
+        /* ---- Rôles multiples dans une carte timeline ---- */
+        .timeline-roles {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            margin: 1rem 0 1.1rem;
+            padding-left: 0.9rem;
+            border-left: 2px solid var(--cv-border);
+        }
+        .timeline-role {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+        }
+        .role-badge {
+            flex: 0 0 auto;
+            width: 26px; height: 26px;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 7px;
+            background: var(--cv-surface);
+            border: 1px solid var(--cv-border);
+        }
+        .role-badge i { width: 14px; height: 14px; }
+        .role-text { display: flex; flex-direction: column; gap: 0.1rem; }
+        .role-text strong { font-size: 0.94rem; }
+        .role-meta { font-size: 0.8rem; color: var(--cv-text-dim); line-height: 1.4; }
+
+        /* ---- En-tête de section générique ---- */
+        .section-head { margin-bottom: 2.2rem; }
+        .section-head h2 { margin-top: 0.8rem; }
+
+        /* ---- Section Compétences ---- */
+        .skills-section { padding: 3.5rem 0 1rem; }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.2rem;
+        }
+        .skill-block {
+            background: var(--cv-surface);
+            border: 1px solid var(--cv-border);
+            border-radius: 16px;
+            padding: 1.4rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+        .skill-block::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+        }
+        .skill-block[data-color="cyan"]::before { background: var(--cv-cyan); }
+        .skill-block[data-color="violet"]::before { background: var(--cv-violet); }
+        .skill-block[data-color="magenta"]::before { background: var(--cv-magenta); }
+        .skill-block:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.2); }
+
+        .skill-block-head {
+            display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.1rem;
+        }
+        .skill-block-head h3 { margin: 0; font-size: 1.1rem; }
+        .skill-icon {
+            width: 34px; height: 34px; border-radius: 9px;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--cv-surface); border: 1px solid var(--cv-border);
+        }
+        .skill-block[data-color="cyan"] .skill-icon { color: var(--cv-cyan); }
+        .skill-block[data-color="violet"] .skill-icon { color: var(--cv-violet); }
+        .skill-block[data-color="magenta"] .skill-icon { color: var(--cv-magenta); }
+        .skill-icon i { width: 18px; height: 18px; }
+
+        .skill-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+        .chip {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.76rem;
+            padding: 0.32rem 0.6rem;
+            border-radius: 7px;
+            background: var(--cv-surface);
+            border: 1px solid var(--cv-border);
+            color: var(--cv-text-dim);
+        }
+
+        .skill-langs { display: flex; flex-direction: column; gap: 0.7rem; }
+        .lang-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+        .lang-name { font-weight: 600; font-size: 0.95rem; }
+        .lang-level { font-size: 0.82rem; color: var(--cv-text-dim); }
+
+        .skill-certs { display: flex; flex-direction: column; gap: 0.6rem; }
+        .cert-row { font-size: 0.85rem; line-height: 1.4; }
+        .cert-year {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            color: var(--cv-cyan);
+            margin-right: 0.5rem;
+        }
+
+        /* ---- Section Distinctions ---- */
+        .awards-section { padding: 3.5rem 0; }
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: var(--cv-surface);
+            border: 1px solid var(--cv-border);
+            border-radius: 16px;
+            padding: 1.6rem 1.4rem;
+            text-align: center;
+        }
+        .stat-num {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 600;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .stat-card[data-color="cyan"] .stat-num { color: var(--cv-cyan); }
+        .stat-card[data-color="violet"] .stat-num { color: var(--cv-violet); }
+        .stat-card[data-color="magenta"] .stat-num { color: var(--cv-magenta); }
+        .stat-label { font-size: 0.85rem; color: var(--cv-text-dim); }
+
+        .awards-accordion { display: flex; flex-direction: column; gap: 0.8rem; }
+        .award-group {
+            background: var(--cv-surface);
+            border: 1px solid var(--cv-border);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        .award-group summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1.1rem 1.4rem;
+            display: flex; align-items: center; justify-content: space-between;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .award-group summary::-webkit-details-marker { display: none; }
+        .award-summary-left { display: inline-flex; align-items: center; gap: 0.6rem; }
+        .award-summary-left i { width: 18px; height: 18px; color: var(--cv-cyan); }
+        .award-chevron { width: 18px; height: 18px; transition: transform 0.25s ease; color: var(--cv-text-dim); }
+        .award-group[open] .award-chevron { transform: rotate(180deg); }
+        .award-body {
+            padding: 0 1.4rem 1.3rem;
+            display: flex; flex-direction: column; gap: 0.8rem;
+        }
+        .award-body p {
+            margin: 0; font-size: 0.86rem; line-height: 1.5; color: var(--cv-text-dim);
+        }
+        .award-body em { color: inherit; font-style: italic; }
+        .award-body strong { color: var(--cv-cyan); font-weight: 600; }
+        .award-year {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            color: var(--cv-violet);
+            margin-right: 0.55rem;
+        }
+
+        @media (max-width: 600px) {
+            .stat-num { font-size: 2.1rem; }
+        }
+    </style>
 </head>
 <body>
 
@@ -73,7 +254,7 @@
             </div>
             <h1>De la <span class="gradient-text">neuroscience</span> à l'IA agentique.</h1>
             <p>
-                Doctorat, R&amp;D, qualité logicielle, agilité, IA générative — une trajectoire qui croise la science du cerveau et celle des machines pour rendre l'IA réellement utile aux équipes.
+                Docteure en neurosciences devenue spécialiste de l'IA agentique. Je forme les équipes à l'IA générative et agentique, je développe des agents customs et j'accompagne les entreprises dans le déploiement de solutions agentiques au service de leur performance.
             </p>
 
             <div class="view-switcher">
@@ -92,109 +273,295 @@
         <div class="container">
             <div class="timeline">
 
+                <!-- POSTE ACTUEL : SOGETI (Agentic AI Lead + casquettes) -->
                 <div class="timeline-item" data-color="cyan">
                     <div class="timeline-node"></div>
                     <div class="timeline-card">
-                        <div class="timeline-date"><i data-lucide="zap"></i> 2025 — AUJOURD'HUI</div>
-                        <h3 class="timeline-title">Consultante IA &amp; Agentique</h3>
-                        <p class="timeline-place">Indépendante</p>
+                        <div class="timeline-date"><i data-lucide="zap"></i> SEPT. 2025 — AUJOURD'HUI</div>
+                        <h3 class="timeline-title">Agentic AI &amp; Quality Engineering Lead</h3>
+                        <p class="timeline-place">Sogeti, part of Capgemini — Lyon · Hybride</p>
                         <p class="timeline-desc">
-                            Conception et animation de formations en IA générative et agentique. Accompagnement d'équipes dans la mise en place d'agents autonomes et l'intégration de l'IA aux workflows métier.
+                            Conception et déploiement de processus de test innovants intégrant l'IA agentique : automatisation intelligente, agents customs autonomes, optimisation des stratégies de test. Pilotage des tests fonctionnels front-end et back-end. Mentorat et montée en compétence des profils juniors.
                         </p>
+                        <div class="timeline-roles">
+                            <div class="timeline-role">
+                                <span class="role-badge"><i data-lucide="repeat"></i></span>
+                                <div class="role-text">
+                                    <strong>Scrum Master</strong>
+                                    <span class="role-meta">Avril 2024 → aujourd'hui · Animation des rituels, facilitation agile, amélioration continue</span>
+                                </div>
+                            </div>
+                            <div class="timeline-role">
+                                <span class="role-badge"><i data-lucide="users-round"></i></span>
+                                <div class="role-text">
+                                    <strong>Animateur de la Communauté QE Rhône-Alpes</strong>
+                                    <span class="role-meta">Juin 2022 → aujourd'hui · Animation et partage de pratiques au sein de la communauté Quality Engineering régionale</span>
+                                </div>
+                            </div>
+                                                        <div class="timeline-role">
+                                <span class="role-badge"><i data-lucide="users-round"></i></span>
+                                <div class="role-text">
+                                    <strong>Champion IA - Mentorat</strong>
+                                    <span class="role-meta">Septembre 2025 → aujourd'hui · <br> - <strong>Accompagnement d'équipes de BA et Test</strong> pour la mise en place de solutions IA Agentique
+                                        <br> - <strong>Partage de bonnes pratiques IA</strong> au sein de la communauté IA régionale et France</span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="timeline-tags">
-                            <span class="timeline-tag">LLM</span>
-                            <span class="timeline-tag">Agents</span>
-                            <span class="timeline-tag">Formations</span>
-                            <span class="timeline-tag">RAG</span>
+                            <span class="timeline-tag">IA agentique</span>
+                            <span class="timeline-tag">Agents customs</span>
+                            <span class="timeline-tag">Quality Engineering</span>
+                            <span class="timeline-tag">Scrum</span>
+                            <span class="timeline-tag">Mentorat</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- AUTO-ENTREPRISE (en parallèle) -->
                 <div class="timeline-item" data-color="cyan">
                     <div class="timeline-node"></div>
                     <div class="timeline-card">
-                        <div class="timeline-date"><i data-lucide="zap"></i> 2025 — AUJOURD'HUI</div>
-                        <h3 class="timeline-title">Lead Test & Ingénieure IA</h3>
-                        <p class="timeline-place">Sogeti, part of Capgemini - Lyon</p>
+                        <div class="timeline-date"><i data-lucide="rocket"></i> AVRIL 2024 — AUJOURD'HUI</div>
+                        <h3 class="timeline-title">Conseil aux entreprises — Auto-entrepreneuse</h3>
+                        <p class="timeline-place">Indépendante · en parallèle</p>
                         <p class="timeline-desc">
-                            Pilotage de la qualité logicielle, accompagnement d'équipes Scrum/Kanban, mise en place de pratiques de tests automatisés et de CI/CD. Croisement entre neurosciences comportementales et dynamique d'équipe.
+                            Les neurosciences au service de la performance d'équipe ! Formations et acculturation sur les biais cognitifs, laprévention de l'erreur humaine individuelle et collective, les neurosciences dans l'apprentissage et de la motivation, appliquées à l'agilité et au leadership. Ateliers de Problem Solving par méthode divergente/convergente et ateliers à la demande.
                         </p>
                         <div class="timeline-tags">
-                            <span class="timeline-tag">LLM</span>
-                            <span class="timeline-tag">Agents</span>
                             <span class="timeline-tag">Formations</span>
-                            <span class="timeline-tag">RAG</span>
+                            <span class="timeline-tag">Sciences comportmentales</span>
+                            <span class="timeline-tag">Accompagnement</span>
+                            <span class="timeline-tag">Agilité</span>
+                            <span class="timeline-tag">Performance d'équipe</span>
                         </div>
                     </div>
-                </div>                
+                </div>
 
+                <!-- SOGETI - POSTES PASSÉS -->
                 <div class="timeline-item" data-color="violet">
                     <div class="timeline-node"></div>
                     <div class="timeline-card">
-                        <div class="timeline-date"><i data-lucide="users"></i> 2020 — 2024</div>
-                        <h3 class="timeline-title">Lead Qualité &amp; Coach Agile</h3>
-                        <p class="timeline-place">Secteur tech / industrie</p>
+                        <div class="timeline-date"><i data-lucide="briefcase"></i> OCT. 2021 — SEPT. 2025</div>
+                        <h3 class="timeline-title">Business Analyst &amp; QE — Tests de Performance</h3>
+                        <p class="timeline-place">Sogeti, part of Capgemini · Hybride</p>
                         <p class="timeline-desc">
-                            Pilotage de la qualité logicielle, accompagnement d'équipes Scrum/Kanban, mise en place de pratiques de tests automatisés et de CI/CD. Croisement entre neurosciences comportementales et dynamique d'équipe.
+                            Évolution au sein de Sogeti, de l'ingénierie de tests vers l'analyse métier.
                         </p>
+                        <div class="timeline-roles">
+                            <div class="timeline-role">
+                                <span class="role-badge"><i data-lucide="line-chart"></i></span>
+                                <div class="role-text">
+                                    <strong>Business Analyst</strong>
+                                    <span class="role-meta">Oct. 2024 → sept. 2025 · analyse des besoins, spécifications, lien métier / technique</span>
+                                </div>
+                            </div>
+                            <div class="timeline-role">
+                                <span class="role-badge"><i data-lucide="gauge"></i></span>
+                                <div class="role-text">
+                                    <strong>Testeur QA — Tests de Performance</strong>
+                                    <span class="role-meta">Oct. 2021 → sept. 2024 · stratégies de test, tests de charge et de performance</span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="timeline-tags">
-                            <span class="timeline-tag">Scrum</span>
-                            <span class="timeline-tag">Kanban</span>
-                            <span class="timeline-tag">Qualité</span>
-                            <span class="timeline-tag">Coaching</span>
+                            <span class="timeline-tag">Business Analysis</span>
+                            <span class="timeline-tag">Tests de perf.</span>
+                            <span class="timeline-tag">Qualité logicielle</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- NETRI -->
                 <div class="timeline-item" data-color="cyan">
                     <div class="timeline-node"></div>
                     <div class="timeline-card">
-                        <div class="timeline-date"><i data-lucide="code-2"></i> 2016 — 2020</div>
-                        <h3 class="timeline-title">Ingénieure R&amp;D / IT</h3>
-                        <p class="timeline-place">Recherche appliquée</p>
+                        <div class="timeline-date"><i data-lucide="code-2"></i> FÉVR. 2021 — AOÛT 2021</div>
+                        <h3 class="timeline-title">R&amp;D Scientist (Data Scientist)</h3>
+                        <p class="timeline-place">Deeptech NETRI — Lyon</p>
                         <p class="timeline-desc">
-                            Développement d'outils logiciels pour la recherche, traitement de données expérimentales, mise en place de pipelines analytiques. Premiers pas dans le ML appliqué.
+                            R&amp;D pour des technologies d'Organs-on-Chips appliquées aux neurosciences : architectures neuronales complexes ex-vivo. Développement d'algorithmes de traitement et d'analyse de données expérimentales en production.
                         </p>
                         <div class="timeline-tags">
-                            <span class="timeline-tag">Python</span>
-                            <span class="timeline-tag">Data</span>
-                            <span class="timeline-tag">ML</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-color="magenta">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-date"><i data-lucide="graduation-cap"></i> 2011 — 2015</div>
-                        <h3 class="timeline-title">Doctorat en Neurosciences</h3>
-                        <p class="timeline-place">Université — Laboratoire de neurosciences cognitives</p>
-                        <p class="timeline-desc">
-                            Recherche fondamentale sur les mécanismes de l'apprentissage et de la mémoire. Publications, encadrement, communications scientifiques internationales. Une plongée profonde dans le fonctionnement du cerveau humain.
-                        </p>
-                        <div class="timeline-tags">
-                            <span class="timeline-tag">Recherche</span>
-                            <span class="timeline-tag">Cognition</span>
+                            <span class="timeline-tag">Data Science</span>
+                            <span class="timeline-tag">Matlab</span>
+                            <span class="timeline-tag">R&amp;D</span>
+                            <span class="timeline-tag">Neurosciences Computationnelles</span>
                             <span class="timeline-tag">Publication</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="timeline-item" data-color="violet">
+                <!-- DOCTORAT / THÈSE INSERM -->
+                <div class="timeline-item" data-color="magenta">
                     <div class="timeline-node"></div>
                     <div class="timeline-card">
-                        <div class="timeline-date"><i data-lucide="book-open"></i> 2008 — 2011</div>
-                        <h3 class="timeline-title">Master Neurosciences &amp; Sciences Cognitives</h3>
-                        <p class="timeline-place">Université</p>
+                        <div class="timeline-date"><i data-lucide="graduation-cap"></i> OCT. 2016 — DÉC. 2019</div>
+                        <h3 class="timeline-title">Doctorat en Biologie — Neurosciences</h3>
+                        <p class="timeline-place">Inserm — Institut des Neurosciences de Montpellier</p>
                         <p class="timeline-desc">
-                            Formation interdisciplinaire — biologie, psychologie cognitive, statistiques, modélisation. Premiers stages en laboratoire.
+                            Développement d'une IA prédictive de l'activité biophysique des cellules sensorielles auditives pour en étudier le développement. Enregistrements électrophysiologiques en patch-clamp et modélisation mathématique (Matlab) de l'activité cellulaire en fonction du son à l'aide d'algorithme de descente de gradient.
                         </p>
                         <div class="timeline-tags">
-                            <span class="timeline-tag">Cognition</span>
-                            <span class="timeline-tag">Statistiques</span>
+                            <span class="timeline-tag">Modélisation</span>
+                            <span class="timeline-tag">IA prédictive</span>
+                            <span class="timeline-tag">Matlab</span>
+                            <span class="timeline-tag">Électrophysiologie</span>
+                            <span class="timeline-tag">Publication</span>
+                            <span class="timeline-tag">Neurosciences Computationnelles</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- FORMATION & RECHERCHE (stages condensés) -->
+                <div class="timeline-item" data-color="violet">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date"><i data-lucide="book-open"></i> 2015 — 2016</div>
+                        <h3 class="timeline-title">Formation &amp; recherche — Master Neurosciences</h3>
+                        <p class="timeline-place">Inserm - Institut des Neurosciences de Montpellier</p>
+                        <p class="timeline-desc">
+                            Stages longs (6 mois) et vacation en laboratoire avant la thèse : modélisation du courant repolarisant des cellules sensorielles auditives (M2, et vacation) et étude de l'implication des lymphocytes T CD8+ dans la SLA (M1).
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Recherche</span>
+                            <span class="timeline-tag">Modélisation</span>
+                            <span class="timeline-tag">Cognition</span>
+                            <span class="timeline-tag">Neurosciences Comportementales</span> <span class="timeline-tag">Publication</span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== COMPÉTENCES ====================== -->
+    <section class="skills-section">
+        <div class="container">
+            <div class="section-head">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text">// COMPÉTENCES</span>
+                </div>
+                <h2>Boîte à outils</h2>
+            </div>
+
+            <div class="skills-grid">
+
+                <div class="skill-block" data-color="cyan">
+                    <div class="skill-block-head">
+                        <span class="skill-icon"><i data-lucide="bot"></i></span>
+                        <h3>IA &amp; Tech</h3>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="chip">LLM</span>
+                        <span class="chip">IA agentique</span>
+                        <span class="chip">Agents customs</span>
+                        <span class="chip">RAG</span>
+                        <span class="chip">Python</span>
+                        <span class="chip">Matlab</span>
+                        <span class="chip">Data Science</span>
+                        <span class="chip">Machine Learning</span>
+                        <span class="chip">Automatisation de tests</span>
+                        <span class="chip">CI/CD</span>
+                        <span class="chip">Accessibilité (RGAA)</span>
+                    </div>
+                </div>
+
+                <div class="skill-block" data-color="violet">
+                    <div class="skill-block-head">
+                        <span class="skill-icon"><i data-lucide="languages"></i></span>
+                        <h3>Langues</h3>
+                    </div>
+                    <div class="skill-langs">
+                        <div class="lang-row">
+                            <span class="lang-name">Français</span>
+                            <span class="lang-level">Langue maternelle</span>
+                        </div>
+                        <div class="lang-row">
+                            <span class="lang-name">Anglais</span>
+                            <span class="lang-level">Professionnel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-block" data-color="magenta">
+                    <div class="skill-block-head">
+                        <span class="skill-icon"><i data-lucide="badge-check"></i></span>
+                        <h3>Certifications</h3>
+                    </div>
+                    <div class="skill-certs">
+                        <div class="cert-row"><span class="cert-year">2026</span> Emerging Leader Program</div>
+                        <div class="cert-row"><span class="cert-year">2025</span> Accessibilité numérique by design &amp; audit RGAA</div>
+                        <div class="cert-row"><span class="cert-year">2024</span> ISTQB® Certified Tester — Agile Tester (CTFL-AT)</div>
+                        <div class="cert-row"><span class="cert-year">2023</span> TMAP® — Quality for Cross-Functional Teams</div>
+                        <div class="cert-row"><span class="cert-year">2022</span> ISTQB® Certified Tester — Performance Testing (CT-PT)</div>
+                        <div class="cert-row"><span class="cert-year">2021</span> ISTQB® Certified Tester — Foundation Level (CTFL)</div>
+                        <div class="cert-row"><span class="cert-year">2019</span> Programme Pépite — Statut National Étudiant-Entrepreneur</div>
+                        <div class="cert-row"><span class="cert-year">2018</span> Techniques théâtrales en communication</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== DISTINCTIONS & PRODUCTIONS ====================== -->
+    <section class="awards-section">
+        <div class="container">
+            <div class="section-head">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text">// DISTINCTIONS &amp; PRODUCTIONS</span>
+                </div>
+                <h2>Distinctions &amp; productions scientifiques</h2>
+            </div>
+
+            <!-- Compteurs chiffres-clés -->
+            <div class="stats-row">
+                <div class="stat-card" data-color="cyan">
+                    <span class="stat-num">5</span>
+                    <span class="stat-label">prix &amp; bourses d'excellence</span>
+                </div>
+                <div class="stat-card" data-color="violet">
+                    <span class="stat-num">2</span>
+                    <span class="stat-label">publications dont 1 dans PNAS</span>
+                </div>
+                <div class="stat-card" data-color="magenta">
+                    <span class="stat-num">1ᵉʳ</span>
+                    <span class="stat-label">prix entrepreneuriat Occitanie 2018</span>
+                </div>
+            </div>
+
+            <!-- Détails dépliables -->
+            <div class="awards-accordion">
+
+                <details class="award-group">
+                    <summary>
+                        <span class="award-summary-left"><i data-lucide="trophy"></i> Prix &amp; bourses</span>
+                        <i data-lucide="chevron-down" class="award-chevron"></i>
+                    </summary>
+                    <div class="award-body">
+                        <p><span class="award-year">2018</span> 1ᵉʳ prix du concours « Du doctorat à l'entrepreneuriat en Occitanie » (SATT AxLR)</p>
+                        <p><span class="award-year">2018</span> 1ᵉʳ prix de présentation orale au Patch Club de Montpellier</p>
+                        <p><span class="award-year">2016</span> 2ᵉ prix du concours « Flash Project »</p>
+                        <p><span class="award-year">2016</span> Lauréate de la bourse ministérielle (MRET) — école doctorale CBS2</p>
+                        <p><span class="award-year">2016</span> Lauréate de la bourse d'excellence doctorale du Labex EpiGenMed</p>
+                    </div>
+                </details>
+
+                <details class="award-group">
+                    <summary>
+                        <span class="award-summary-left"><i data-lucide="file-text"></i> Productions scientifiques</span>
+                        <i data-lucide="chevron-down" class="award-chevron"></i>
+                    </summary>
+                    <div class="award-body">
+                        <p><span class="award-year">2021</span> <em>Co-culture de neurones glutamatergiques et de cellules de gliome pédiatrique de haut grade dans des dispositifs microfluidiques.</em> Fuchs Q., Batut A., …, <strong>Libralato M.</strong>, …, Entz-Werlé N. — JoVE, DOI : 10.3791/62748-v</p>
+                        <p><span class="award-year">2019</span> <em>From action potential to a receptor potential: a computational model of the Inner Hair Cell.</em> Thèse de doctorat — <strong>Libralato M.</strong>, Bourien J., Michel C., Nouvian R., Puel J.-L.</p>
+                        <p><span class="award-year">2019</span> <em>Cytotoxic CD8⁺ T lymphocytes expressing ALS-causing SOD1 mutant selectively trigger death of spinal motoneurons.</em> PNAS, 116, pp. 2312-2317. Coque E., …, <strong>Libralato M.</strong>, …, Raoul C.</p>
+                    </div>
+                </details>
 
             </div>
         </div>

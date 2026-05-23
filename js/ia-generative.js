@@ -74,10 +74,14 @@
         if (scroll) {
             const target = document.getElementById(id);
             if (target) {
-                // Décalage pour le header fixe
-                const headerOffset = 72;
-                const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
-                window.scrollTo({ top, behavior: 'smooth' });
+                // On attend la fin de la transition CSS (0.5s) avant de calculer la position :
+                // les sections qui se ferment au-dessus faussent getBoundingClientRect si on
+                // calcule pendant l'animation.
+                setTimeout(() => {
+                    const headerOffset = 80;
+                    const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }, 520);
             }
         }
     }
