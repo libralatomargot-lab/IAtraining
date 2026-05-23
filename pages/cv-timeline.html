@@ -21,6 +21,7 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/sticky-toc.css">
     <link rel="stylesheet" href="../css/cv.css">
 
     <!-- Styles autonomes pour les nouvelles sections (rôles, compétences, distinctions) -->
@@ -268,15 +269,31 @@
         </div>
     </section>
 
+    <!-- ====================== SOMMAIRE STICKY VERTICAL (desktop) ====================== -->
+    <aside class="sticky-toc" aria-label="Sommaire du parcours">
+        <p class="sticky-toc-label">// PARCOURS</p>
+        <ol class="sticky-toc-list">
+            <li><a href="#tl-sogeti-lead" data-target="tl-sogeti-lead"><span class="sticky-dot"></span><span class="sticky-num">01</span><span class="sticky-text">Sogeti — AI Lead</span></a></li>
+            <li><a href="#tl-auto-entreprise" data-target="tl-auto-entreprise"><span class="sticky-dot"></span><span class="sticky-num">02</span><span class="sticky-text">Auto-entreprise</span></a></li>
+            <li><a href="#tl-sogeti-ba" data-target="tl-sogeti-ba"><span class="sticky-dot"></span><span class="sticky-num">03</span><span class="sticky-text">Sogeti — BA &amp; QE</span></a></li>
+            <li><a href="#tl-netri" data-target="tl-netri"><span class="sticky-dot"></span><span class="sticky-num">04</span><span class="sticky-text">NETRI — R&amp;D</span></a></li>
+            <li><a href="#tl-doctorat" data-target="tl-doctorat"><span class="sticky-dot"></span><span class="sticky-num">05</span><span class="sticky-text">Doctorat</span></a></li>
+            <li><a href="#tl-master" data-target="tl-master"><span class="sticky-dot"></span><span class="sticky-num">06</span><span class="sticky-text">Master &amp; recherche</span></a></li>
+        </ol>
+        <a href="#tl-skills" data-target="tl-skills" class="sticky-toc-label sticky-toc-section">// COMPÉTENCES</a>
+        <a href="#tl-awards" data-target="tl-awards" class="sticky-toc-label sticky-toc-section">// DISTINCTIONS &amp; PRODUCTIONS</a>
+    </aside>
+
     <!-- ====================== TIMELINE ====================== -->
     <section class="timeline-section">
         <div class="container">
             <div class="timeline">
 
                 <!-- POSTE ACTUEL : SOGETI (Agentic AI Lead + casquettes) -->
-                <div class="timeline-item" data-color="cyan">
+                <div class="timeline-item is-current" data-color="cyan" id="tl-sogeti-lead">
                     <div class="timeline-node"></div>
                     <div class="timeline-card">
+                        <span class="current-badge" aria-label="Poste actuel"><span class="current-dot" aria-hidden="true"></span>Poste actuel</span>
                         <div class="timeline-date"><i data-lucide="zap"></i> SEPT. 2025 — AUJOURD'HUI</div>
                         <h3 class="timeline-title">Agentic AI &amp; Quality Engineering Lead</h3>
                         <p class="timeline-place">Sogeti, part of Capgemini — Lyon · Hybride</p>
@@ -299,11 +316,11 @@
                                 </div>
                             </div>
                                                         <div class="timeline-role">
-                                <span class="role-badge"><i data-lucide="users-round"></i></span>
+                                <span class="role-badge"><i data-lucide="graduation-cap"></i></span>
                                 <div class="role-text">
                                     <strong>Champion IA - Mentorat</strong>
-                                    <span class="role-meta">Septembre 2025 → aujourd'hui · <br> - <strong>Accompagnement d'équipes de BA et Test</strong> pour la mise en place de solutions IA Agentique
-                                        <br> - <strong>Partage de bonnes pratiques IA</strong> au sein de la communauté IA régionale et France</span>
+                                    <span class="role-meta">Septembre 2025 → aujourd'hui · <br> - <span class="role-highlight">Accompagnement d'équipes de BA et Test</span> pour la mise en place de solutions IA Agentique
+                                        <br> - <span class="role-highlight">Partage de bonnes pratiques IA</span> au sein de la communauté IA régionale et France</span>
                                 </div>
                             </div>
                         </div>
@@ -318,9 +335,10 @@
                 </div>
 
                 <!-- AUTO-ENTREPRISE (en parallèle) -->
-                <div class="timeline-item" data-color="cyan">
+                <div class="timeline-item is-current" data-color="cyan" id="tl-auto-entreprise">
                     <div class="timeline-node"></div>
                     <div class="timeline-card">
+                        <span class="current-badge" aria-label="Activité en cours"><span class="current-dot" aria-hidden="true"></span>En cours · en parallèle</span>
                         <div class="timeline-date"><i data-lucide="rocket"></i> AVRIL 2024 — AUJOURD'HUI</div>
                         <h3 class="timeline-title">Conseil aux entreprises — Auto-entrepreneuse</h3>
                         <p class="timeline-place">Indépendante · en parallèle</p>
@@ -338,7 +356,7 @@
                 </div>
 
                 <!-- SOGETI - POSTES PASSÉS -->
-                <div class="timeline-item" data-color="violet">
+                <div class="timeline-item" data-color="violet" id="tl-sogeti-ba">
                     <div class="timeline-node"></div>
                     <div class="timeline-card">
                         <div class="timeline-date"><i data-lucide="briefcase"></i> OCT. 2021 — SEPT. 2025</div>
@@ -372,14 +390,14 @@
                 </div>
 
                 <!-- NETRI -->
-                <div class="timeline-item" data-color="cyan">
+                <div class="timeline-item" data-color="cyan" id="tl-netri">
                     <div class="timeline-node"></div>
                     <div class="timeline-card">
                         <div class="timeline-date"><i data-lucide="code-2"></i> FÉVR. 2021 — AOÛT 2021</div>
-                        <h3 class="timeline-title">R&amp;D Scientist (Data Scientist)</h3>
+                        <h3 class="timeline-title">Post-doctorat — R&amp;D Scientist (Data Scientist)</h3>
                         <p class="timeline-place">Deeptech NETRI — Lyon</p>
                         <p class="timeline-desc">
-                            R&amp;D pour des technologies d'Organs-on-Chips appliquées aux neurosciences : architectures neuronales complexes ex-vivo. Développement d'algorithmes de traitement et d'analyse de données expérimentales en production.
+                            Post-doctorat en R&amp;D sur des technologies d'Organs-on-Chips appliquées aux neurosciences : architectures neuronales complexes ex-vivo. Développement d'algorithmes de traitement et d'analyse de données expérimentales en production.
                         </p>
                         <div class="timeline-tags">
                             <span class="timeline-tag">Data Science</span>
@@ -392,7 +410,7 @@
                 </div>
 
                 <!-- DOCTORAT / THÈSE INSERM -->
-                <div class="timeline-item" data-color="magenta">
+                <div class="timeline-item" data-color="magenta" id="tl-doctorat">
                     <div class="timeline-node"></div>
                     <div class="timeline-card">
                         <div class="timeline-date"><i data-lucide="graduation-cap"></i> OCT. 2016 — DÉC. 2019</div>
@@ -413,7 +431,7 @@
                 </div>
 
                 <!-- FORMATION & RECHERCHE (stages condensés) -->
-                <div class="timeline-item" data-color="violet">
+                <div class="timeline-item" data-color="violet" id="tl-master">
                     <div class="timeline-node"></div>
                     <div class="timeline-card">
                         <div class="timeline-date"><i data-lucide="book-open"></i> 2015 — 2016</div>
@@ -437,7 +455,7 @@
     </section>
 
     <!-- ====================== COMPÉTENCES ====================== -->
-    <section class="skills-section">
+    <section class="skills-section" id="tl-skills">
         <div class="container">
             <div class="section-head">
                 <div class="badge">
@@ -508,7 +526,7 @@
     </section>
 
     <!-- ====================== DISTINCTIONS & PRODUCTIONS ====================== -->
-    <section class="awards-section">
+    <section class="awards-section" id="tl-awards">
         <div class="container">
             <div class="section-head">
                 <div class="badge">
@@ -599,5 +617,59 @@
 
     <script src="../js/script.js"></script>
     <script src="../js/main.js"></script>
+
+    <!-- Sommaire sticky : visibilité après le hero + highlight de l'item en cours -->
+    <script>
+    (function () {
+        const stickyToc = document.querySelector('.sticky-toc');
+        const hero = document.querySelector('.cv-hero');
+        const items = Array.from(document.querySelectorAll('.timeline-item[id], #tl-skills, #tl-awards'));
+        const links = Array.from(document.querySelectorAll('.sticky-toc a[data-target]'));
+        if (!stickyToc || !hero || !items.length) return;
+
+        // Apparition après le hero
+        new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                stickyToc.classList.toggle('is-visible', !entry.isIntersecting);
+            });
+        }, { threshold: 0, rootMargin: '-80px 0px 0px 0px' }).observe(hero);
+
+        // Scroll-spy : item en cours = celui le plus proche du haut visible
+        const setActive = (id) => {
+            links.forEach(a => a.classList.toggle('is-active', a.dataset.target === id));
+        };
+        const onScroll = () => {
+            const probe = window.innerHeight * 0.35;
+            let current = items[0].id;
+            for (const item of items) {
+                const top = item.getBoundingClientRect().top;
+                if (top <= probe) current = item.id;
+                else break;
+            }
+            setActive(current);
+        };
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => { onScroll(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
+        onScroll();
+
+        // Scroll fluide au clic
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const id = link.dataset.target;
+                const target = document.getElementById(id);
+                if (!target) return;
+                e.preventDefault();
+                const top = target.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({ top, behavior: 'smooth' });
+                history.replaceState(null, '', '#' + id);
+            });
+        });
+    })();
+    </script>
 </body>
 </html>

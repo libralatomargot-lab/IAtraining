@@ -81,7 +81,7 @@
 
 .timeline {
     position: relative;
-    max-width: 880px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 32px 0;
 }
@@ -106,7 +106,7 @@
 .timeline-item {
     position: relative;
     width: 50%;
-    padding: 24px 48px;
+    padding: 24px 32px;
     box-sizing: border-box;
 }
 
@@ -118,6 +118,31 @@
 .timeline-item:nth-child(even) {
     left: 50%;
     text-align: left;
+}
+
+/* Quinconce (desktop) : chaque carte remonte d'environ 45% de la hauteur
+   moyenne pour chevaucher la précédente sur l'axe vertical. Comme les cartes
+   alternent gauche / droite, il n'y a pas de collision horizontale — on gagne
+   du scroll et on voit plus de fiches d'un coup à l'écran. */
+@media (min-width: 769px) {
+    .timeline-item {
+        margin-top: -150px;
+    }
+    .timeline-item:first-child {
+        margin-top: 0;
+    }
+    /* Carte "Conseil aux entreprises" (2e) : on la remonte de sorte que son
+       bas tombe quasiment au niveau du haut de la carte "Business Analyst"
+       qui suit — alignement visuel en vague côté droit / côté gauche. */
+    .timeline-item:nth-child(2) {
+        margin-top: -260px;
+    }
+    /* Carte "Business Analyst & QE" (3e) : démarre juste sous la 2e (pas de
+       remontée négative), donc top ≈ bas de la carte "Conseil". Les cartes
+       4 à 6 héritent ensuite du décalage standard (-150) par cascade CSS. */
+    .timeline-item:nth-child(3) {
+        margin-top: 20px;
+    }
 }
 
 /* Le nœud (synapse pulsante) */
@@ -230,6 +255,62 @@
     color: var(--text-secondary);
 }
 
+/* ===== Cartes "Poste actuel" : Sogeti AI Lead + Auto-entreprise =====
+   Mise en avant subtile et accessible :
+   - Badge texte explicite "Poste actuel" (contraste AA, ne dépend pas que de la couleur)
+   - Fine bordure cyan + halo léger (renforce visuellement sans noyer le reste)
+   - Pulsation dot désactivée si prefers-reduced-motion */
+.timeline-item.is-current .timeline-card {
+    border-color: rgba(6, 182, 212, 0.45);
+    box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.18),
+                0 6px 20px rgba(6, 182, 212, 0.10);
+}
+
+.current-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 4px 10px 4px 8px;
+    margin-bottom: 10px;
+    border-radius: 100px;
+    color: var(--cyan);
+    background: rgba(6, 182, 212, 0.10);
+    border: 1px solid rgba(6, 182, 212, 0.45);
+}
+
+.current-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--cyan);
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.55);
+    animation: pulse-current 2.2s ease-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse-current {
+    0%   { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.55); }
+    70%  { box-shadow: 0 0 0 7px rgba(6, 182, 212, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .current-dot { animation: none; }
+}
+
+/* Mise en valeur d'expressions clés dans les rôles : couleur contrastante,
+   pas de gras (le poids visuel passe uniquement par la couleur cyan). */
+.role-highlight {
+    color: var(--cyan);
+    font-weight: 400;
+}
+
+
 /* Responsive timeline → tout passe à gauche */
 @media (max-width: 768px) {
     .timeline::before {
@@ -243,6 +324,7 @@
         left: 0;
         padding: 16px 0 16px 48px;
         text-align: left;
+        margin-top: 0;
     }
 
     .timeline-item:nth-child(odd) .timeline-node,
