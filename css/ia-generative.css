@@ -1008,43 +1008,106 @@
 
 
 /* ════════════════════════════════════════
-   DESKTOP — ligne horizontale (Option A)
-   6 cercles alignés, reliés par un trait dégradé,
-   contenu sous chaque cercle
+   DESKTOP — frise horizontale alternée
+   Ligne chronologique centrale (dégradé violet→cyan),
+   6 pastilles alignées, encarts alternés au-dessus/en-dessous,
+   progression de couleur des pastilles le long de la ligne
    ════════════════════════════════════════ */
 @media (min-width: 900px) {
     .cycle {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
+        align-items: center;
         gap: 0;
-        padding: 0 24px;
-        margin-top: 12px;
+        padding: 0 12px;
+        margin: 12px auto 0;
+        max-width: 980px;
+        min-height: 440px;
     }
 
-    /* Trait dégradé qui passe par le centre des cercles */
+    /* Ligne chronologique horizontale au centre */
     .cycle::before {
         content: "";
         position: absolute;
-        top: 28px; /* centre du cercle de 56px */
-        left: calc(100% / 12 + 24px);
-        right: calc(100% / 12 + 24px);
+        top: 50%;
+        left: calc(100% / 12 + 12px);
+        right: calc(100% / 12 + 12px);
         height: 2px;
+        transform: translateY(-50%);
         background: linear-gradient(90deg, var(--violet) 0%, var(--cyan) 100%);
         z-index: 0;
     }
 
     .cycle-step {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0 12px;
         position: relative;
+        height: 440px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         z-index: 1;
     }
 
+    /* Pastille centrée sur la ligne */
     .cycle-circle {
-        margin-bottom: 18px;
+        width: 46px;
+        height: 46px;
+        position: relative;
+        z-index: 2;
+    }
+    .cycle-num { font-size: 14px; }
+
+    /* Encart en carte, positionné en absolu par rapport à l'étape */
+    .cycle-content {
+        position: absolute;
+        left: 6px;
+        right: 6px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-soft);
+        border-radius: var(--radius-md);
+        padding: 12px 14px;
+        text-align: center;
+        transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+
+    /* Étapes impaires (1,3,5) : encart AU-DESSUS de la ligne */
+    .cycle-step:nth-child(odd) .cycle-content {
+        bottom: calc(50% + 36px);
+    }
+    /* Étapes paires (2,4,6) : encart EN-DESSOUS de la ligne */
+    .cycle-step:nth-child(even) .cycle-content {
+        top: calc(50% + 36px);
+    }
+
+    /* Petit trait de liaison entre la pastille et l'encart */
+    .cycle-step:nth-child(odd) .cycle-content::after,
+    .cycle-step:nth-child(even) .cycle-content::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: 1px;
+        height: 24px;
+        background: var(--border-medium);
+        transform: translateX(-50%);
+    }
+    .cycle-step:nth-child(odd) .cycle-content::after { bottom: -24px; }
+    .cycle-step:nth-child(even) .cycle-content::after { top: -24px; }
+
+    /* Progression de couleur des pastilles (violet → cyan) */
+    .cycle-step:nth-child(1) .cycle-circle { background: #7C3AED; box-shadow: 0 0 0 4px var(--bg-primary), 0 0 16px rgba(124,58,237,0.4); }
+    .cycle-step:nth-child(2) .cycle-circle { background: #6E5AD8; box-shadow: 0 0 0 4px var(--bg-primary), 0 0 16px rgba(110,90,216,0.4); }
+    .cycle-step:nth-child(3) .cycle-circle { background: #4F78D4; box-shadow: 0 0 0 4px var(--bg-primary), 0 0 16px rgba(79,120,212,0.4); }
+    .cycle-step:nth-child(4) .cycle-circle { background: #2C97D3; box-shadow: 0 0 0 4px var(--bg-primary), 0 0 16px rgba(44,151,211,0.4); }
+    .cycle-step:nth-child(5) .cycle-circle { background: #14ADCB; box-shadow: 0 0 0 4px var(--bg-primary), 0 0 16px rgba(20,173,203,0.4); }
+    .cycle-step:nth-child(6) .cycle-circle { background: #06B6D4; box-shadow: 0 0 0 4px var(--bg-primary), 0 0 16px rgba(6,182,212,0.45); }
+
+    /* Effet néon cyan au survol */
+    .cycle-step:hover .cycle-content {
+        border-color: var(--cyan);
+        box-shadow: var(--module-hover-shadow);
+        transform: translateY(-2px);
+    }
+    .cycle-step:hover .cycle-circle {
+        transform: scale(1.12);
     }
 
     .cycle-content h3 {
@@ -1052,15 +1115,15 @@
         font-size: 14px;
         font-weight: 500;
         color: var(--text-primary);
-        margin-bottom: 6px;
+        margin-bottom: 4px;
         letter-spacing: -0.2px;
         line-height: 1.3;
     }
 
     .cycle-content p {
-        font-size: 12.5px;
+        font-size: 12px;
         color: var(--text-secondary);
-        line-height: 1.55;
+        line-height: 1.5;
         margin: 0;
     }
 }
