@@ -76,7 +76,7 @@
 
 /* ====================== TIMELINE NEURONALE (Option A) ====================== */
 .timeline-section {
-    padding: 80px 0 96px;
+    padding: 80px 0 32px;
 }
 
 .timeline {
@@ -131,17 +131,11 @@
     .timeline-item:first-child {
         margin-top: 0;
     }
-    /* Carte "Conseil aux entreprises" (2e) : on la remonte de sorte que son
-       bas tombe quasiment au niveau du haut de la carte "Business Analyst"
-       qui suit — alignement visuel en vague côté droit / côté gauche. */
+    /* Seule la carte "Conseil aux entreprises" (2e) garde un offset spécifique
+       pour rester quasi-alignée avec "Poste actuel". Toutes les autres cartes
+       (3 à 6) suivent la cascade standard de -150px définie ci-dessus. */
     .timeline-item:nth-child(2) {
         margin-top: -260px;
-    }
-    /* Carte "Business Analyst & QE" (3e) : démarre juste sous la 2e (pas de
-       remontée négative), donc top ≈ bas de la carte "Conseil". Les cartes
-       4 à 6 héritent ensuite du décalage standard (-150) par cascade CSS. */
-    .timeline-item:nth-child(3) {
-        margin-top: 20px;
     }
 }
 

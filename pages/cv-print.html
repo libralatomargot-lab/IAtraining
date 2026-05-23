@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV — Margot Libralato</title>
+    <meta name="description" content="CV imprimable de Margot Libralato : Docteure en neurosciences, spécialiste IA agentique &amp; Quality Engineering.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== Palette charte web (mode clair) ===== */
+        :root {
+            --bg: #FAFBFF;
+            --card: #FFFFFF;
+            --ink: #0A0E27;
+            --ink-soft: #3F4A6B;
+            --ink-mute: #6B7591;
+            --border: rgba(10, 14, 39, 0.10);
+            --border-strong: rgba(10, 14, 39, 0.18);
+            --violet: #7C3AED;
+            --cyan: #06B6D4;
+            --magenta: #EC4899;
+            --font-title: 'Space Grotesk', system-ui, sans-serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--font-body);
+            font-size: 11pt;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* ===== Barre d'action (cachée à l'impression) ===== */
+        .toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 24px;
+            background: rgba(250, 251, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+        }
+        .toolbar-info {
+            font-family: var(--font-mono);
+            font-size: 10pt;
+            color: var(--ink-mute);
+        }
+        .toolbar-actions { display: flex; gap: 10px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 10pt;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid var(--border-strong);
+            background: var(--card);
+            color: var(--ink);
+        }
+        .btn:hover { border-color: var(--cyan); color: var(--cyan); }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--violet), var(--cyan));
+            color: #fff;
+            border: none;
+        }
+        .btn-primary:hover { color: #fff; opacity: 0.9; }
+
+        /* ===== Page A4 ===== */
+        .page {
+            max-width: 200mm;
+            margin: 12mm auto;
+            padding: 14mm 16mm;
+            background: var(--card);
+            box-shadow: 0 4px 30px rgba(10, 14, 39, 0.08);
+            border: 1px solid var(--border);
+        }
+
+        /* ===== Header CV ===== */
+        .cv-header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 24px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, var(--violet), var(--cyan), var(--magenta)) 1;
+            margin-bottom: 18px;
+        }
+        .cv-header h1 {
+            font-family: var(--font-title);
+            font-size: 26pt;
+            font-weight: 600;
+            line-height: 1.05;
+            letter-spacing: -0.5pt;
+            margin: 0 0 4px;
+        }
+        .cv-tagline {
+            font-family: var(--font-mono);
+            font-size: 9.5pt;
+            color: var(--cyan);
+            letter-spacing: 1.2pt;
+            text-transform: uppercase;
+            margin: 0 0 8px;
+        }
+        .cv-pitch {
+            font-size: 10.5pt;
+            color: var(--ink-soft);
+            line-height: 1.55;
+            margin: 0;
+            max-width: 130mm;
+        }
+        .cv-contact {
+            font-family: var(--font-mono);
+            font-size: 9pt;
+            color: var(--ink-soft);
+            text-align: right;
+            line-height: 1.7;
+            white-space: nowrap;
+        }
+        .cv-contact a { color: var(--ink-soft); }
+        .cv-contact a:hover { color: var(--cyan); }
+        .cv-contact .row { display: flex; align-items: center; justify-content: flex-end; gap: 6px; }
+        .cv-contact svg { width: 11px; height: 11px; flex-shrink: 0; }
+
+        /* ===== Disposition deux colonnes ===== */
+        .cv-body {
+            display: grid;
+            grid-template-columns: 1fr 62mm;
+            gap: 14mm;
+        }
+
+        /* ===== Section ===== */
+        .section { margin-bottom: 14px; }
+        .section-title {
+            font-family: var(--font-mono);
+            font-size: 9pt;
+            letter-spacing: 1.5pt;
+            text-transform: uppercase;
+            color: var(--violet);
+            margin: 0 0 10px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ===== Items expérience / formation ===== */
+        .entry { margin-bottom: 12px; page-break-inside: avoid; }
+        .entry-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 2px;
+        }
+        .entry-title {
+            font-family: var(--font-title);
+            font-size: 11.5pt;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 0;
+        }
+        .entry-date {
+            font-family: var(--font-mono);
+            font-size: 8.5pt;
+            color: var(--cyan);
+            white-space: nowrap;
+        }
+        .entry-place {
+            font-size: 9.5pt;
+            color: var(--ink-mute);
+            font-style: italic;
+            margin: 0 0 4px;
+        }
+        .entry-desc {
+            font-size: 10pt;
+            color: var(--ink-soft);
+            margin: 4px 0 0;
+            line-height: 1.5;
+        }
+        .entry-roles {
+            margin: 6px 0 0;
+            padding-left: 10px;
+            border-left: 2px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .entry-role {
+            font-size: 9.5pt;
+            color: var(--ink-soft);
+        }
+        .entry-role strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+        .entry-role-meta { color: var(--ink-mute); }
+
+        /* ===== Tags ===== */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 6px;
+        }
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 7.5pt;
+            padding: 2px 7px;
+            border: 1px solid var(--border-strong);
+            border-radius: 100px;
+            color: var(--ink-soft);
+            letter-spacing: 0.3pt;
+        }
+
+        /* ===== Sidebar (colonne droite) ===== */
+        .sidebar .section-title { color: var(--magenta); }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        .chip {
+            font-family: var(--font-mono);
+            font-size: 8pt;
+            padding: 3px 7px;
+            border-radius: 5px;
+            background: rgba(124, 58, 237, 0.06);
+            border: 1px solid rgba(124, 58, 237, 0.18);
+            color: var(--ink);
+        }
+
+        .lang-row, .cert-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+            padding: 3px 0;
+            font-size: 9.5pt;
+        }
+        .lang-row { border-bottom: 1px solid var(--border); }
+        .lang-row:last-child { border: none; }
+        .lang-name, .cert-name { color: var(--ink); }
+        .lang-level, .cert-year { color: var(--ink-mute); font-family: var(--font-mono); font-size: 8.5pt; }
+
+        .cert-list { display: flex; flex-direction: column; gap: 2px; }
+        .cert-row { padding: 2px 0; }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+        .stat {
+            text-align: center;
+            padding: 6px 4px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+        .stat-num {
+            font-family: var(--font-title);
+            font-size: 16pt;
+            font-weight: 600;
+            line-height: 1;
+            color: var(--violet);
+            display: block;
+            margin-bottom: 2px;
+        }
+        .stat:nth-child(2) .stat-num { color: var(--cyan); }
+        .stat:nth-child(3) .stat-num { color: var(--magenta); }
+        .stat-label { font-size: 7.5pt; color: var(--ink-mute); line-height: 1.3; }
+
+        .awards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 9pt;
+            color: var(--ink-soft);
+        }
+        .awards-list .award-year {
+            font-family: var(--font-mono);
+            font-size: 8pt;
+            color: var(--cyan);
+            margin-right: 4px;
+        }
+
+        .pubs {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-size: 9pt;
+            color: var(--ink-soft);
+            line-height: 1.45;
+        }
+        .pubs em { color: var(--ink); font-style: italic; }
+        .pubs strong { color: var(--violet); font-weight: 600; }
+
+        /* ===== Footer ===== */
+        .cv-footer {
+            margin-top: 14px;
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 8pt;
+            color: var(--ink-mute);
+        }
+        .cv-footer a { color: var(--cyan); }
+
+        /* ===== Optimisations impression ===== */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        @media print {
+            html, body { background: #fff; }
+            .toolbar { display: none !important; }
+            .page {
+                margin: 0;
+                padding: 12mm 14mm;
+                max-width: 100%;
+                box-shadow: none;
+                border: none;
+            }
+            .entry, .section { page-break-inside: avoid; }
+            a { color: inherit !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre d'action (n'apparaît pas à l'impression) -->
+    <div class="toolbar">
+        <span class="toolbar-info">// CV imprimable — exportez en PDF via votre navigateur</span>
+        <div class="toolbar-actions">
+            <a href="cv-timeline.html" class="btn">← Retour au CV web</a>
+            <button type="button" class="btn btn-primary" onclick="window.print()">Imprimer / Sauver en PDF</button>
+        </div>
+    </div>
+
+    <main class="page">
+
+        <!-- ====================== EN-TÊTE ====================== -->
+        <header class="cv-header">
+            <div>
+                <p class="cv-tagline">// De la neuroscience à l'IA agentique</p>
+                <h1>Margot Libralato</h1>
+                <p class="cv-pitch">
+                    Docteure en neurosciences devenue spécialiste de l'IA agentique. Je forme les équipes à l'IA générative et agentique, je développe des agents customs et j'accompagne les entreprises dans le déploiement de solutions agentiques au service de leur performance.
+                </p>
+            </div>
+            <div class="cv-contact">
+                <div class="row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <a href="mailto:ml.innovconseil@gmail.com">ml.innovconseil@gmail.com</a>
+                </div>
+                <div class="row">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    <a href="https://www.linkedin.com/in/margot-libralato" target="_blank" rel="noopener">linkedin.com/in/margot-libralato</a>
+                </div>
+                <div class="row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span>Lyon · Hybride / remote</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ====================== CORPS DEUX COLONNES ====================== -->
+        <div class="cv-body">
+
+            <!-- ===== Colonne principale ===== -->
+            <div class="main">
+
+                <!-- Expérience professionnelle -->
+                <section class="section">
+                    <h2 class="section-title">// Expérience professionnelle</h2>
+
+                    <article class="entry">
+                        <div class="entry-head">
+                            <h3 class="entry-title">Agentic AI &amp; Quality Engineering Lead</h3>
+                            <span class="entry-date">SEPT. 2025 — AUJOURD'HUI</span>
+                        </div>
+                        <p class="entry-place">Sogeti, part of Capgemini — Lyon · Hybride</p>
+                        <p class="entry-desc">Conception et déploiement de processus de test innovants intégrant l'IA agentique : automatisation intelligente, agents customs autonomes, optimisation des stratégies de test. Pilotage des tests fonctionnels front-end et back-end. Mentorat et montée en compétence des profils juniors.</p>
+                        <div class="entry-roles">
+                            <div class="entry-role"><strong>Scrum Master</strong> <span class="entry-role-meta">· Avril 2024 → aujourd'hui · Animation des rituels, facilitation agile, amélioration continue</span></div>
+                            <div class="entry-role"><strong>Animateur Communauté QE Rhône-Alpes</strong> <span class="entry-role-meta">· Juin 2022 → aujourd'hui · Partage de pratiques au sein de la communauté Quality Engineering régionale</span></div>
+                            <div class="entry-role"><strong>Champion IA — Mentorat</strong> <span class="entry-role-meta">· Sept. 2025 → aujourd'hui · Accompagnement d'équipes BA et Test, partage de bonnes pratiques IA</span></div>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">IA agentique</span>
+                            <span class="tag">Agents customs</span>
+                            <span class="tag">Quality Engineering</span>
+                            <span class="tag">Scrum</span>
+                            <span class="tag">Mentorat</span>
+                        </div>
+                    </article>
+
+                    <article class="entry">
+                        <div class="entry-head">
+                            <h3 class="entry-title">Conseil aux entreprises — Auto-entrepreneuse</h3>
+                            <span class="entry-date">AVRIL 2024 — AUJOURD'HUI</span>
+                        </div>
+                        <p class="entry-place">Indépendante · en parallèle</p>
+                        <p class="entry-desc">Les neurosciences au service de la performance d'équipe : formations sur les biais cognitifs, la prévention de l'erreur humaine, les neurosciences de l'apprentissage et de la motivation, appliquées à l'agilité et au leadership. Ateliers de Problem Solving (divergent / convergent).</p>
+                        <div class="tags">
+                            <span class="tag">Formations</span>
+                            <span class="tag">Sciences comportementales</span>
+                            <span class="tag">Accompagnement</span>
+                            <span class="tag">Agilité</span>
+                        </div>
+                    </article>
+
+                    <article class="entry">
+                        <div class="entry-head">
+                            <h3 class="entry-title">Business Analyst &amp; QE — Tests de Performance</h3>
+                            <span class="entry-date">OCT. 2021 — SEPT. 2025</span>
+                        </div>
+                        <p class="entry-place">Sogeti, part of Capgemini · Hybride</p>
+                        <p class="entry-desc">Évolution de l'ingénierie de tests vers l'analyse métier.</p>
+                        <div class="entry-roles">
+                            <div class="entry-role"><strong>Business Analyst</strong> <span class="entry-role-meta">· Oct. 2024 → sept. 2025 · analyse des besoins, spécifications, lien métier / technique</span></div>
+                            <div class="entry-role"><strong>Testeur QA — Tests de Performance</strong> <span class="entry-role-meta">· Oct. 2021 → sept. 2024 · stratégies de test, charge et performance</span></div>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Business Analysis</span>
+                            <span class="tag">Tests de perf.</span>
+                            <span class="tag">Qualité logicielle</span>
+                        </div>
+                    </article>
+
+                    <article class="entry">
+                        <div class="entry-head">
+                            <h3 class="entry-title">Post-doctorat — R&amp;D Scientist (Data Scientist)</h3>
+                            <span class="entry-date">FÉVR. 2021 — AOÛT 2021</span>
+                        </div>
+                        <p class="entry-place">Deeptech NETRI — Lyon</p>
+                        <p class="entry-desc">Post-doctorat en R&amp;D sur des technologies d'Organs-on-Chips appliquées aux neurosciences : architectures neuronales complexes ex-vivo. Développement d'algorithmes de traitement et d'analyse de données expérimentales en production.</p>
+                        <div class="tags">
+                            <span class="tag">Data Science</span>
+                            <span class="tag">Matlab</span>
+                            <span class="tag">R&amp;D</span>
+                            <span class="tag">Neurosciences computationnelles</span>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- Formation -->
+                <section class="section">
+                    <h2 class="section-title">// Formation &amp; recherche</h2>
+
+                    <article class="entry">
+                        <div class="entry-head">
+                            <h3 class="entry-title">Doctorat en Biologie — Neurosciences</h3>
+                            <span class="entry-date">OCT. 2016 — DÉC. 2019</span>
+                        </div>
+                        <p class="entry-place">Inserm — Institut des Neurosciences de Montpellier</p>
+                        <p class="entry-desc">Développement d'une IA prédictive de l'activité biophysique des cellules sensorielles auditives. Enregistrements en patch-clamp et modélisation mathématique (Matlab) de l'activité cellulaire à l'aide d'algorithmes de descente de gradient.</p>
+                    </article>
+
+                    <article class="entry">
+                        <div class="entry-head">
+                            <h3 class="entry-title">Master Neurosciences — Stages &amp; vacation</h3>
+                            <span class="entry-date">2015 — 2016</span>
+                        </div>
+                        <p class="entry-place">Inserm — Institut des Neurosciences de Montpellier</p>
+                        <p class="entry-desc">Modélisation du courant repolarisant des cellules sensorielles auditives (M2 &amp; vacation) et étude de l'implication des lymphocytes T CD8+ dans la SLA (M1).</p>
+                    </article>
+                </section>
+
+            </div>
+
+            <!-- ===== Sidebar (colonne droite) ===== -->
+            <aside class="sidebar">
+
+                <section class="section">
+                    <h2 class="section-title">// IA &amp; Tech</h2>
+                    <div class="chips">
+                        <span class="chip">LLM</span>
+                        <span class="chip">IA agentique</span>
+                        <span class="chip">Agents customs</span>
+                        <span class="chip">RAG</span>
+                        <span class="chip">Python</span>
+                        <span class="chip">Matlab</span>
+                        <span class="chip">Data Science</span>
+                        <span class="chip">Machine Learning</span>
+                        <span class="chip">Automatisation de tests</span>
+                        <span class="chip">CI/CD</span>
+                        <span class="chip">Accessibilité (RGAA)</span>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">// Langues</h2>
+                    <div class="lang-row"><span class="lang-name">Français</span><span class="lang-level">Langue maternelle</span></div>
+                    <div class="lang-row"><span class="lang-name">Anglais</span><span class="lang-level">Professionnel</span></div>
+                    <div class="lang-row"><span class="lang-name">Espagnol</span><span class="lang-level">Courant</span></div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">// Certifications</h2>
+                    <div class="cert-list">
+                        <div class="cert-row"><span class="cert-name">Emerging Leader Program</span><span class="cert-year">2026</span></div>
+                        <div class="cert-row"><span class="cert-name">Accessibilité numérique by design &amp; audit RGAA</span><span class="cert-year">2025</span></div>
+                        <div class="cert-row"><span class="cert-name">ISTQB® Agile Tester (CTFL-AT)</span><span class="cert-year">2024</span></div>
+                        <div class="cert-row"><span class="cert-name">TMAP® Quality for Cross-Functional Teams</span><span class="cert-year">2023</span></div>
+                        <div class="cert-row"><span class="cert-name">ISTQB® Performance Testing (CT-PT)</span><span class="cert-year">2022</span></div>
+                        <div class="cert-row"><span class="cert-name">ISTQB® Foundation Level (CTFL)</span><span class="cert-year">2021</span></div>
+                        <div class="cert-row"><span class="cert-name">Pépite — Étudiant-Entrepreneur</span><span class="cert-year">2019</span></div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">// Distinctions</h2>
+                    <div class="stats">
+                        <div class="stat"><span class="stat-num">5</span><span class="stat-label">prix &amp; bourses</span></div>
+                        <div class="stat"><span class="stat-num">2</span><span class="stat-label">publi. dont 1 PNAS</span></div>
+                        <div class="stat"><span class="stat-num">1ᵉʳ</span><span class="stat-label">prix entrepreneuriat</span></div>
+                    </div>
+                    <div class="awards-list">
+                        <div><span class="award-year">2018</span> 1ᵉʳ prix « Du doctorat à l'entrepreneuriat en Occitanie » (SATT AxLR)</div>
+                        <div><span class="award-year">2018</span> 1ᵉʳ prix de présentation orale, Patch Club de Montpellier</div>
+                        <div><span class="award-year">2016</span> Bourse d'excellence doctorale Labex EpiGenMed + bourse MRET</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">// Publications</h2>
+                    <div class="pubs">
+                        <div><strong>2021</strong> — <em>Co-culture de neurones glutamatergiques et de cellules de gliome pédiatrique dans dispositifs microfluidiques.</em> JoVE, DOI 10.3791/62748-v</div>
+                        <div><strong>2019</strong> — <em>Cytotoxic CD8⁺ T lymphocytes expressing ALS-causing SOD1 mutant…</em> PNAS, 116, 2312-2317</div>
+                    </div>
+                </section>
+
+            </aside>
+
+        </div>
+
+        <footer class="cv-footer">
+            <span>© 2026 Margot Libralato</span>
+            <span>Version web complète : <a href="cv-timeline.html">parcours interactif</a></span>
+        </footer>
+
+    </main>
+
+</body>
+</html>
