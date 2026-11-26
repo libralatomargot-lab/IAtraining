@@ -60,27 +60,28 @@
         {
             id: 'netri',
             label: 'Post-doc R&D',
-            tag: 'FÉVR. — AOÛT 2021',
+            tag: '2020 — AOÛT 2021',
             place: 'Deeptech NETRI — Lyon',
             desc: "Post-doctorat R&D sur les Organs-on-Chips appliqués aux neurosciences : architectures neuronales complexes ex-vivo. Développement d'algorithmes d'analyse de données expérimentales en production.",
             color: 'cyan', x: 0.40, y: 0.18, r: 12,
             subs: [],
             achievements: [
                 { year: '2021', label: "ISTQB® Foundation Level (CTFL)" },
+                { year: '2021', label: "POEI Test et Recette — Sogeti" },
                 { year: '2021', label: "Publication JoVE — Co-culture de neurones glutamatergiques et de cellules de gliome pédiatrique dans des dispositifs microfluidiques. DOI : 10.3791/62748-v" },
             ]
         },
         {
             id: 'sogeti-ba',
             label: 'BA & QE Sogeti',
-            tag: 'OCT. 2021 — SEPT. 2025',
-            place: 'Sogeti, Capgemini — Lyon',
+            tag: 'JANV. 2022 — MARS 2025',
+            place: 'Sogeti — Lyon',
             desc: "Évolution de Testeur QA (tests de performance, stratégies de test, CI/CD) vers Business Analyst (analyse des besoins, spécifications fonctionnelles, lien métier/technique).",
             color: 'violet', x: 0.54, y: 0.52, r: 13,
             subs: [
-                { id: 'sub-qa',  label: 'Testeur QA Perf.',              tag: 'Oct. 2021 → Sept. 2024', color: 'violet',
+                { id: 'sub-qa',  label: 'Testeur QA Perf.',              tag: 'Janv. 2022 → Juin 2024', color: 'violet',
                   desc: "Stratégies de test, tests de charge et de performance, automatisation, CI/CD." },
-                { id: 'sub-ba',  label: 'Business Analyst',              tag: 'Oct. 2024 → Sept. 2025', color: 'violet',
+                { id: 'sub-ba',  label: 'Business Analyst',              tag: 'Juin 2024 → Mars 2025', color: 'violet',
                   desc: "Analyse des besoins, spécifications fonctionnelles, lien métier/technique." },
                 { id: 'sub-cqe', label: 'Animatrice Communauté QE Région', tag: 'Juin 2022 → …',        color: 'violet',
                   desc: "Animation et partage de pratiques au sein de la communauté Quality Engineering Rhône-Alpes." },
@@ -97,8 +98,8 @@
             label: 'Neuro-agilité',
             subtitle: 'Conseil aux entreprises',
             tag: 'AVRIL 2024 — …',
-            place: 'Conseil aux entreprises · Indépendante',
-            desc: "Formations sur les biais cognitifs, la prévention de l'erreur humaine, les neurosciences de l'apprentissage et de la motivation, appliquées à l'agilité et au leadership. Ateliers Problem Solving divergent/convergent.",
+            place: 'lm.conseil · Indépendante',
+            desc: "Formations sur les biais cognitifs, la prévention de l'erreur humaine, les neurosciences de l'apprentissage et de la motivation, appliquées à l'agilité et au leadership. Ateliers Problem Solving divergent/convergent. Plus de 150 personnes formées.",
             color: 'magenta', x: 0.40, y: 0.76, r: 11,
             subs: [
                 { id: 'sub-changement', label: 'Conduite du changement',       tag: 'Formation', color: 'magenta',
@@ -117,12 +118,12 @@
             id: 'ai-lead',
             label: 'Agentic AI Lead',
             tag: 'SEPT. 2025 — …',
-            place: 'Sogeti, Capgemini — Lyon',
-            desc: "Agentic AI & Quality Engineering Lead : déploiement de processus de test intégrant l'IA agentique, développement d'agents customs autonomes, optimisation des stratégies de test. Champion IA Capgemini, mentorat équipes, conduite du changement.",
+            place: 'Sogeti — Lyon',
+            desc: "Agentic AI & Quality Engineering Lead : déploiement de processus de test intégrant l'IA agentique, développement d'agents customs autonomes, optimisation des stratégies de test. Champion IA Sogeti, mentorat équipes, conduite du changement.",
             color: 'cyan', x: 0.78, y: 0.33, r: 14,
             subs: [
-                { id: 'sub-animatrice-ia', label: 'Animatrice IA',  tag: 'Sept. 2025 → …', color: 'cyan',
-                  desc: "Animation de la communauté IA régionale et France. Partage de bonnes pratiques IA agentique au sein des équipes Capgemini." },
+                { id: 'sub-animatrice-ia', label: 'Animatrice IA',  tag: '2026 → …', color: 'cyan',
+                  desc: "Animation de la communauté IA régionale et France. Partage de bonnes pratiques IA agentique au sein des équipes Sogeti." },
                 { id: 'sub-scrum',         label: 'Scrum Master',  tag: 'Avril 2024 → …', color: 'cyan',
                   desc: "Animation des rituels agiles, facilitation, amélioration continue." },
                 { id: 'sub-champion',      label: 'Champion IA',   tag: 'Sept. 2025 → …', color: 'cyan',
@@ -132,7 +133,8 @@
             ],
             achievements: [
                 { year: '2025', label: "Accessibilité numérique by design & audit RGAA" },
-                { year: '2026', label: "Emerging Leader Program (Capgemini)" },
+                { year: '2026', label: "Emerging Leader Program (Sogeti)" },
+                { year: '2026', label: "Badge IA — Sogeti" },
             ]
         },
     ];
